@@ -57,7 +57,7 @@
                         <Font size="22.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="login_button" layoutX="191.0" layoutY="431.0" mnemonicParsing="false" onAction="#changePage" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Login" textFill="WHITE">
+                  <Button fx:id="login_button" layoutX="191.0" layoutY="431.0" mnemonicParsing="false" onAction="#login" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Login" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>

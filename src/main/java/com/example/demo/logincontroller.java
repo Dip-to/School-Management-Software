@@ -2,16 +2,17 @@ package com.example.demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class logincontroller {
@@ -126,7 +127,7 @@ public class logincontroller {
             login_page.setVisible(true);
             signup_page.setVisible(false);
         }
-        else if(e.getSource()==login_button)
+       /* else if(e.getSource()==login_button)
         {
             login_page.setVisible(false);
             paneLoader obj=new paneLoader();
@@ -136,8 +137,48 @@ public class logincontroller {
             mainpage.setCenter(sz);
             mainpage.setVisible(true);
 
-        }
+        }*/
     }
+    //database tools
+    private Connection connect;
+    private Statement statement;
+    private ResultSet resultset;
+    private PreparedStatement prepare;
+    public void login() throws ClassNotFoundException {
+        connect=database.connectDB();
+        String sql="SELECT * FROM login_data WHERE username = ? and password = ?" ;
+        try{
+            prepare=connect.prepareStatement(sql);
+            prepare.setString(1 , login_username.getText());
+            prepare.setString(2 , login_pass.getText());
+
+            resultset=prepare.executeQuery();
+            if(resultset.next())
+            {
+                //login done
+                login_page.setVisible(false);
+                paneLoader obj=new paneLoader();
+                Pane sz = obj.getfxmlfile("crud");
+                mainpage.setCenter(sz);
+                mainpage.setVisible(true);
+            }
+            else
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                      Login ERROR!!!");
+                alert.setHeaderText("        Wrong Username or Password");
+                alert.setContentText("                               Please try again.");
+                alert.showAndWait();
+            }
+
+        }catch (Exception e)
+        {
+            System.out.println("login error");
+        }
+
+
+    }
+
     public void initialize(URL url, ResourceBundle rb)
     {
 
