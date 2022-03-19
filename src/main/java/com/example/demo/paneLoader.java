@@ -11,7 +11,7 @@ public class paneLoader {
     public Pane getfxmlfile(String s) throws IOException
     {
         System.out.println("find "+s);
-        URL ff=HelloApplication.class.getResource(s+".fxml");
+        URL ff= School.class.getResource(s+".fxml");
         if(ff==null)
         {
             System.out.println("Cant find "+s);

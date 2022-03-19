@@ -10,12 +10,12 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class School extends Application {
     private double x=0;
     private double y=0;
     @Override
     public void start(Stage stage) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("cord_file1.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("main_pane.fxml"));
 
         Scene scene = new Scene(fxmlLoader);
         fxmlLoader.setOnMousePressed((MouseEvent event) ->
