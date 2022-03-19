@@ -163,7 +163,8 @@ public class logincontroller implements Initializable {
     private Statement statement;
     private ResultSet resultset;
     private PreparedStatement prepare;
-    public void login() throws ClassNotFoundException {
+    public void login() throws ClassNotFoundException
+    {
         connect=database.connectDB();
         String sql="SELECT * FROM login_data WHERE username = ? and password = ?" ;
         try{
