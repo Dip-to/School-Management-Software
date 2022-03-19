@@ -67,7 +67,7 @@
                         <Font size="19.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink fx:id="Forgotpass" layoutX="174.0" layoutY="511.0" prefHeight="42.0" prefWidth="184.0" styleClass="crtacc" stylesheets="@frontpage_css.css" text="Forgot password?">
+                  <Hyperlink fx:id="Forgotpass" layoutX="174.0" layoutY="511.0" onAction="#changePage" prefHeight="42.0" prefWidth="184.0" styleClass="crtacc" stylesheets="@frontpage_css.css" text="Forgot password?">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font size="22.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="signup_button1" layoutX="179.0" layoutY="516.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="SignUp" textFill="WHITE">
+                  <Button fx:id="signup_button1" layoutX="179.0" layoutY="516.0" mnemonicParsing="false" onAction="#signUp" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="SignUp" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>

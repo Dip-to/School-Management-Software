@@ -29,6 +29,7 @@ public class School extends Application {
                 stage.setY(event.getScreenY() - y);
 
         });
+
         stage.setTitle("School Management Software");
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);

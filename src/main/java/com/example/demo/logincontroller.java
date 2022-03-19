@@ -121,11 +121,26 @@ public class logincontroller {
         {
             signup_page.setVisible(true);
             login_page.setVisible(false);
+            sign_employeeid.setText("");
+            sign_username1.setText("");
+            sign_pass1.setText("");
+            sign_pass2.setText("");
         }
         else if(e.getSource()==alrdyhaveacc)
         {
             login_page.setVisible(true);
             signup_page.setVisible(false);
+            login_pass.setText("");
+            login_username.setText("");
+
+        }
+        else if(e.getSource()==Forgotpass)
+        {
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("                                      Forgot Password!!!");
+            alert.setHeaderText("        Please try to enter correct credentials.");
+            alert.setContentText("          Or contact your system admin for a new password.");
+            alert.showAndWait();
         }
        /* else if(e.getSource()==login_button)
         {
@@ -175,9 +190,69 @@ public class logincontroller {
         {
             System.out.println("login error");
         }
+    }
+    public void signUp()
+    {
+        connect=database.connectDB();
+        String sql="INSERT INTO login_data (username , password , employee_id , image) VALUES (? , ? , ? , ?)";
+        try{
 
+            String p1=sign_pass1.getText();
+            String p2=sign_pass2.getText();
+            String usernm=sign_username1.getText();
+            String employeid=sign_employeeid.getText();
+            if(usernm.isEmpty())
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                      SignUp unsuccessfull!!!");
+                alert.setHeaderText("       Username missing!!!!");
+                alert.setContentText("                               Please enter an username.");
+                alert.showAndWait();
+            }
+            else if(employeid.isEmpty())
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                      SignUp unsuccessfull!!!");
+                alert.setHeaderText("       Employee ID number missing!!!!");
+                alert.setContentText("                               Please enter an Employee ID number.");
+                alert.showAndWait();
+            }
+            else if(p1.equals(p2))
+            {
+                prepare= connect.prepareStatement(sql);
+
+                prepare.setString(1,sign_username1.getText());
+                prepare.setString(2,sign_pass1.getText());
+                prepare.setString(3,sign_employeeid.getText());
+                prepare.setString(4,"null");
+                prepare.execute();
+                System.out.println("signup database error1");
+                Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("                                      SignUp Successfull!!!");
+                alert.setHeaderText("       Congratulation.!!!!");
+                alert.setContentText("                              Your account is created.");
+                alert.showAndWait();
+                sign_employeeid.setText("");
+                sign_username1.setText("");
+                sign_pass1.setText("");
+                sign_pass2.setText("");
+
+           }
+           else if(p1!=p2)
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                      SignUp unsuccessfull!!!");
+                alert.setHeaderText("       Password didn't match!!!!");
+                alert.setContentText("                               Please try again.");
+                alert.showAndWait();
+            }
+        }catch(Exception e) {
+            System.out.println("signup database error");
+            e.printStackTrace();
+        }
 
     }
+
 
     public void initialize(URL url, ResourceBundle rb)
     {

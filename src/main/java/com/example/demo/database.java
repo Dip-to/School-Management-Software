@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class database {
-    public static Connection connectDB() throws ClassNotFoundException {
+public class database extends School {
+    public static Connection connectDB() {
         try
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
