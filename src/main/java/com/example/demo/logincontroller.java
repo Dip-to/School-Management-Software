@@ -2,10 +2,12 @@ package com.example.demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class logincontroller {
+public class logincontroller implements Initializable {
 
     @FXML
     private Hyperlink Forgotpass;
@@ -49,6 +51,8 @@ public class logincontroller {
 
     @FXML
     private TextField sign_employeeid;
+    @FXML
+    private Label db_stat;
 
     @FXML
     private PasswordField sign_pass1;
@@ -256,7 +260,13 @@ public class logincontroller {
 
     public void initialize(URL url, ResourceBundle rb)
     {
-
+        connect=database.connectDB();
+        if(connect==null)
+        {
+            db_stat.setText("Not Connected");
+            db_stat.setTextFill(Color.RED);
+        }
+        else db_stat.setTextFill(Color.GREEN);
     }
 
 }

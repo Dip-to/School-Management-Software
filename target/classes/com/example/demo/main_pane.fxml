@@ -72,6 +72,16 @@
                         <Font size="19.0" />
                      </font>
                   </Hyperlink>
+                  <Label layoutX="140.0" layoutY="600.0" prefHeight="48.0" prefWidth="143.0" text="Database Status:" textFill="#2273bf">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="db_stat" layoutX="283.0" layoutY="610.0" prefHeight="27.0" prefWidth="159.0" text="Connected">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="700.0" prefWidth="500.0" styleClass="login-bg" stylesheets="@frontpage_css.css" />
