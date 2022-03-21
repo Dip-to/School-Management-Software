@@ -166,6 +166,7 @@ public class logincontroller implements Initializable {
     public void login() throws ClassNotFoundException
     {
         connect=database.connectDB();
+
         String sql="SELECT * FROM login_data WHERE username = ? and password = ?" ;
         try{
             prepare=connect.prepareStatement(sql);
@@ -173,14 +174,16 @@ public class logincontroller implements Initializable {
             prepare.setString(2 , login_pass.getText());
 
             resultset=prepare.executeQuery();
+            //System.out.println("login error12");
             if(resultset.next())
             {
                 //login done
                 login_page.setVisible(false);
                 paneLoader obj=new paneLoader();
-                Pane sz = obj.getfxmlfile("crud");
+                Pane sz = obj.getfxmlfile("dashboard");
                 mainpage.setCenter(sz);
                 mainpage.setVisible(true);
+                System.out.println("login error12");
             }
             else
             {
@@ -193,7 +196,7 @@ public class logincontroller implements Initializable {
 
         }catch (Exception e)
         {
-            System.out.println("login error");
+            System.out.println("login error in database");
         }
     }
     public void signUp()
@@ -231,7 +234,7 @@ public class logincontroller implements Initializable {
                 prepare.setString(3,sign_employeeid.getText());
                 prepare.setString(4,"null");
                 prepare.execute();
-                System.out.println("signup database error1");
+
                 Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("                                      SignUp Successfull!!!");
                 alert.setHeaderText("       Congratulation.!!!!");
