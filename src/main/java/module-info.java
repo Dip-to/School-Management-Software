@@ -7,6 +7,8 @@ module com.example.demo {
     exports com.example.demo;
     exports com.example.crud;
     opens com.example.crud to javafx.fxml;
+    exports com.example.dashboard;
+    opens com.example.dashboard to javafx.fxml;
     requires java.sql;
 
 }
