@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dashboard.DashboardController">
@@ -42,12 +43,12 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
+      <AnchorPane fx:id="dashboard_rightpane" layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
          <children>
             <Button fx:id="teacher_count_button" layoutX="17.0" layoutY="141.0" mnemonicParsing="false" prefHeight="141.0" prefWidth="230.0" styleClass="teacher_count_button" stylesheets="@dashboard_style.css" />
             <Button fx:id="Student_count_button" layoutX="281.0" layoutY="141.0" mnemonicParsing="false" prefHeight="141.0" prefWidth="230.0" styleClass="student_count_button" stylesheets="@dashboard_style.css" />
             <Button fx:id="stuff_count_button" layoutX="551.0" layoutY="141.0" mnemonicParsing="false" prefHeight="141.0" prefWidth="230.0" styleClass="stuff_count_button" stylesheets="@dashboard_style.css" />
-            <Button fx:id="student_icon" layoutX="95.0" layoutY="321.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" styleClass="student_icon" stylesheets="@dashboard_style.css" />
+            <Button fx:id="student_icon" layoutX="95.0" layoutY="321.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" stylesheets="@dashboard_style.css" />
             <Button fx:id="teacher_icon" layoutX="302.0" layoutY="319.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" styleClass="teacher_icon" stylesheets="@dashboard_style.css" />
             <Button fx:id="stuff_icon" layoutX="508.0" layoutY="320.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" styleClass="stuff_icon" stylesheets="@dashboard_style.css" />
             <Button fx:id="notice_icon" layoutX="95.0" layoutY="440.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" styleClass="notice_icon" stylesheets="@dashboard_style.css" />
@@ -58,5 +59,6 @@
             <Button fx:id="exit_icon" layoutX="508.0" layoutY="561.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="195.0" styleClass="exit_icon" stylesheets="@dashboard_style.css" />
          </children>
       </AnchorPane>
+      <BorderPane fx:id="dash_main" disable="true" layoutX="200.0" prefHeight="700.0" prefWidth="800.0" visible="false" />
    </children>
 </AnchorPane>
