@@ -3,8 +3,8 @@ module com.example.demo {
     requires javafx.fxml;
 
 
-    opens com.example.demo to javafx.fxml;
-    exports com.example.demo;
+    opens com.example.school_management to javafx.fxml;
+    exports com.example.school_management;
     exports com.example.crud;
     opens com.example.crud to javafx.fxml;
     exports com.example.dashboard;

@@ -1,5 +1,4 @@
 package com.example.crud;
-import com.example.demo.*;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

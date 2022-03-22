@@ -1,5 +1,5 @@
 package com.example.crud;
-import com.example.demo.*;
+
 public class Data {
 
     private final Integer crud_id;
