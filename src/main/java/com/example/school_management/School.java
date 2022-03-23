@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.school_management;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class School extends Application {
     private double y=0;
     @Override
     public void start(Stage stage) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("main_pane.fxml"));
 
         Scene scene = new Scene(fxmlLoader);
         fxmlLoader.setOnMousePressed((MouseEvent event) ->
