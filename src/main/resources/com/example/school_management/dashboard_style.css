@@ -40,7 +40,7 @@
     -fx-background-color: linear-gradient(to bottom right,#353c5b, #47474b);
 }
 
-dashboard-bg
+.dashboard-bg
 {
-    -fx-background-image:url("./picture/dashboard_bg.jpg") ;
+    -fx-background-image:url("./picture/dashboard_bg.jpg");
 }
