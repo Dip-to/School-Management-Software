@@ -37,10 +37,5 @@
 
 .home-bg
 {
-    -fx-background-color: linear-gradient(to bottom right,#353c5b, #47474b);
-}
-
-dashboard-bg
-{
-    -fx-background-image:url("./picture/dashboard_bg.jpg") ;
+    -fx-background-color: linear-gradient(to bottom right,#2f466b, #662d60);
 }
