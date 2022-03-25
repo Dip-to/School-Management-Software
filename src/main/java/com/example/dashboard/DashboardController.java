@@ -86,7 +86,7 @@ public class DashboardController implements Initializable {
            // dashboard_pane.setVisible(false);
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
-            Pane view=pp.getfxmlfile("crud");
+            Pane view=pp.getfxmlfile("Studcrud");
             dash_main.setCenter(view);
             dash_main.setVisible(true);
             dash_main.setDisable(false);
