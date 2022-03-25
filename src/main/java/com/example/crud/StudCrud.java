@@ -1,5 +1,6 @@
 package com.example.crud;
 
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CrudController implements Initializable {
+public class StudCrud implements Initializable {
 
 
     @FXML
@@ -30,7 +31,7 @@ public class CrudController implements Initializable {
     private ComboBox<?> crud_gender;
 
     @FXML
-    private TextField crud_givename;
+    private ComboBox<?> crud_class;
 
     @FXML
     private TextField crud_id;
@@ -45,13 +46,13 @@ public class CrudController implements Initializable {
     private Button crud_print;
 
     @FXML
-    private TextField crud_surnname;
+    private TextField crud_name;
 
     @FXML
     private Button crud_update;
 
     @FXML
-    private TableColumn<Data, String> givenname_table;
+    private TableColumn<Data, String> class_table;
 
     @FXML
     private TableColumn<Data, Integer> id_table;
@@ -60,9 +61,11 @@ public class CrudController implements Initializable {
     private TableColumn<Data, String> picture_table;
 
     @FXML
-    private TableColumn<Data, String> surename_table;
+    private TableColumn<Data, String> name_table;
 
     private String[] Combo_gender={"Male","Female","Others"};
+    private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+
 
     public void Combo_box()
     {
@@ -73,37 +76,58 @@ public class CrudController implements Initializable {
         }
         ObservableList data_list= FXCollections.observableArrayList(list);
         crud_gender.setItems(data_list);
+
+        List<String> class_list=new ArrayList<>();
+        for(String data:Combo_class)
+        {
+            class_list.add(data);
+        }
+        ObservableList data_list_class= FXCollections.observableArrayList(class_list);
+        crud_class.setItems(data_list_class);
     }
+
+
+//    public void Combo_box()
+//    {
+//        List<String> class_list=new ArrayList<>();
+//        for(String data:Combo_class)
+//        {
+//            class_list.add(data);
+//        }
+//        ObservableList data_list= FXCollections.observableArrayList(class_list);
+//        crud_class.setItems(data_list);
+//    }
 
 
     public  void text_field_design(){
         if(crud_id.isFocused()){
             crud_id.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
-            crud_surnname.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
-            crud_givename.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_name.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
+            crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
 
-        else if(crud_surnname.isFocused()){
+        else if(crud_name.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
-            crud_surnname.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
-            crud_givename.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_name.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
 
-        else if(crud_givename.isFocused()){
+        else if(crud_class.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
-            crud_surnname.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
-            crud_givename.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_class.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
         else if(crud_gender.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
-            crud_surnname.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
-            crud_givename.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
         }
     }
+
     @Override
     public void initialize(URL uurl, ResourceBundle resourse)
     {
