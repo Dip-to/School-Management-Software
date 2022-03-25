@@ -63,11 +63,11 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="crud_insert" layoutX="7.0" layoutY="429.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Insert" />
-            <Button fx:id="crud_update" layoutX="107.0" layoutY="429.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Update" />
-            <Button fx:id="crud_clear" layoutX="209.0" layoutY="429.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Clear" />
-            <Button fx:id="crud_delete" layoutX="7.0" layoutY="526.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Delete" />
-            <Button fx:id="crud_print" layoutX="207.0" layoutY="526.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Print" />
+            <Button fx:id="crud_insert" layoutX="26.0" layoutY="433.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Insert" />
+            <Button fx:id="crud_update" layoutX="127.0" layoutY="433.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Update" />
+            <Button fx:id="crud_clear" layoutX="228.0" layoutY="433.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Clear" />
+            <Button fx:id="crud_delete" layoutX="26.0" layoutY="530.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Delete" />
+            <Button fx:id="crud_print" layoutX="228.0" layoutY="530.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Print" />
             <TextField fx:id="crud_name" layoutX="112.0" layoutY="68.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="34.0" prefWidth="220.0" styleClass="textfield-design" stylesheets="@design.css">
                <font>
                   <Font size="15.0" />

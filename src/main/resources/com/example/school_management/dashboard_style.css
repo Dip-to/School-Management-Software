@@ -37,10 +37,17 @@
 
 .home-bg
 {
-    -fx-background-color: linear-gradient(to bottom right,#353c5b, #47474b);
+    -fx-background-color: linear-gradient(to bottom right,#05014b, #060153);
+}
+.set_image
+{
+    -fx-background-image: url("./picture/Dashboard_bckg.png")
+}
+.welcome_school
+{
+    -fx-background-image: url("./picture/welcome_image.png")
 }
 
-.dashboard-bg
-{
-    -fx-background-image:url("./picture/dashboard_bg.PNG");
-}
+.home_button{-fx-background-color: linear-gradient(to bottom right,#05014b, #060153);}
+.home_button:hover{-fx-background-color: #7498cf;}
+
