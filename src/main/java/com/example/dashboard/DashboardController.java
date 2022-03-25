@@ -1,5 +1,6 @@
 package com.example.dashboard;
 
+import com.example.school_management.logincontroller;
 import com.example.school_management.paneLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -81,8 +82,12 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    public void exittt()
+    {
+        System.exit(0);
+    }
     public void stud()  {
-        try {
+         try {
            // dashboard_pane.setVisible(false);
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
@@ -94,7 +99,13 @@ public class DashboardController implements Initializable {
         {
             System.out.println("stud crud fail");
         }
-
-
     }
+    public void home_click()
+    {
+        dashboard_rightpane.setVisible(true);
+        dash_main.setVisible(false);
+        dash_main.setDisable(true);
+    }
+
+
 }

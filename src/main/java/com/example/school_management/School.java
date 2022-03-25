@@ -10,11 +10,13 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class School extends Application {
+public class School extends Application
+{
     private double x=0;
     private double y=0;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException
+    {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("main_pane.fxml"));
 
         Scene scene = new Scene(fxmlLoader);

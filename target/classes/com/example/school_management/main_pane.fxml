@@ -13,34 +13,12 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.logincontroller">
+<AnchorPane fx:id="base_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.logincontroller">
    <children>
       <AnchorPane fx:id="login_page" prefHeight="700.0" prefWidth="1000.0">
          <children>
             <AnchorPane layoutX="500.0" prefHeight="700.0" prefWidth="500.0">
                <children>
-                  <Button fx:id="close_button" layoutX="447.0" mnemonicParsing="false" onAction="#exittt" prefHeight="25.0" prefWidth="59.0" styleClass="close" stylesheets="@frontpage_css.css" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="447.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="CLOSE">
-                           <selectionFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.6447368264198303" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </selectionFill>
-                        </FontAwesomeIcon>
-                     </graphic>
-                  </Button>
                   <Label layoutX="190.0" layoutY="254.0" text="Sign In">
                      <font>
                         <Font name="Verdana" size="33.0" />
@@ -158,5 +136,27 @@
          </children>
       </AnchorPane>
       <BorderPane fx:id="mainpage" prefHeight="700.0" prefWidth="1000.0" visible="false" />
+      <Button fx:id="close_button" layoutX="947.0" mnemonicParsing="false" onAction="#exittt" prefHeight="25.0" prefWidth="53.0" styleClass="close" stylesheets="@frontpage_css.css" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="947.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" text="">
+               <selectionFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6447368264198303" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </selectionFill>
+            </FontAwesomeIcon>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

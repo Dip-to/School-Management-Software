@@ -2,12 +2,18 @@ package com.example.school_management;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -68,7 +74,11 @@ public class logincontroller implements Initializable {
 
     @FXML
     private AnchorPane signup_page;
+
+    @FXML
+    private AnchorPane base_pane;
     ////////
+    private Pane sz;
     public void exittt()
     {
         System.exit(0);
@@ -119,6 +129,7 @@ public class logincontroller implements Initializable {
         }
 
     }
+
 
     public void changePage(ActionEvent e) throws IOException {
         if(e.getSource()==create_acc)
@@ -180,10 +191,11 @@ public class logincontroller implements Initializable {
                 //login done
                 login_page.setVisible(false);
                 paneLoader obj=new paneLoader();
-                Pane sz = obj.getfxmlfile("dashboard");
+                sz = obj.getfxmlfile("dashboard");
                 mainpage.setCenter(sz);
                 mainpage.setVisible(true);
-                System.out.println("login error12");
+                mainpage.setDisable(false);
+               /// System.out.println("login error12");
             }
             else
             {
