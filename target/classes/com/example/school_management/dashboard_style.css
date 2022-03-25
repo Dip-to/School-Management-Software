@@ -51,3 +51,6 @@
 .home_button{-fx-background-color: linear-gradient(to bottom right,#05014b, #060153);}
 .home_button:hover{-fx-background-color: #7498cf;}
 
+.exit_button{-fx-background-color: linear-gradient(to bottom right,#05014b, #060153);}
+.exit_button:hover{-fx-background-color: #7498cf;}
+
