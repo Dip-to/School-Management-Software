@@ -8,8 +8,8 @@ public class Data {
     private final String curd_gender;
     private final String curd_picture;
 
-    Data(Integer curd_id, String crud_name, String curd_class, String curd_gender, String curd_picture){
-        this.crud_id=curd_id;
+    Data(Integer crud_id, String crud_name, String curd_class, String curd_gender, String curd_picture){
+        this.crud_id=crud_id;
         this.crud_name=crud_name;
         this.curd_class=curd_class;
         this.curd_gender=curd_gender;
@@ -28,9 +28,7 @@ public class Data {
         return curd_class;
     }
 
-    public String getCurd_gender() {
-        return curd_gender;
-    }
+    public String getCurd_gender() { return curd_gender; }
 
     public String getCurd_picture() {
         return curd_picture;

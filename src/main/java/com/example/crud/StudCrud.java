@@ -1,22 +1,34 @@
 package com.example.crud;
 
 
+import com.example.crud.Data;
+import com.example.school_management.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudCrud implements Initializable {
+
+    @FXML
+    private AnchorPane left_crud_pane;
 
     @FXML
     private AnchorPane stud_crud;
@@ -53,6 +65,15 @@ public class StudCrud implements Initializable {
 
     @FXML
     private Button crud_update;
+
+    @FXML
+    private ImageView img_view;
+
+    @FXML
+    private Label file_path;
+
+    @FXML
+    private TableView<Data> table_view;
 
     @FXML
     private TableColumn<Data, String> class_table;
@@ -130,11 +151,84 @@ public class StudCrud implements Initializable {
             crud_gender.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
         }
     }
+    ///// database
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+
+    public ObservableList<Data> datalist()
+    {
+        ObservableList<Data> datalist = FXCollections.observableArrayList();
+        String sql="SELECT * FROM student_data";
+        connect= database.connectDB();
+        try {
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+            Data data;
+            while(result.next())
+            {
+                data = new Data(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"));
+                datalist.add(data);
+            }
+        }catch (Exception e) {
+            System.out.println("student database error");
+        }
+        return datalist;
+    }
+    public void showData()
+    {
+        ObservableList<Data> showlist = datalist();
+        id_table.setCellValueFactory(new PropertyValueFactory<>("crud_id"));
+        name_table.setCellValueFactory(new PropertyValueFactory<>("curd_name"));
+        class_table.setCellValueFactory(new PropertyValueFactory<>("curd_class"));
+        Gender_table.setCellValueFactory(new PropertyValueFactory<>("curd_gender"));
+        picture_table.setCellValueFactory(new PropertyValueFactory<>("curd_picture"));
+        table_view.setItems(showlist);
+
+    }
+    public void ImgInsert()
+    {
+        FileChooser open= new FileChooser();
+        Stage stage=(Stage) left_crud_pane.getScene().getWindow();
+        File file=open.showOpenDialog(stage);
+        if(file!=null)
+        {
+            String img_path=file.getAbsolutePath();
+            file_path.setText(img_path);
+            Image image= new Image(file.toURI().toString(),110,110,false,true);
+            img_view.setImage(image);
+        }
+        else
+        {
+            System.out.println("student pic missing");
+        }
+    }
+    public void insert()
+    {
+        connect= database.connectDB();
+        String sql="INSERT INTO student_data VALUES (?,?,?,?,?)";
+
+        try {
+                prepare=connect.prepareStatement(sql);
+                prepare.setString(1,crud_id.getText());
+                prepare.setString(2,crud_name.getText());
+                prepare.setString(3, (String) crud_class.getSelectionModel().getSelectedItem());
+                prepare.setString(4, (String) crud_gender.getSelectionModel().getSelectedItem());
+                prepare.setString(5,file_path.getText());
+                prepare.executeUpdate();
+                showData();
+        }catch (Exception e) {
+            System.out.println("Student Insert error");
+        }
+    }
 
     @Override
     public void initialize(URL uurl, ResourceBundle resourse)
     {
         Combo_box();
+        showData();
+
     }
 
 }
