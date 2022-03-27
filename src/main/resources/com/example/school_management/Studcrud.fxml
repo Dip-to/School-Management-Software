@@ -64,9 +64,9 @@
                </font>
             </Button>
             <Button fx:id="crud_insert" layoutX="26.0" layoutY="433.0" mnemonicParsing="false" onAction="#insert" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Insert" />
-            <Button fx:id="crud_update" layoutX="127.0" layoutY="433.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Update" />
-            <Button fx:id="crud_clear" layoutX="228.0" layoutY="433.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Clear" />
-            <Button fx:id="crud_delete" layoutX="26.0" layoutY="530.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Delete" />
+            <Button fx:id="crud_update" layoutX="127.0" layoutY="433.0" mnemonicParsing="false" onAction="#update_Crud" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Update" />
+            <Button fx:id="crud_clear" layoutX="228.0" layoutY="433.0" mnemonicParsing="false" onAction="#clear" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Clear" />
+            <Button fx:id="crud_delete" layoutX="26.0" layoutY="530.0" mnemonicParsing="false" onAction="#delete" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Delete" />
             <Button fx:id="crud_print" layoutX="228.0" layoutY="530.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Print" />
             <TextField fx:id="crud_name" layoutX="112.0" layoutY="68.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="34.0" prefWidth="220.0" promptText="Name" styleClass="textfield-design" stylesheets="@design.css">
                <font>
@@ -82,7 +82,7 @@
       <AnchorPane layoutX="345.0" prefHeight="700.0" prefWidth="455.0">
          <children>
             <Separator layoutX="-3.0" layoutY="-340.0" orientation="VERTICAL" prefHeight="1038.0" prefWidth="0.0" />
-            <TableView fx:id="table_view" layoutX="14.0" layoutY="39.0" prefHeight="653.0" prefWidth="423.0">
+            <TableView fx:id="table_view" layoutX="14.0" layoutY="39.0" onMouseClicked="#selectData" prefHeight="653.0" prefWidth="423.0">
               <columns>
                 <TableColumn fx:id="id_table" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="name_table" prefWidth="75.0" text="Name" />

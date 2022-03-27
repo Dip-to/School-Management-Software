@@ -17,12 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class StudCrud implements Initializable {
@@ -156,6 +154,38 @@ public class StudCrud implements Initializable {
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
+    public void clear()
+    {
+        crud_id.setText("");
+        crud_name.setText("");
+        crud_class.getSelectionModel().clearSelection();
+        crud_gender.getSelectionModel().clearSelection();
+        img_view.setImage(null);
+    }
+    public void delete()
+    {
+        String sql="DELETE from student_data WHERE `id` ='"+crud_id.getText()+"'";
+        connect=database.connectDB();
+        try
+        {
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("                                     Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("                     Are you sure you want to delete? ");
+
+            Optional<ButtonType> buttontype= alert.showAndWait();
+            if(buttontype.get()==ButtonType.OK)
+            {
+                statement=connect.createStatement();
+                statement.executeUpdate(sql);
+            }
+            showData();
+            clear();
+
+        } catch (SQLException e) {
+            System.out.println("delete error");
+        }
+    }
 
     public ObservableList<Data> datalist()
     {
@@ -195,9 +225,13 @@ public class StudCrud implements Initializable {
         if(file!=null)
         {
             String img_path=file.getAbsolutePath();
+
+            img_path=img_path.replace("\\","\\\\");
             file_path.setText(img_path);
+
             Image image= new Image(file.toURI().toString(),110,110,false,true);
             img_view.setImage(image);
+
         }
         else
         {
@@ -210,6 +244,17 @@ public class StudCrud implements Initializable {
         String sql="INSERT INTO student_data VALUES (?,?,?,?,?)";
 
         try {
+            if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |
+                crud_gender.getSelectionModel().isEmpty() | img_view.getImage()==null)
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                     Error!!!!!");
+                alert.setHeaderText("            Some fields are empty.  ");
+                alert.setContentText("                             Please enter all blank fields. ");
+                alert.showAndWait();
+            }
+            else
+            {
                 prepare=connect.prepareStatement(sql);
                 prepare.setString(1,crud_id.getText());
                 prepare.setString(2,crud_name.getText());
@@ -218,11 +263,69 @@ public class StudCrud implements Initializable {
                 prepare.setString(5,file_path.getText());
                 prepare.executeUpdate();
                 showData();
+                clear();
+            }
+
         }catch (Exception e) {
             System.out.println("Student Insert error");
         }
     }
+    public void selectData()
+    {
+        Data data= table_view.getSelectionModel().getSelectedItem();
+        int no=table_view.getSelectionModel().getSelectedIndex();
+        if((no-1)<-1)
+        {
+            return;
+        }
+        crud_id.setText(String.valueOf(data.getCrud_id()));
+        crud_name.setText(String.valueOf(data.getCurd_name()));
+      //  crud_gender.getSelectionModel().select(Integer.parseInt(data.getCurd_gender()));
+        crud_gender.getSelectionModel().clearSelection();
+     //   crud_class.getSelectionModel().select(Integer.parseInt(data.getCurd_class()));
+        //crud_class.getSelectionModel().clearSelection();
+        crud_class.getSelectionModel().clearSelection();
+        String pic="file:"+data.getCurd_picture();
+        Image img= new Image(pic,110,110,false,true);
+        img_view.setImage(img);
 
+        String tmp= data.getCurd_picture();
+
+        file_path.setText(tmp);
+    }
+    public void update_Crud()
+    {
+        String tmp=file_path.getText();
+        tmp=tmp.replace("\\","\\\\");
+        String sql="UPDATE student_data SET `name`= '"+crud_name.getText()+ "', `class` = '"+crud_class.getSelectionModel().getSelectedItem()
+                +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"' WHERE id = '"+crud_id.getText()+"'";
+        try {
+            if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |
+                    crud_gender.getSelectionModel().isEmpty() | img_view.getImage()==null)
+            {
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("                                     Error!!!!!");
+                alert.setHeaderText("            Some fields are empty.  ");
+                alert.setContentText("                             Please enter all blank fields. ");
+                alert.showAndWait();
+            }
+            else
+            {
+                statement=connect.createStatement();
+                statement.executeUpdate(sql);
+                Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("                                      Update Successfull!!!");
+                alert.setHeaderText("       ");
+                alert.setContentText("                             Successfully updated the data. ");
+                alert.showAndWait();
+                showData();
+                clear();
+            }
+
+        } catch (Exception e) {
+            System.out.println("update crud error");
+        }
+    }
     @Override
     public void initialize(URL uurl, ResourceBundle resourse)
     {
