@@ -1,7 +1,6 @@
 package com.example.crud;
 
 
-import com.example.crud.Data;
 import com.example.school_management.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class StudCrud implements Initializable {
+public class Student_data implements Initializable {
 
     @FXML
     private AnchorPane left_crud_pane;
@@ -32,7 +31,7 @@ public class StudCrud implements Initializable {
     private AnchorPane stud_crud;
 
     @FXML
-    private TableColumn<Data, String> Gender_table;
+    private TableColumn<People, String> Gender_table;
 
     @FXML
     private Button crud_clear;
@@ -48,6 +47,9 @@ public class StudCrud implements Initializable {
 
     @FXML
     private TextField crud_id;
+
+    @FXML
+    private TextField crud_mobile;
 
     @FXML
     private Button crud_insert;
@@ -71,19 +73,19 @@ public class StudCrud implements Initializable {
     private Label file_path;
 
     @FXML
-    private TableView<Data> table_view;
+    private TableView<People> table_view;
 
     @FXML
-    private TableColumn<Data, String> class_table;
+    private TableColumn<People, String> class_table;
 
     @FXML
-    private TableColumn<Data, Integer> id_table;
+    private TableColumn<People, Integer> id_table;
 
     @FXML
-    private TableColumn<Data, String> picture_table;
+    private TableColumn<People, String> mobile_table;
 
     @FXML
-    private TableColumn<Data, String> name_table;
+    private TableColumn<People, String> name_table;
 
     private String[] Combo_gender={"Male","Female","Others"};
     private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
@@ -161,6 +163,7 @@ public class StudCrud implements Initializable {
         crud_class.getSelectionModel().clearSelection();
         crud_gender.getSelectionModel().clearSelection();
         img_view.setImage(null);
+        file_path.setText("Label");
     }
     public void delete()
     {
@@ -187,19 +190,19 @@ public class StudCrud implements Initializable {
         }
     }
 
-    public ObservableList<Data> datalist()
+    public ObservableList<People> datalist()
     {
-        ObservableList<Data> datalist = FXCollections.observableArrayList();
+        ObservableList<People> datalist = FXCollections.observableArrayList();
         String sql="SELECT * FROM student_data";
         connect= database.connectDB();
         try {
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
-            Data data;
+            People people;
             while(result.next())
             {
-                data = new Data(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"));
-                datalist.add(data);
+                people = new People(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
+                datalist.add(people);
             }
         }catch (Exception e) {
             System.out.println("student database error");
@@ -208,12 +211,12 @@ public class StudCrud implements Initializable {
     }
     public void showData()
     {
-        ObservableList<Data> showlist = datalist();
+        ObservableList<People> showlist = datalist();
         id_table.setCellValueFactory(new PropertyValueFactory<>("crud_id"));
         name_table.setCellValueFactory(new PropertyValueFactory<>("curd_name"));
         class_table.setCellValueFactory(new PropertyValueFactory<>("curd_class"));
         Gender_table.setCellValueFactory(new PropertyValueFactory<>("curd_gender"));
-        picture_table.setCellValueFactory(new PropertyValueFactory<>("curd_picture"));
+        mobile_table.setCellValueFactory(new PropertyValueFactory<>("curd_mobile"));
         table_view.setItems(showlist);
 
     }
@@ -241,7 +244,7 @@ public class StudCrud implements Initializable {
     public void insert()
     {
         connect= database.connectDB();
-        String sql="INSERT INTO student_data VALUES (?,?,?,?,?)";
+        String sql="INSERT INTO student_data VALUES (?,?,?,?,?,?)";
 
         try {
             if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |
@@ -261,6 +264,7 @@ public class StudCrud implements Initializable {
                 prepare.setString(3, (String) crud_class.getSelectionModel().getSelectedItem());
                 prepare.setString(4, (String) crud_gender.getSelectionModel().getSelectedItem());
                 prepare.setString(5,file_path.getText());
+                prepare.setString(6,crud_mobile.getText());
                 prepare.executeUpdate();
                 showData();
                 clear();
@@ -272,26 +276,27 @@ public class StudCrud implements Initializable {
     }
     public void selectData()
     {
-        Data data= table_view.getSelectionModel().getSelectedItem();
+        People people = table_view.getSelectionModel().getSelectedItem();
         int no=table_view.getSelectionModel().getSelectedIndex();
         if((no-1)<-1)
         {
             return;
         }
-        crud_id.setText(String.valueOf(data.getCrud_id()));
-        crud_name.setText(String.valueOf(data.getCurd_name()));
+        crud_id.setText(String.valueOf(people.getCrud_id()));
+        crud_name.setText(String.valueOf(people.getCurd_name()));
       //  crud_gender.getSelectionModel().select(Integer.parseInt(data.getCurd_gender()));
         crud_gender.getSelectionModel().clearSelection();
      //   crud_class.getSelectionModel().select(Integer.parseInt(data.getCurd_class()));
         //crud_class.getSelectionModel().clearSelection();
         crud_class.getSelectionModel().clearSelection();
-        String pic="file:"+data.getCurd_picture();
+        String pic="file:"+ people.getCurd_picture();
         Image img= new Image(pic,110,110,false,true);
         img_view.setImage(img);
 
-        String tmp= data.getCurd_picture();
+        String tmp= people.getCurd_picture();
 
         file_path.setText(tmp);
+        crud_mobile.setText(String.valueOf(people.getCurd_mobile()));
     }
     public void update_Crud()
     {
