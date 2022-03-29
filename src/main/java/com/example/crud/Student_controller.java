@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class Student_data implements Initializable {
+public class Student_controller implements Initializable {
 
     @FXML
     private AnchorPane left_crud_pane;
@@ -164,6 +164,8 @@ public class Student_data implements Initializable {
         crud_gender.getSelectionModel().clearSelection();
         img_view.setImage(null);
         file_path.setText("Label");
+        crud_mobile.setText("");
+
     }
     public void delete()
     {
@@ -199,9 +201,12 @@ public class Student_data implements Initializable {
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
             People people;
+
             while(result.next())
             {
-                people = new People(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
+                People student= new Student (result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
+
+                people = (People) new People(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
                 datalist.add(people);
             }
         }catch (Exception e) {
