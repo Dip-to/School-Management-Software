@@ -55,7 +55,7 @@
 .exit_button:hover{-fx-background-color: #7498cf;}
 
 .insert_image-button{
-    -fx-background-color:transparent ;
+    -fx-background-color:transparent;
     -fx-text-fill: #aaa;
     -fx-cursor: hand;
     -fx-font-size:15px;

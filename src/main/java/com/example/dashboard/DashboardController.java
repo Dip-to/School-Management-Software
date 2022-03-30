@@ -192,11 +192,6 @@ public class DashboardController implements Initializable {
               login_img_button.setText("");
           }
 
-//           demo_imgview.set
-//        image_circle.setStroke(Color.SEAGREEN);
-//        //Image im=new Image();
-//        image_circle.setFill(new ImagePattern(im));
-//        image_circle.setEffect(new DropShadow(+25d,+0d,+2d,Color.DARKSEAGREEN));
 
     }
 
