@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dashboard.DashboardController">
@@ -44,8 +44,10 @@
                   <Image url="@picture/logout_button.png" />
                </image>
             </ImageView>
-            <Circle fx:id="image_circle" fill="WHITE" layoutX="79.0" layoutY="67.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="username" alignment="BASELINE_CENTER" layoutX="23.0" layoutY="132.0" prefHeight="18.0" prefWidth="110.0" text="Label" textFill="#f4f4f4" />
+            <Label fx:id="username" alignment="BASELINE_CENTER" layoutX="41.0" layoutY="148.0" prefHeight="18.0" prefWidth="110.0" text="Label" textFill="#f4f4f4" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="46.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="110.0" />
+            <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="46.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="48.0" layoutY="32.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="105.0" text="Button" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="dashboard_rightpane" layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
@@ -82,7 +84,10 @@
             </AnchorPane>
             <Separator fx:id="dashboard_separator" layoutY="388.0" prefHeight="0.0" prefWidth="527.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
             <Separator layoutX="561.0" layoutY="387.0" prefHeight="3.0" prefWidth="238.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
-            <AnchorPane layoutX="561.0" layoutY="411.0" prefHeight="274.0" prefWidth="238.0" styleClass="welcome_school" stylesheets="@dashboard_style.css" />
+            <AnchorPane layoutX="561.0" layoutY="411.0" prefHeight="274.0" prefWidth="238.0" styleClass="welcome_school" stylesheets="@dashboard_style.css">
+               <children>
+                  <ImageView fx:id="demo_imgview" fitHeight="92.0" fitWidth="110.0" layoutX="54.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
             <Separator layoutX="539.0" layoutY="388.0" opacity="0.25" orientation="VERTICAL" prefHeight="304.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
          </children>
       </AnchorPane>

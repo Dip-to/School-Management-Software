@@ -92,6 +92,10 @@ public class DashboardController implements Initializable {
     @FXML
     private Button teacher_icon;
 
+    @FXML
+    private ImageView img_view;
+
+
 
     public void exittt()
     {
@@ -120,7 +124,8 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-           username.setText(logincontroller.user);
+
+//           demo_imgview.set
 //        image_circle.setStroke(Color.SEAGREEN);
 //        //Image im=new Image();
 //        image_circle.setFill(new ImagePattern(im));
