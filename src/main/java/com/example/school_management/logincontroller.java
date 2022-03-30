@@ -170,6 +170,9 @@ public class logincontroller implements Initializable {
         }*/
     }
     //database tools
+    public static String user;
+    public static String im_path;
+    public static Integer user_id;
     private Connection connect;
     private Statement statement;
     private ResultSet resultset;
@@ -183,12 +186,14 @@ public class logincontroller implements Initializable {
             prepare=connect.prepareStatement(sql);
             prepare.setString(1 , login_username.getText());
             prepare.setString(2 , login_pass.getText());
+            String tmp_username= login_username.getText();
 
             resultset=prepare.executeQuery();
             //System.out.println("login error12");
             if(resultset.next())
             {
                 //login done
+                user=tmp_username;
                 login_page.setVisible(false);
                 paneLoader obj=new paneLoader();
                 sz = obj.getfxmlfile("dashboard");
