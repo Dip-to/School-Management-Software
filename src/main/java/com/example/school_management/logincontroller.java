@@ -196,6 +196,7 @@ public class logincontroller implements Initializable {
             {
                 //login done
                 user=tmp_username;
+                im_path=resultset.getString("image");
                 login_page.setVisible(false);
                 paneLoader obj=new paneLoader();
                 sz = obj.getfxmlfile("dashboard");

@@ -1,5 +1,6 @@
 package com.example.dashboard;
 
+import com.example.school_management.database;
 import com.example.school_management.logincontroller;
 import com.example.school_management.paneLoader;
 import javafx.fxml.FXML;
@@ -21,6 +22,10 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -129,6 +134,10 @@ public class DashboardController implements Initializable {
         dash_main.setVisible(false);
         dash_main.setDisable(true);
     }
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
     public void Img_Insert()
     {
 
@@ -139,13 +148,24 @@ public class DashboardController implements Initializable {
         {
 
             String img_path=file.getAbsolutePath();
-
-            img_path=img_path.replace("\\","\\\\");
+            img_path=img_path.replace("\\","\\\\\\\\");
             login_img_path=img_path;
-            System.out.println(img_path);
             Image image= new Image(file.toURI().toString(),110,110,false,true);
-
             imgg_view.setImage(image);
+            connect= database.connectDB();
+            String sql="UPDATE login_data SET `image` = '"+img_path+"' WHERE username = '"+logincontroller.user+"'";
+            System.out.println(img_path);
+            try {
+                statement=connect.createStatement();
+                statement.executeUpdate(sql);
+                login_img_button.setText("");
+
+
+            }catch (Exception e)
+            {
+                System.out.println("login image database error");
+            }
+
             System.out.println("bye");
         }
         else
@@ -158,6 +178,20 @@ public class DashboardController implements Initializable {
     {
 
           username.setText(logincontroller.user);
+         // System.out.println(logincontroller.im_path);
+          String tmp=logincontroller.im_path;
+          if(tmp.equals("null"))
+          {
+              login_img_button.setText("Insert Image");
+          }
+          else
+          {
+              String pic="file:"+ tmp;
+              Image img= new Image(pic,110,110,false,true);
+              imgg_view.setImage(img);
+              login_img_button.setText("");
+          }
+
 //           demo_imgview.set
 //        image_circle.setStroke(Color.SEAGREEN);
 //        //Image im=new Image();

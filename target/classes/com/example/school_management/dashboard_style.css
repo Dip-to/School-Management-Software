@@ -54,3 +54,11 @@
 .exit_button{-fx-background-color: linear-gradient(to bottom right,#05014b, #060153);}
 .exit_button:hover{-fx-background-color: #7498cf;}
 
+.insert_image-button{
+    -fx-background-color:transparent ;
+    -fx-text-fill: #aaa;
+    -fx-cursor: hand;
+    -fx-font-size:15px;
+
+}
+

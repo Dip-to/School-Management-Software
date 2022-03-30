@@ -47,7 +47,7 @@
             <Label fx:id="username" alignment="BASELINE_CENTER" layoutX="41.0" layoutY="148.0" prefHeight="18.0" prefWidth="110.0" text="Label" textFill="#f4f4f4" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="46.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="110.0" />
             <ImageView fx:id="imgg_view" fitHeight="110.0" fitWidth="110.0" layoutX="46.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="login_img_button" layoutX="48.0" layoutY="32.0" mnemonicParsing="false" onAction="#Img_Insert" prefHeight="101.0" prefWidth="105.0" styleClass="insert_image-button" stylesheets="@design.css" text="Button" />
+            <Button fx:id="login_img_button" layoutX="48.0" layoutY="32.0" mnemonicParsing="false" onAction="#Img_Insert" prefHeight="102.0" prefWidth="107.0" styleClass="insert_image-button" stylesheets="@dashboard_style.css" text="Insert Picture" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="dashboard_rightpane" layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
