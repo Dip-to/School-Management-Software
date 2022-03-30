@@ -77,6 +77,8 @@ public class logincontroller implements Initializable {
 
     @FXML
     private AnchorPane base_pane;
+
+
     ////////
     private Pane sz;
     public void exittt()

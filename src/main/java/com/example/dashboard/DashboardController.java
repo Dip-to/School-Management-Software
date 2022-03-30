@@ -16,7 +16,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,6 +28,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private BorderPane dash_main;
+
+    @FXML
+    private Button login_img_button;
 
     @FXML
     private Button Student_count_button;
@@ -88,15 +94,17 @@ public class DashboardController implements Initializable {
     @FXML
     private Label username;
 
+    @FXML
+    private AnchorPane left_dash_pane;
 
     @FXML
     private Button teacher_icon;
 
     @FXML
-    private ImageView img_view;
+    private ImageView imgg_view;
 
 
-
+    public String login_img_path;
     public void exittt()
     {
         System.exit(0);
@@ -121,10 +129,35 @@ public class DashboardController implements Initializable {
         dash_main.setVisible(false);
         dash_main.setDisable(true);
     }
+    public void Img_Insert()
+    {
+
+        FileChooser open= new FileChooser();
+        Stage stage=(Stage) left_dash_pane.getScene().getWindow();
+        File file=open.showOpenDialog(stage);
+        if(file!=null)
+        {
+
+            String img_path=file.getAbsolutePath();
+
+            img_path=img_path.replace("\\","\\\\");
+            login_img_path=img_path;
+            System.out.println(img_path);
+            Image image= new Image(file.toURI().toString(),110,110,false,true);
+
+            imgg_view.setImage(image);
+            System.out.println("bye");
+        }
+        else
+        {
+            System.out.println("login pic missing");
+        }
+    }
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
 
-
+          username.setText(logincontroller.user);
 //           demo_imgview.set
 //        image_circle.setStroke(Color.SEAGREEN);
 //        //Image im=new Image();
