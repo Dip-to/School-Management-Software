@@ -96,6 +96,9 @@ public class noticeController implements Initializable {
     @FXML
     private Button update_5;
 
+    @FXML
+    private Button back_button;
+
     public void button_1_click()
     {
         notice_pane1.setVisible(false);
@@ -103,6 +106,7 @@ public class noticeController implements Initializable {
         notice_pane2.setVisible(false);
         notice_pane2.setDisable(true);
         notice_no1_pane.setVisible(true);
+        back_button.setVisible(true);
 
 
     }
@@ -114,6 +118,7 @@ public class noticeController implements Initializable {
         notice_pane2.setVisible(false);
         notice_pane2.setDisable(true);
         notice_no2_pane.setVisible(true);
+        back_button.setVisible(true);
 
 
     }
@@ -125,6 +130,7 @@ public class noticeController implements Initializable {
         notice_pane2.setVisible(false);
         notice_pane2.setDisable(true);
         notice_no3_pane.setVisible(true);
+        back_button.setVisible(true);
 
 
     }
@@ -136,6 +142,7 @@ public class noticeController implements Initializable {
         notice_pane2.setVisible(false);
         notice_pane2.setDisable(true);
         notice_no4_pane.setVisible(true);
+        back_button.setVisible(true);
 
 
     }
@@ -147,6 +154,24 @@ public class noticeController implements Initializable {
         notice_pane2.setVisible(false);
         notice_pane2.setDisable(true);
         notice_no5_pane.setVisible(true);
+        back_button.setVisible(true);
+
+
+    }
+
+    public void backbutton_click()
+    {
+        back_button.setVisible(false);
+        notice_pane1.setVisible(true);
+        notice_pane1.setDisable(false);
+        notice_pane2.setVisible(true);
+        notice_pane2.setDisable(false);
+        notice_no1_pane.setVisible(false);
+        notice_no2_pane.setVisible(false);
+        notice_no3_pane.setVisible(false);
+        notice_no4_pane.setVisible(false);
+        notice_no5_pane.setVisible(false);
+
 
 
     }

@@ -10,7 +10,13 @@
     -fx-border-radius: 5px;
 }
 
-.button_1_bg
+.back_button
 {
-    -fx-background-image: url(./notice_pic/notice_demo.PNG);
+    -fx-background-color: linear-gradient(to bottom right,#353c5b, #47474b);
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+.back_button:hover
+{
+    -fx-background-color: linear-gradient(to bottom right, #662d60,#2f466b);
 }
