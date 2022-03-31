@@ -1,0 +1,16 @@
+.notice_bg
+{
+    -fx-background-image: url(./notice_pic/notice_bg.jpg);
+}
+
+.title_clr
+{
+    -fx-background-color:#1a5ccc;
+    -fx-border-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.button_1_bg
+{
+    -fx-background-image: url(./notice_pic/notice_demo.PNG);
+}
