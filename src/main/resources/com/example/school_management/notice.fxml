@@ -46,7 +46,7 @@
             <Label fx:id="date_3" layoutX="557.0" layoutY="221.0" text="2022/04/28" />
             <Label fx:id="date_4" layoutX="557.0" layoutY="287.0" text="2022/04/28" />
             <Label fx:id="date_5" layoutX="557.0" layoutY="353.0" text="2022/04/28" />
-            <Button fx:id="update_1" layoutX="711.0" layoutY="73.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
+            <Button fx:id="update_1" layoutX="711.0" layoutY="73.0" mnemonicParsing="false" onAction="#up1" prefHeight="50.0" prefWidth="78.0" text="Update" />
             <Button fx:id="update_2" layoutX="711.0" layoutY="139.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
             <Button fx:id="update_3" layoutX="711.0" layoutY="205.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
             <Button fx:id="update_4" layoutX="711.0" layoutY="271.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />

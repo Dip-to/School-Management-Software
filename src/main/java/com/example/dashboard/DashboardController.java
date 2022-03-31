@@ -168,7 +168,7 @@ public class DashboardController implements Initializable {
             imgg_view.setImage(image);
             connect= database.connectDB();
             String sql="UPDATE login_data SET `image` = '"+img_path+"' WHERE username = '"+logincontroller.user+"'";
-            System.out.println(img_path);
+           // System.out.println(img_path);
             try {
                 statement=connect.createStatement();
                 statement.executeUpdate(sql);
@@ -180,7 +180,7 @@ public class DashboardController implements Initializable {
                 System.out.println("login image database error");
             }
 
-            System.out.println("bye");
+           // System.out.println("bye");
         }
         else
         {
