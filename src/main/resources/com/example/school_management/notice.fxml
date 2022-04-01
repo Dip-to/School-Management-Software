@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -47,54 +46,34 @@
             <Label fx:id="date_4" layoutX="557.0" layoutY="287.0" text="2022/04/28" />
             <Label fx:id="date_5" layoutX="557.0" layoutY="353.0" text="2022/04/28" />
             <Button fx:id="update_1" layoutX="711.0" layoutY="73.0" mnemonicParsing="false" onAction="#up1" prefHeight="50.0" prefWidth="78.0" text="Update" />
-            <Button fx:id="update_2" layoutX="711.0" layoutY="139.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
-            <Button fx:id="update_3" layoutX="711.0" layoutY="205.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
-            <Button fx:id="update_4" layoutX="711.0" layoutY="271.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
-            <Button fx:id="update_5" layoutX="711.0" layoutY="337.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" text="Update" />
+            <Button fx:id="update_2" layoutX="711.0" layoutY="139.0" mnemonicParsing="false" onAction="#up2" prefHeight="50.0" prefWidth="78.0" text="Update" />
+            <Button fx:id="update_3" layoutX="711.0" layoutY="205.0" mnemonicParsing="false" onAction="#up3" prefHeight="50.0" prefWidth="78.0" text="Update" />
+            <Button fx:id="update_4" layoutX="711.0" layoutY="271.0" mnemonicParsing="false" onAction="#up4" prefHeight="50.0" prefWidth="78.0" text="Update" />
+            <Button fx:id="update_5" layoutX="711.0" layoutY="337.0" mnemonicParsing="false" onAction="#up5" prefHeight="50.0" prefWidth="78.0" text="Update" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="notice_no1_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@notice_pic/notice_demo.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="im_view1" fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
       <AnchorPane fx:id="notice_no2_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@notice_pic/notice_bg.jpg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="im_view2" fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="notice_no3_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@notice_pic/notice_demo.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="im_view3" fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="notice_no4_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@notice_pic/notice_demo.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="im_view4" fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="notice_no5_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <ImageView fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@notice_pic/notice_bg.jpg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="im_view5" fitHeight="700.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <Button fx:id="back_button" layoutX="11.0" layoutY="8.0" mnemonicParsing="false" onAction="#backbutton_click" prefHeight="30.0" prefWidth="62.0" styleClass="back_button" stylesheets="@notice_style.css" text="Back" textFill="#f4f4f4" visible="false" />
