@@ -128,12 +128,28 @@ public class DashboardController implements Initializable {
             System.out.println("stud crud fail");
         }
     }
-    public void notice()  {
+    public void notice()
+    {
         try {
             // dashboard_pane.setVisible(false);
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
             Pane view=pp.getfxmlfile("notice");
+            dash_main.setCenter(view);
+            dash_main.setVisible(true);
+            dash_main.setDisable(false);
+        }catch (Exception e)
+        {
+            System.out.println("notice fail");
+        }
+    }
+    public void class_routine()
+    {
+        try {
+            // dashboard_pane.setVisible(false);
+            dashboard_rightpane.setVisible(false);
+            paneLoader pp= new paneLoader();
+            Pane view=pp.getfxmlfile("classes");
             dash_main.setCenter(view);
             dash_main.setVisible(true);
             dash_main.setDisable(false);

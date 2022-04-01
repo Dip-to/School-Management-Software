@@ -24,7 +24,7 @@ public class Notice extends database {
             img_path=img_path.replace("\\","\\\\\\\\");
             connect=database.connectDB();
             String sql="UPDATE notice_data SET `path` = '"+img_path+"', `label` = '"+lbl+"', `date` = '"+date+"' WHERE `no` = '" +y+ "'";
-            System.out.println(sql);
+           // System.out.println(sql);
             statement=connect.createStatement();
             statement.executeUpdate(sql);
         } catch (Exception e)
