@@ -250,7 +250,7 @@ public class noticeController implements Initializable {
                     Alert alert=new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("                                      ERROR!!!");
                     alert.setHeaderText("       Title Missing!!!!");
-                    alert.setContentText("                               Please add a notice.");
+                    alert.setContentText("                               Please add a notice title.");
                     alert.showAndWait();
                     return;
                 }
