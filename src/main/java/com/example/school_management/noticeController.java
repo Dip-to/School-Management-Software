@@ -1,10 +1,9 @@
 package com.example.school_management;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -17,7 +16,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ResourceBundle;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class noticeController implements Initializable {
 
@@ -130,7 +135,7 @@ public class noticeController implements Initializable {
     private ResultSet result;
     public void notice_rend(String s)
     {
-        database db= new database();
+        Notice db= new Notice();
         String pp = db.notice_render(s);
         if(pp.equals("null"))
         {
@@ -162,6 +167,8 @@ public class noticeController implements Initializable {
         notice_no1_pane.setVisible(true);
         back_button.setVisible(true);
         notice_rend("1");
+
+
     
     }
     public void button_2_click()
@@ -224,17 +231,52 @@ public class noticeController implements Initializable {
         notice_no4_pane.setVisible(false);
         notice_no5_pane.setVisible(false);
     }
-    public void up_backend(String s)
+    public void up_backend (String s)
     {
+        String lbl="nil";
+        TextInputDialog dd= new TextInputDialog();
+        dd.setTitle("Notice title");
+        dd.setHeaderText("Please Enter Notice Title");
+        dd.setContentText("Title: ");
+        Optional<String> rr=dd.showAndWait();
+
+        try
+        {
+            if(rr.isPresent())
+            {
+                lbl= rr.get();
+                if(lbl.equals(""))
+                {
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("                                      ERROR!!!");
+                    alert.setHeaderText("       Title Missing!!!!");
+                    alert.setContentText("                               Please add a notice.");
+                    alert.showAndWait();
+                    return;
+                }
+                System.out.println(lbl);
+
+            }
+            else
+            {
+                return;
+            }
+        } catch (Exception e)
+        {
+
+        }
+        String date=getdate();
         FileChooser open= new FileChooser();
         Stage stage=(Stage) notice_main.getScene().getWindow();
         File file=open.showOpenDialog(stage);
         if(file!=null)
         {
             String img_path=file.getAbsolutePath();
-            database db= new database();
-            db.notice_update(img_path,s);
+            Notice db=  new Notice();
+            db.notice_update(img_path,s,lbl,date);
         }
+        refres();
+
     }
     public void up1()
     {
@@ -256,10 +298,44 @@ public class noticeController implements Initializable {
     {
         up_backend("5");
     }
+    public void refres()
+    {
+        Notice n= new Notice();
+        int i=0;
+        ObservableList<String> lb_str= n.da();
+        ObservableList<String> date_str=n.date();
+        for(String a: lb_str)
+        {
+            i++;
+            if(i==1) button_1.setText(a);
+            else if(i==2) button_2.setText(a);
+            else if(i==3) button_3.setText(a);
+            else if(i==4) button_4.setText(a);
+            else if(i==5) button_5.setText(a);
 
-
+        }
+        i=0;
+        for(String a: date_str)
+        {
+            i++;
+            if(i==1) date_1.setText(a);
+            else if(i==2) date_2.setText(a);
+            else if(i==3) date_3.setText(a);
+            else if(i==4) date_4.setText(a);
+            else if(i==5) date_5.setText(a);
+        }
+    }
+    public String getdate()
+    {
+        LocalDateTime myObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedDate = myObj.format(myFormatObj);
+        return formattedDate;
+    }
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        refres();
 
     }
 }
