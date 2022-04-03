@@ -263,6 +263,7 @@ public class Student_controller implements Initializable {
             }
             else
             {
+
                 prepare=connect.prepareStatement(sql);
                 prepare.setString(1,crud_id.getText());
                 prepare.setString(2,crud_name.getText());
@@ -270,7 +271,8 @@ public class Student_controller implements Initializable {
                 prepare.setString(4, (String) crud_gender.getSelectionModel().getSelectedItem());
                 prepare.setString(5,file_path.getText());
                 prepare.setString(6,crud_mobile.getText());
-                prepare.executeUpdate();
+                prepare.execute();
+                System.out.println("ok12");
                 showData();
                 clear();
             }

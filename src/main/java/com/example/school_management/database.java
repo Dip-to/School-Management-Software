@@ -9,8 +9,8 @@ public class database extends School {
     public static Connection connectDB() {
         try
         {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connect= DriverManager.getConnection("jdbc:mysql://localhost/school_management","root","");
+            Class.forName("org.sqlite.JDBC");
+            Connection connect= DriverManager.getConnection("jdbc:sqlite:src/main/resources/com/example/school_management/database/school_management.db");
             if(connect==null)
             {
                 System.out.println("database load error");

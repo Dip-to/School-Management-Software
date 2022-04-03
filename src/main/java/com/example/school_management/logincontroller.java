@@ -203,6 +203,7 @@ public class logincontroller implements Initializable {
                 mainpage.setCenter(sz);
                 mainpage.setVisible(true);
                 mainpage.setDisable(false);
+                connect.close();
                /// System.out.println("login error12");
             }
             else
