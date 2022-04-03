@@ -190,14 +190,29 @@ public class Student_controller implements Initializable {
         } catch (SQLException e) {
             System.out.println("delete error");
         }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
     }
 
     public ObservableList<People> datalist()
     {
         ObservableList<People> datalist = FXCollections.observableArrayList();
         String sql="SELECT * FROM student_data";
-        connect= database.connectDB();
+
         try {
+            connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
             People people;
@@ -209,8 +224,23 @@ public class Student_controller implements Initializable {
                 people = (People) new People(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
                 datalist.add(people);
             }
+
         }catch (Exception e) {
             System.out.println("student database error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
         return datalist;
     }
@@ -248,10 +278,11 @@ public class Student_controller implements Initializable {
     }
     public void insert()
     {
-        connect= database.connectDB();
+
         String sql="INSERT INTO student_data VALUES (?,?,?,?,?,?)";
 
         try {
+            connect= database.connectDB();
             if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |
                 crud_gender.getSelectionModel().isEmpty() | img_view.getImage()==null)
             {
@@ -277,8 +308,23 @@ public class Student_controller implements Initializable {
                 clear();
             }
 
+
         }catch (Exception e) {
-            System.out.println("Student Insert error");
+            System.out.println(e);
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
     }
     public void selectData()
@@ -312,6 +358,7 @@ public class Student_controller implements Initializable {
         String sql="UPDATE student_data SET `name`= '"+crud_name.getText()+ "', `class` = '"+crud_class.getSelectionModel().getSelectedItem()
                 +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"' WHERE id = '"+crud_id.getText()+"'";
         try {
+            connect= database.connectDB();
             if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |
                     crud_gender.getSelectionModel().isEmpty() | img_view.getImage()==null)
             {
@@ -336,6 +383,20 @@ public class Student_controller implements Initializable {
 
         } catch (Exception e) {
             System.out.println("update crud error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
     }
     @Override

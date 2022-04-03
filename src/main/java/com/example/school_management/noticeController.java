@@ -129,10 +129,7 @@ public class noticeController implements Initializable {
     private Button update_5;
 
 
-    private Connection connect;
-    private PreparedStatement prepare;
-    private Statement statement;
-    private ResultSet result;
+
     public void notice_rend(String s)
     {
         Notice db= new Notice();

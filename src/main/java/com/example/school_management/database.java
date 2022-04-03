@@ -24,10 +24,10 @@ public class database extends School {
     }
     public void classroom(String img_path,int y)
     {
-        Connection connect;
-        PreparedStatement prepare;
-        Statement statement;
-        ResultSet result;
+        Connection connect = null;
+        PreparedStatement prepare = null;
+        Statement statement = null;
+        ResultSet result = null;
         try
         {
 
@@ -41,13 +41,28 @@ public class database extends School {
         {
             System.out.println("classes database error");
         }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
+
     }
     public String classroom_render(String s)
     {
-        Connection connect;
-        PreparedStatement prepare;
-        Statement statement;
-        ResultSet result;
+        Connection connect= null;
+        PreparedStatement prepare = null;
+        Statement statement = null;
+        ResultSet result = null;
         connect=database.connectDB();
         String sql="SELECT * FROM classroom_data WHERE class = '"+s+"'";
         try {
@@ -61,6 +76,20 @@ public class database extends School {
         } catch (Exception e)
         {
             System.out.println("classroom database access error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
         return "null";
     }

@@ -190,10 +190,21 @@ public class DashboardController implements Initializable {
                 statement.executeUpdate(sql);
                 login_img_button.setText("");
 
-
             }catch (Exception e)
             {
                 System.out.println("login image database error");
+            }
+            finally {
+                try {
+                    connect.close();
+                    result.close();
+                    prepare.close();
+                    statement.close();
+
+                }catch (Exception e)
+                {
+
+                }
             }
 
            // System.out.println("bye");

@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Notice extends database {
     public void notice_update(String img_path,String y,String lbl,String date)
     {
-        Connection connect;
-        PreparedStatement prepare;
-        Statement statement;
-        ResultSet result;
+        Connection connect = null;
+        PreparedStatement prepare = null;
+        Statement statement = null;
+        ResultSet result = null;
         try
         {
 
@@ -27,20 +27,36 @@ public class Notice extends database {
            // System.out.println(sql);
             statement=connect.createStatement();
             statement.executeUpdate(sql);
+
         } catch (Exception e)
         {
             System.out.println("notice database error");
         }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
     }
     public String notice_render(String s)
     {
-        Connection connect;
-        PreparedStatement prepare;
-        Statement statement;
-        ResultSet result;
-        connect=database.connectDB();
+        Connection connect = null;
+        PreparedStatement prepare = null;
+        Statement statement = null;
+        ResultSet result = null;
+
         String sql="SELECT * FROM notice_data WHERE no = '"+s+"'";
         try {
+            connect=database.connectDB();
             prepare = connect.prepareStatement(sql);
             // prepare.setString(1 , "1");
             result = prepare.executeQuery();
@@ -48,9 +64,24 @@ public class Notice extends database {
             {
                 return result.getString("path");
             }
+
         } catch (Exception e)
         {
             System.out.println("notice access error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
         return "null";
     }
@@ -62,8 +93,9 @@ public class Notice extends database {
         ResultSet result;
         ObservableList<String> da = FXCollections.observableArrayList();
         String sql="SELECT * FROM notice_data";
-        connect= database.connectDB();
+
         try {
+            connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
             People people;
@@ -72,9 +104,11 @@ public class Notice extends database {
             {
                 da.add(result.getString("label"));
             }
+
         }catch (Exception e) {
             System.out.println("noitce lebel database error");
         }
+
         return da;
     }
     public ObservableList<String> date()
@@ -85,8 +119,9 @@ public class Notice extends database {
         ResultSet result;
         ObservableList<String> da = FXCollections.observableArrayList();
         String sql="SELECT * FROM notice_data";
-        connect= database.connectDB();
+
         try {
+            connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
             People people;
@@ -95,6 +130,7 @@ public class Notice extends database {
             {
                 da.add(result.getString("date"));
             }
+
         }catch (Exception e) {
             System.out.println("noitce date database error");
         }

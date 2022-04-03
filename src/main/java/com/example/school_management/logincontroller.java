@@ -23,7 +23,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class logincontroller implements Initializable {
+public class logincontroller implements Initializable
+{
 
     @FXML
     private Hyperlink Forgotpass;
@@ -182,7 +183,6 @@ public class logincontroller implements Initializable {
     public void login() throws ClassNotFoundException
     {
         connect=database.connectDB();
-
         String sql="SELECT * FROM login_data WHERE username = ? and password = ?" ;
         try{
             prepare=connect.prepareStatement(sql);
@@ -203,7 +203,7 @@ public class logincontroller implements Initializable {
                 mainpage.setCenter(sz);
                 mainpage.setVisible(true);
                 mainpage.setDisable(false);
-                connect.close();
+
                /// System.out.println("login error12");
             }
             else
@@ -218,6 +218,20 @@ public class logincontroller implements Initializable {
         }catch (Exception e)
         {
             System.out.println("login error in database");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                resultset.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
     }
     public void signUp()
@@ -237,6 +251,7 @@ public class logincontroller implements Initializable {
                 alert.setHeaderText("       Username missing!!!!");
                 alert.setContentText("                               Please enter an username.");
                 alert.showAndWait();
+
             }
             else if(employeid.isEmpty())
             {
@@ -245,6 +260,7 @@ public class logincontroller implements Initializable {
                 alert.setHeaderText("       Employee ID number missing!!!!");
                 alert.setContentText("                               Please enter an Employee ID number.");
                 alert.showAndWait();
+
             }
             else if(p1.equals(p2))
             {
@@ -266,6 +282,7 @@ public class logincontroller implements Initializable {
                 sign_pass1.setText("");
                 sign_pass2.setText("");
 
+
            }
            else if(p1!=p2)
             {
@@ -274,10 +291,25 @@ public class logincontroller implements Initializable {
                 alert.setHeaderText("       Password didn't match!!!!");
                 alert.setContentText("                               Please try again.");
                 alert.showAndWait();
+
             }
         }catch(Exception e) {
             System.out.println("signup database error");
             e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                resultset.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
         }
 
     }
