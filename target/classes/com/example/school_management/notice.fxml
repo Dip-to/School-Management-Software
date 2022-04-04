@@ -18,12 +18,12 @@
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="314.0" layoutY="8.0" text="Notice title" textFill="WHITE">
+                  <Label layoutX="286.0" layoutY="12.0" text="Notice title" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="544.0" layoutY="11.0" text="Date" textFill="#f7f5f5">
+                  <Label layoutX="501.0" layoutY="12.0" text="Date (DD-MM-YY)" textFill="#f7f5f5">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
@@ -31,16 +31,16 @@
                </children>
             </AnchorPane>
             <Button fx:id="button_1" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="73.0" mnemonicParsing="false" onAction="#button_1_click" prefHeight="50.0" prefWidth="678.0" styleClass="button_1" stylesheets="@notice_style.css" text="Notice for upcomming monthly test" />
-            <Label fx:id="no1" layoutX="44.0" layoutY="89.0" text="2022405" />
+            <Label fx:id="no1" layoutX="44.0" layoutY="89.0" text="1" />
             <Label fx:id="date_1" layoutX="557.0" layoutY="89.0" text="2022/04/28" />
             <Button fx:id="button_2" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="138.0" mnemonicParsing="false" onAction="#button_2_click" prefHeight="50.0" prefWidth="678.0" text="Notice for class time during Ramadan" />
             <Button fx:id="button_3" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="205.0" mnemonicParsing="false" onAction="#button_3_click" prefHeight="50.0" prefWidth="678.0" text="Notice for change of class routine of class 9" />
             <Button fx:id="button_4" alignment="BASELINE_CENTER" layoutX="21.0" layoutY="271.0" mnemonicParsing="false" onAction="#button_4_click" prefHeight="50.0" prefWidth="678.0" text="Notice for cultural week " />
             <Button fx:id="button_5" alignment="BASELINE_CENTER" layoutX="21.0" layoutY="337.0" mnemonicParsing="false" onAction="#button_5_click" prefHeight="50.0" prefWidth="678.0" text="Notice for rules of lending library books" />
-            <Label fx:id="no2" layoutX="44.0" layoutY="155.0" text="2022406" />
-            <Label fx:id="no3" layoutX="44.0" layoutY="221.0" text="2022407" />
-            <Label fx:id="no4" layoutX="44.0" layoutY="289.0" text="2022408" />
-            <Label fx:id="no5" layoutX="44.0" layoutY="353.0" text="2022409" />
+            <Label fx:id="no2" layoutX="44.0" layoutY="155.0" text="2" />
+            <Label fx:id="no3" layoutX="44.0" layoutY="221.0" text="3" />
+            <Label fx:id="no4" layoutX="44.0" layoutY="289.0" text="4" />
+            <Label fx:id="no5" layoutX="44.0" layoutY="353.0" text="5" />
             <Label fx:id="date_2" layoutX="557.0" layoutY="155.0" text="2022/04/28" />
             <Label fx:id="date_3" layoutX="557.0" layoutY="221.0" text="2022/04/28" />
             <Label fx:id="date_4" layoutX="557.0" layoutY="287.0" text="2022/04/28" />
