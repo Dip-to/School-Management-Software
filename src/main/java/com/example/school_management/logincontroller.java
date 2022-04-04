@@ -25,6 +25,11 @@ import java.util.ResourceBundle;
 
 public class logincontroller implements Initializable
 {
+    @FXML
+    private CheckBox chck_box;
+
+    @FXML
+    private TextField show_pass;
 
     @FXML
     private Hyperlink Forgotpass;
@@ -100,6 +105,21 @@ public class logincontroller implements Initializable
             login_pass.setStyle("-fx-background-color: #fff;"+"-fx-border-width: 2px");
         }
     }
+    public void show_pass_click(ActionEvent e)
+    {
+        if(chck_box.isSelected())
+        {
+            show_pass.setText(login_pass.getText());
+            show_pass.setVisible(true);
+            login_pass.setVisible(false);
+            return;
+        }
+        login_pass.setText(show_pass.getText());
+        login_pass.setVisible(true);
+        show_pass.setVisible(false);
+
+
+    }
     public void signup_textfielddesign()
     {
         if(sign_username1.isFocused())
@@ -150,6 +170,9 @@ public class logincontroller implements Initializable
             signup_page.setVisible(false);
             login_pass.setText("");
             login_username.setText("");
+            chck_box.setSelected(false);
+            show_pass.setVisible(false);
+            login_pass.setVisible(true);
 
         }
         else if(e.getSource()==Forgotpass)
