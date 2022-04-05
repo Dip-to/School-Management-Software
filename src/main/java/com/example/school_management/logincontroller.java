@@ -7,14 +7,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -26,16 +30,25 @@ import java.util.ResourceBundle;
 public class logincontroller implements Initializable
 {
     @FXML
-    private CheckBox chck_box;
-
-    @FXML
-    private TextField show_pass;
-
-    @FXML
     private Hyperlink Forgotpass;
 
     @FXML
+    private Button Student_count_button;
+
+    @FXML
+    private Button about_icon;
+
+    @FXML
     private Hyperlink alrdyhaveacc;
+
+    @FXML
+    private AnchorPane base_pane;
+
+    @FXML
+    private CheckBox chck_box;
+
+    @FXML
+    private Button classes_icon;
 
     @FXML
     private Button close_button;
@@ -47,7 +60,52 @@ public class logincontroller implements Initializable
     private Hyperlink create_acc;
 
     @FXML
+    private BorderPane dash_main;
+
+    @FXML
+    private AnchorPane dash_main_anchorpane;
+
+    @FXML
+    private AnchorPane dashboard_rightpane;
+
+    @FXML
+    private Separator dashboard_separator;
+
+    @FXML
+    private Label db_stat;
+
+    @FXML
+    private ImageView demo_imgview;
+
+    @FXML
+    private Button exit_button;
+
+    @FXML
+    private Button exit_icon;
+
+    @FXML
+    private ImageView exit_img;
+
+    @FXML
+    private Button home_button;
+
+    @FXML
+    private ImageView home_icon_img;
+
+    @FXML
+    private ImageView imgg_view;
+
+    @FXML
+    private AnchorPane left_dash_pane;
+
+    @FXML
+    private Button log_out_button;
+
+    @FXML
     private Button login_button;
+
+    @FXML
+    private Button login_img_button;
 
     @FXML
     private AnchorPane login_page;
@@ -59,12 +117,22 @@ public class logincontroller implements Initializable
     private TextField login_username;
 
     @FXML
-    private BorderPane mainpage;
+    private Button logout_icon;
+
+    @FXML
+    private ImageView logout_img;
+
+    @FXML
+    private Button notice_icon;
+
+    @FXML
+    private Button result_icon;
+
+    @FXML
+    private TextField show_pass;
 
     @FXML
     private TextField sign_employeeid;
-    @FXML
-    private Label db_stat;
 
     @FXML
     private PasswordField sign_pass1;
@@ -82,8 +150,160 @@ public class logincontroller implements Initializable
     private AnchorPane signup_page;
 
     @FXML
-    private AnchorPane base_pane;
+    private Button student_icon;
 
+    @FXML
+    private Button stuff_count_button;
+
+    @FXML
+    private Button stuff_icon;
+
+    @FXML
+    private Button teacher_count_button;
+
+    @FXML
+    private Button teacher_icon;
+
+    @FXML
+    private Label username;
+
+
+
+    ////dash
+    public String login_img_path;
+    public void dash_init()
+    {
+        username.setText(user);
+        // System.out.p rintln(im_path);
+        String tmp=im_path;
+        if(tmp.equals("null"))
+        {
+            login_img_button.setText("Insert Image");
+        }
+        else
+        {
+            String pic="file:"+ tmp;
+            Image img= new Image(pic,110,110,false,true);
+            imgg_view.setImage(img);
+            login_img_button.setText("");
+        }
+    }
+    public void stud()  {
+        try {
+            // dashboard_pane.setVisible(false);
+            dashboard_rightpane.setVisible(false);
+            paneLoader pp= new paneLoader();
+            Pane view=pp.getfxmlfile("Studcrud");
+            dash_main.setCenter(view);
+            dash_main.setVisible(true);
+            dash_main.setDisable(false);
+        }catch (Exception e)
+        {
+            System.out.println("stud crud fail");
+        }
+    }
+    public void notice()
+    {
+        try {
+            // dashboard_pane.setVisible(false);
+            dashboard_rightpane.setVisible(false);
+            paneLoader pp= new paneLoader();
+            Pane view=pp.getfxmlfile("notice");
+            dash_main.setCenter(view);
+            dash_main.setVisible(true);
+            dash_main.setDisable(false);
+        }catch (Exception e)
+        {
+            System.out.println("notice fail");
+        }
+    }
+    public void class_routine()
+    {
+        try {
+            // dashboard_pane.setVisible(false);
+            dashboard_rightpane.setVisible(false);
+            paneLoader pp= new paneLoader();
+            Pane view=pp.getfxmlfile("classes");
+            dash_main.setCenter(view);
+            dash_main.setVisible(true);
+            dash_main.setDisable(false);
+        }catch (Exception e)
+        {
+            System.out.println("notice fail");
+        }
+    }
+    public void home_click()
+    {
+        dashboard_rightpane.setVisible(true);
+        dash_main.setVisible(false);
+        dash_main.setDisable(true);
+        dash_init();
+    }
+    public void log_out_click()
+    {
+        dashboard_rightpane.setVisible(true);
+        dash_main.setVisible(false);
+        dash_main.setDisable(true);
+        dash_main_anchorpane.setVisible(false);
+        login_pass.setText("");
+        login_username.setText("");
+        chck_box.setSelected(false);
+        show_pass.setVisible(false);
+        login_pass.setVisible(true);
+        login_page.setVisible(true);
+
+    }
+
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+    public void Img_Insert()
+    {
+
+        FileChooser open= new FileChooser();
+        Stage stage=(Stage) left_dash_pane.getScene().getWindow();
+        File file=open.showOpenDialog(stage);
+        if(file!=null)
+        {
+
+            String img_path=file.getAbsolutePath();
+            img_path=img_path.replace("\\","\\\\\\\\");
+            login_img_path=img_path;
+            Image image= new Image(file.toURI().toString(),110,110,false,true);
+            imgg_view.setImage(image);
+            connect= database.connectDB();
+            String sql="UPDATE login_data SET `image` = '"+img_path+"' WHERE username = '"+logincontroller.user+"'";
+            // System.out.println(img_path);
+            try {
+                statement=connect.createStatement();
+                statement.executeUpdate(sql);
+                login_img_button.setText("");
+
+            }catch (Exception e)
+            {
+                System.out.println("login image database error");
+            }
+            finally {
+                try {
+                    connect.close();
+                    result.close();
+                    prepare.close();
+                    statement.close();
+
+                }catch (Exception e)
+                {
+
+                }
+            }
+
+            // System.out.println("bye");
+        }
+        else
+        {
+            System.out.println("login pic missing");
+        }
+    }
 
     ////////
     private Pane sz;
@@ -199,10 +419,10 @@ public class logincontroller implements Initializable
     public static String user;
     public static String im_path;
     public static Integer user_id;
-    private Connection connect;
-    private Statement statement;
+    //private Connection connect;
+    //private Statement statement;
     private ResultSet resultset;
-    private PreparedStatement prepare;
+   // private PreparedStatement prepare;
     public void login() throws ClassNotFoundException
     {
         connect=database.connectDB();
@@ -221,11 +441,8 @@ public class logincontroller implements Initializable
                 user=tmp_username;
                 im_path=resultset.getString("image");
                 login_page.setVisible(false);
-                paneLoader obj=new paneLoader();
-                sz = obj.getfxmlfile("dashboard");
-                mainpage.setCenter(sz);
-                mainpage.setVisible(true);
-                mainpage.setDisable(false);
+                dash_main_anchorpane.setVisible(true);
+                dash_init();
 
                /// System.out.println("login error12");
             }
