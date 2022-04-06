@@ -7,6 +7,8 @@ module com.example.demo {
     exports com.example.school_management;
     exports com.example.crud;
     opens com.example.crud to javafx.fxml;
+    exports com.example.controller;
+    opens com.example.controller to javafx.fxml;
 
     requires java.sql;
     requires jasperreports;

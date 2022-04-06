@@ -1,5 +1,6 @@
-package com.example.school_management;
+package com.example.controller;
 
+import com.example.school_management.Notice;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

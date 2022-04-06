@@ -1,6 +1,5 @@
 package com.example.school_management;
 
-import com.example.crud.People;
 import com.example.crud.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -98,7 +97,6 @@ public class Notice extends database {
             connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
-            People people;
 
             while(result.next())
             {
@@ -124,7 +122,7 @@ public class Notice extends database {
             connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
-            People people;
+
 
             while(result.next())
             {

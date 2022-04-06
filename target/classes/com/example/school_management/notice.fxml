@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="notice_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.noticeController">
+<AnchorPane fx:id="notice_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.noticeController">
    <children>
       <AnchorPane fx:id="notice_pane1" layoutX="11.0" prefHeight="240.0" prefWidth="774.0" styleClass="notice_bg" stylesheets="@notice_style.css" />
       <AnchorPane fx:id="notice_pane2" layoutX="-1.0" layoutY="272.0" prefHeight="428.0" prefWidth="800.0">

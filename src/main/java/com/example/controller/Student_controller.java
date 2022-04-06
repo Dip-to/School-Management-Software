@@ -1,6 +1,7 @@
-package com.example.crud;
+package com.example.controller;
 
 
+import com.example.crud.Student;
 import com.example.school_management.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,12 +16,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
@@ -34,7 +33,7 @@ public class Student_controller implements Initializable {
     private AnchorPane stud_crud;
 
     @FXML
-    private TableColumn<People, String> Gender_table;
+    private TableColumn<Student, String> Gender_table;
 
     @FXML
     private Button crud_clear;
@@ -76,19 +75,19 @@ public class Student_controller implements Initializable {
     private Label file_path;
 
     @FXML
-    private TableView<People> table_view;
+    private TableView<Student> table_view;
 
     @FXML
-    private TableColumn<People, String> class_table;
+    private TableColumn<Student, String> class_table;
 
     @FXML
-    private TableColumn<People, Integer> id_table;
+    private TableColumn<Student, Integer> id_table;
 
     @FXML
-    private TableColumn<People, String> mobile_table;
+    private TableColumn<Student, String> mobile_table;
 
     @FXML
-    private TableColumn<People, String> name_table;
+    private TableColumn<Student, String> name_table;
 
     private String[] Combo_gender={"Male","Female","Others"};
     private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
@@ -230,23 +229,22 @@ public class Student_controller implements Initializable {
         }
     }
 
-    public ObservableList<People> datalist()
+    public ObservableList<Student> datalist()
     {
-        ObservableList<People> datalist = FXCollections.observableArrayList();
+        ObservableList<Student> datalist = FXCollections.observableArrayList();
         String sql="SELECT * FROM student_data";
 
         try {
             connect= database.connectDB();
             prepare = connect.prepareStatement(sql);
             result=prepare.executeQuery();
-            People people;
+
 
             while(result.next())
             {
-                People student= new Student (result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
+                Student student= new Student (result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
 
-                people = (People) new People(result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
-                datalist.add(people);
+                  datalist.add(student);
             }
 
         }catch (Exception e) {
@@ -270,7 +268,7 @@ public class Student_controller implements Initializable {
     }
     public void showData()
     {
-        ObservableList<People> showlist = datalist();
+        ObservableList<Student> showlist = datalist();
         id_table.setCellValueFactory(new PropertyValueFactory<>("crud_id"));
         name_table.setCellValueFactory(new PropertyValueFactory<>("curd_name"));
         class_table.setCellValueFactory(new PropertyValueFactory<>("curd_class"));
@@ -353,27 +351,27 @@ public class Student_controller implements Initializable {
     }
     public void selectData()
     {
-        People people = table_view.getSelectionModel().getSelectedItem();
+        Student studnt = table_view.getSelectionModel().getSelectedItem();
         int no=table_view.getSelectionModel().getSelectedIndex();
         if((no-1)<-1)
         {
             return;
         }
-        crud_id.setText(String.valueOf(people.getCrud_id()));
-        crud_name.setText(String.valueOf(people.getCurd_name()));
+        crud_id.setText(String.valueOf(studnt.getCrud_id()));
+        crud_name.setText(String.valueOf(studnt.getCurd_name()));
       //  crud_gender.getSelectionModel().select(Integer.parseInt(data.getCurd_gender()));
         crud_gender.getSelectionModel().clearSelection();
      //   crud_class.getSelectionModel().select(Integer.parseInt(data.getCurd_class()));
         //crud_class.getSelectionModel().clearSelection();
         crud_class.getSelectionModel().clearSelection();
-        String pic="file:"+ people.getCurd_picture();
+        String pic="file:"+ studnt.getCurd_picture();
         Image img= new Image(pic,110,110,false,true);
         img_view.setImage(img);
 
-        String tmp= people.getCurd_picture();
+        String tmp= studnt.getCurd_picture();
 
         file_path.setText(tmp);
-        crud_mobile.setText(String.valueOf(people.getCurd_mobile()));
+        crud_mobile.setText(String.valueOf(studnt.getCurd_mobile()));
     }
     public void update_Crud()
     {

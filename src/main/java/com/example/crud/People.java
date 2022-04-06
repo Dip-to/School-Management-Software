@@ -1,13 +1,13 @@
 package com.example.crud;
 
-public class People {
+abstract class People {
 
-    private final Integer crud_id;
-    private final String crud_name;
-    private final String curd_class;
-    private final String curd_gender;
-    private final String curd_picture;
-    private final String curd_mobile;
+    public  Integer crud_id;
+    public  String crud_name;
+    public  String curd_class;
+    public  String curd_gender;
+    public String curd_picture;
+    public  String curd_mobile;
 
     People(Integer crud_id, String crud_name, String curd_class, String curd_gender, String curd_picture, String crud_mobile)
     {
