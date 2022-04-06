@@ -186,7 +186,11 @@ public class Student_controller implements Initializable {
         {
             connect=database.connectDB();
             JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/stud_"+"all"+".jrxml");
-            if(ccc.equals("all"));
+            String clastitle="Class: "+ccc;
+            if(ccc.equals("all"))
+            {
+                clastitle="Class: All";
+            }
             else
             {
                 JRDesignQuery jq= new JRDesignQuery();
@@ -194,9 +198,12 @@ public class Student_controller implements Initializable {
                 jdesign.setQuery(jq);
 
             }
+            String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
+            Map<String,Object> para=new HashMap<String,Object>();
+            para.put("class_name",clastitle);
 
             JasperReport jreport= JasperCompileManager.compileReport(jdesign);
-            JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
+            JasperPrint jprint= JasperFillManager.fillReport(jreport,para,connect);
             JasperViewer viewer= new JasperViewer(jprint,false);
             viewer.setTitle("Report");
             viewer.show();
