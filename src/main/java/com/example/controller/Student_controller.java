@@ -33,6 +33,13 @@ public class Student_controller implements Initializable {
     private AnchorPane stud_crud;
 
     @FXML
+    private AnchorPane crud_anchorpane;
+
+    @FXML
+    private AnchorPane crud_class_select_pane;
+
+
+    @FXML
     private TableColumn<Student, String> Gender_table;
 
     @FXML
@@ -73,6 +80,9 @@ public class Student_controller implements Initializable {
 
     @FXML
     private Label file_path;
+
+    @FXML
+    private AnchorPane stud_crid_mainpane;
 
     @FXML
     private TableView<Student> table_view;
@@ -174,7 +184,7 @@ public class Student_controller implements Initializable {
         try
         {
             connect=database.connectDB();
-            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/stud_all.jrxml");
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/stud_"+ccc+".jrxml");
             JasperReport jreport= JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
             JasperViewer viewer= new JasperViewer(jprint,false);
@@ -207,7 +217,7 @@ public class Student_controller implements Initializable {
                 statement=connect.createStatement();
                 statement.executeUpdate(sql);
             }
-            showData();
+            showData(ccc);
             clear();
 
         } catch (SQLException e) {
@@ -229,10 +239,13 @@ public class Student_controller implements Initializable {
         }
     }
 
-    public ObservableList<Student> datalist()
+    public ObservableList<Student> datalist(String cls)
     {
         ObservableList<Student> datalist = FXCollections.observableArrayList();
-        String sql="SELECT * FROM student_data";
+
+        String sql;
+        if(cls.equals("all")) sql ="SELECT * FROM student_data";
+        else sql = "SELECT * FROM student_data WHERE `class` = '"+cls+"'";
 
         try {
             connect= database.connectDB();
@@ -244,7 +257,7 @@ public class Student_controller implements Initializable {
             {
                 Student student= new Student (result.getInt("id"),result.getString("name"),result.getString("class"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
 
-                  datalist.add(student);
+                datalist.add(student);
             }
 
         }catch (Exception e) {
@@ -266,9 +279,9 @@ public class Student_controller implements Initializable {
         }
         return datalist;
     }
-    public void showData()
+    public void showData(String clss)
     {
-        ObservableList<Student> showlist = datalist();
+        ObservableList<Student> showlist = datalist(clss);
         id_table.setCellValueFactory(new PropertyValueFactory<>("crud_id"));
         name_table.setCellValueFactory(new PropertyValueFactory<>("curd_name"));
         class_table.setCellValueFactory(new PropertyValueFactory<>("curd_class"));
@@ -326,7 +339,7 @@ public class Student_controller implements Initializable {
                 prepare.setString(6,crud_mobile.getText());
                 prepare.execute();
                 System.out.println("ok12");
-                showData();
+                showData(ccc);
                 clear();
             }
 
@@ -399,7 +412,7 @@ public class Student_controller implements Initializable {
                 alert.setHeaderText("       ");
                 alert.setContentText("                             Successfully updated the data. ");
                 alert.showAndWait();
-                showData();
+                showData(ccc);
                 clear();
             }
 
@@ -421,11 +434,86 @@ public class Student_controller implements Initializable {
             }
         }
     }
+
+    //xtra
+    public String ccc;
+    public void click_but()
+    {
+        crud_class_select_pane.setVisible(false);
+        crud_anchorpane.setVisible(true);
+    }
+    public void button_all()
+    {
+        click_but();
+        ccc="all";
+        showData(ccc);
+    }
+    public void button_one()
+    {
+        ccc="One";
+        click_but();
+        showData(ccc);
+    }
+    public void button_two()
+    {
+        ccc="Two";
+        click_but();
+        showData(ccc);
+    }
+    public void button_three()
+    {
+        ccc="Three";
+        click_but();
+        showData(ccc);
+    }
+    public void button_four()
+    {
+        click_but();
+        ccc="Four";
+        showData(ccc);
+    }
+    public void button_five()
+    {
+        ccc="Five";
+        click_but();
+        showData(ccc);
+    }
+    public void button_six()
+    {
+        ccc="Six";
+        click_but();
+        showData(ccc);
+    }
+    public void button_seven()
+    {
+        ccc="Seven";
+        click_but();
+        showData(ccc);
+    }
+    public void button_eight()
+    {
+        ccc="Eight";
+        click_but();
+        showData(ccc);
+    }
+    public void button_nine()
+    {
+        ccc="Nine";
+        click_but();
+        showData(ccc);
+    }
+    public void button_ten()
+    {
+        ccc="Ten";
+        click_but();
+        showData(ccc);
+    }
+
     @Override
     public void initialize(URL uurl, ResourceBundle resourse)
     {
         Combo_box();
-        showData();
+
 
     }
 

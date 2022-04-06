@@ -10,7 +10,7 @@ public class paneLoader {
     private Pane view;
     public Pane getfxmlfile(String s) throws IOException
     {
-        System.out.println("find "+s);
+
         URL ff= School.class.getResource(s+".fxml");
         if(ff==null)
         {
