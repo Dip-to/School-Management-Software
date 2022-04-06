@@ -9,5 +9,6 @@ module com.example.demo {
     opens com.example.crud to javafx.fxml;
 
     requires java.sql;
+    requires jasperreports;
 
 }

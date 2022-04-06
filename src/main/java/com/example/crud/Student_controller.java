@@ -13,14 +13,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Student_controller implements Initializable {
 
@@ -167,6 +170,27 @@ public class Student_controller implements Initializable {
         crud_mobile.setText("");
 
     }
+    public void print_rep()
+    {
+        try
+        {
+            connect=database.connectDB();
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/stud_all.jrxml");
+            JasperReport jreport= JasperCompileManager.compileReport(jdesign);
+            JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
+            JasperViewer viewer= new JasperViewer(jprint,false);
+            viewer.setTitle("Report");
+            viewer.show();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+
+
+    }
+
+
     public void delete()
     {
         String sql="DELETE from student_data WHERE `id` ='"+crud_id.getText()+"'";
