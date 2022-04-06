@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -184,7 +185,16 @@ public class Student_controller implements Initializable {
         try
         {
             connect=database.connectDB();
-            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/stud_"+ccc+".jrxml");
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/stud_"+"all"+".jrxml");
+            if(ccc.equals("all"));
+            else
+            {
+                JRDesignQuery jq= new JRDesignQuery();
+                jq.setText("SELECT * FROM student_data WHERE `class` = '"+ccc+"'");
+                jdesign.setQuery(jq);
+
+            }
+
             JasperReport jreport= JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
             JasperViewer viewer= new JasperViewer(jprint,false);
