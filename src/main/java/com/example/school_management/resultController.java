@@ -227,51 +227,61 @@ public class resultController implements Initializable {
     public String cc;
     public void res_one_btn_click()
     {
+        cc="one";
         resinit();
         showData();
     }
     public void res_two_btn_click()
     {
+        cc="two";
         resinit();
         showData();
     }
     public void res_three_btn_click()
     {
+        cc="three";
         resinit();
         showData();
     }
     public void res_four_btn_click()
     {
+        cc="four";
         resinit();
         showData();
     }
     public void res_five_btn_click()
     {
+        cc="five";
         resinit();
         showData();
     }
     public void res_six_btn_click()
     {
+        cc="six";
         resinit();
         showData();
     }
     public void res_seven_btn_click()
     {
+        cc="seven";
         resinit();
         showData();
     }
     public void res_eight_btn_click()
     {
+        cc="eight";
         resinit();
         showData();
     }
     public void res_nine_btn_click()
     {
+        cc="nine";
         resinit();
         showData();
     }
     public void res_ten_btn_click()
     {
+        cc="ten";
         resinit();
         showData();
     }
