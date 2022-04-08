@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 public class Teacher_controller implements Initializable  {
 
     @FXML
-    private TableColumn<?, ?> Gender_table;
+    private TableColumn<Teacher,String> Gender_table;
 
     @FXML
     private AnchorPane crud_anchorpane;
@@ -69,7 +69,7 @@ public class Teacher_controller implements Initializable  {
     private Label file_path;
 
     @FXML
-    private TableColumn<?, ?> id_table;
+    private TableColumn<Teacher,Integer> id_table;
 
     @FXML
     private ImageView img_view;
@@ -78,13 +78,13 @@ public class Teacher_controller implements Initializable  {
     private AnchorPane left_crud_pane;
 
     @FXML
-    private TableColumn<?, ?> mobile_table;
+    private TableColumn<Teacher,String> mobile_table;
 
     @FXML
-    private TableColumn<?, ?> name_table;
+    private TableColumn<Teacher,String> name_table;
 
     @FXML
-    private TableColumn<?, ?> subject_table;
+    private TableColumn<Teacher,String> subject_table;
 
     @FXML
     private TableView<Teacher> table_view;
@@ -336,12 +336,14 @@ public class Teacher_controller implements Initializable  {
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
             crud_subject.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
         else if(crud_name.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
             crud_name.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_subject.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
 
         else if(crud_subject.isFocused()){
@@ -349,12 +351,22 @@ public class Teacher_controller implements Initializable  {
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_subject.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
         else if(crud_gender.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_subject.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
+        }
+
+        else if(crud_mobile.isFocused()){
+            crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
+            crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_subject.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
 
     }
