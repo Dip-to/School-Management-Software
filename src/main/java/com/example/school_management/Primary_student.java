@@ -1,6 +1,6 @@
 package com.example.school_management;
 
-public class class_res
+public class Primary_student
 {
     public  Integer roll;
     public  String name;
@@ -11,7 +11,7 @@ public class class_res
 
 
 
-    class_res(Integer crud_id, String crud_name, String curd_gender, Integer b, Integer e, Integer m)
+    Primary_student(Integer crud_id, String crud_name, String curd_gender, Integer b, Integer e, Integer m)
     {
         this.roll=crud_id;
         this.name=crud_name;

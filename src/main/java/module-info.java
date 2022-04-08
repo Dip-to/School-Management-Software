@@ -13,4 +13,12 @@ module com.example.demo {
     requires java.sql;
     requires jasperreports;
 
+    requires poi.ooxml.plus;
+    requires sstool.poi.expand;
+    requires poi.ooxml;
+    requires poi.ooxml.schemas;
+    requires xmlbeans;
+    requires commons.collections;
+    requires poi;
+
 }

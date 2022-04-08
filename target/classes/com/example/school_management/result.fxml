@@ -23,7 +23,7 @@
             <Button fx:id="res_eight_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="546.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Eight" />
             <Button fx:id="res_nine_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Nine" />
             <Button fx:id="res_ten_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="649.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Ten" />
-            <Button fx:id="update_1" layoutX="682.0" layoutY="195.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_1" layoutX="682.0" layoutY="195.0" mnemonicParsing="false" onAction="#b1" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_2" layoutX="682.0" layoutY="243.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_3" layoutX="682.0" layoutY="292.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_4" layoutX="682.0" layoutY="343.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
