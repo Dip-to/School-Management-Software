@@ -219,6 +219,7 @@ public class logincontroller implements Initializable
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
             Pane view=pp.getfxmlfile("Teachercrud");
+
             dash_main.setCenter(view);
             dash_main.setVisible(true);
             dash_main.setDisable(false);
