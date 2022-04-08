@@ -249,6 +249,8 @@ public class resultController implements Initializable {
     {
         resinit();
         showData();
+
+
     }
 
     public void b1() {cc="one"; getexcel("one");}
