@@ -196,7 +196,7 @@ public class logincontroller implements Initializable
             dash_main.setDisable(false);
         }catch (Exception e)
         {
-            System.out.println("stud crud fail");
+            System.out.println("result fail");
         }
     }
     public void stud()  {
@@ -232,13 +232,13 @@ public class logincontroller implements Initializable
             // dashboard_pane.setVisible(false);
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
-            Pane view=pp.getfxmlfile("staff");
+            Pane view=pp.getfxmlfile("Staffcrud");
             dash_main.setCenter(view);
             dash_main.setVisible(true);
             dash_main.setDisable(false);
         }catch (Exception e)
         {
-            System.out.println("stud crud fail");
+            System.out.println("staff crud fail");
         }
     }
     public void notice()
