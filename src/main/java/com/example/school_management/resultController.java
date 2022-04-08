@@ -265,6 +265,16 @@ public class resultController implements Initializable {
         resinit();
         showData();
     }
+    public void res_nine_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_ten_btn_click()
+    {
+        resinit();
+        showData();
+    }
 
     public void b1() {cc="one"; getexcel("one");}
     public void b2() {cc="two"; getexcel("two");}
