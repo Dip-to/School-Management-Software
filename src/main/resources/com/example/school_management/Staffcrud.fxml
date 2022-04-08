@@ -67,9 +67,9 @@
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="crud_id" layoutX="116.0" layoutY="32.0" />
-                  <TextField fx:id="crud_name" layoutX="116.0" layoutY="72.0" />
-                  <TextField fx:id="crud_mobile" layoutX="112.0" layoutY="200.0" />
+                  <TextField fx:id="crud_id" layoutX="123.0" layoutY="28.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="33.0" prefWidth="208.0" styleClass="textfield-design" stylesheets="@design.css" />
+                  <TextField fx:id="crud_name" layoutX="123.0" layoutY="68.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="33.0" prefWidth="208.0" styleClass="textfield-design" stylesheets="@design.css" />
+                  <TextField fx:id="crud_mobile" layoutX="123.0" layoutY="196.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="33.0" prefWidth="208.0" styleClass="textfield-design" stylesheets="@design.css" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="345.0" prefHeight="700.0" prefWidth="455.0">

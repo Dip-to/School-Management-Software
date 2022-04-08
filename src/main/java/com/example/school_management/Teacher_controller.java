@@ -15,14 +15,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.File;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Teacher_controller implements Initializable  {
 
@@ -299,8 +304,24 @@ public class Teacher_controller implements Initializable  {
     }
 
     @FXML
-    void print_rep(ActionEvent event) {
+    void print_rep() {
+        try
+        {
+            connect=database.connectDB();
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/teacher.jrxml");
+            JRDesignQuery jq= new JRDesignQuery();
+          //  String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
 
+            JasperReport jreport= JasperCompileManager.compileReport(jdesign);
+            JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
+            JasperViewer viewer= new JasperViewer(jprint,false);
+            viewer.setTitle("Report");
+            viewer.show();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
 
     @FXML
@@ -330,7 +351,8 @@ public class Teacher_controller implements Initializable  {
     }
 
     @FXML
-    void text_field_design(MouseEvent event) {
+    void text_field_design()
+    {
         if(crud_id.isFocused()){
             crud_id.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
@@ -424,6 +446,8 @@ public class Teacher_controller implements Initializable  {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Combo_box();
         showData();
+        crud_id.requestFocus();
+        crud_id.selectAll();
 
     }
 }

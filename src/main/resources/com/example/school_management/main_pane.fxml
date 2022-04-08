@@ -211,8 +211,8 @@
                   <Button fx:id="result_icon" layoutX="21.0" layoutY="508.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="157.0" styleClass="result_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="about_icon" layoutX="369.0" layoutY="511.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="157.0" styleClass="about_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="classes_icon" layoutX="21.0" layoutY="605.0" mnemonicParsing="false" onAction="#class_routine" prefHeight="82.0" prefWidth="157.0" styleClass="classes_icon" stylesheets="@dashboard_style.css" />
-                  <Button fx:id="logout_icon" layoutX="197.0" layoutY="606.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="157.0" styleClass="logout_icon" stylesheets="@dashboard_style.css" />
-                  <Button fx:id="exit_icon" layoutX="369.0" layoutY="608.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="157.0" styleClass="exit_icon" stylesheets="@dashboard_style.css" />
+                  <Button fx:id="logout_icon" layoutX="197.0" layoutY="606.0" mnemonicParsing="false" onAction="#log_out_click" prefHeight="82.0" prefWidth="157.0" styleClass="logout_icon" stylesheets="@dashboard_style.css" />
+                  <Button fx:id="exit_icon" layoutX="369.0" layoutY="608.0" mnemonicParsing="false" onAction="#exittt" prefHeight="82.0" prefWidth="157.0" styleClass="exit_icon" stylesheets="@dashboard_style.css" />
                   <AnchorPane layoutX="21.0" prefHeight="265.0" prefWidth="769.0" styleClass="home-bg" stylesheets="@dashboard_style.css">
                      <children>
                         <AnchorPane layoutX="304.0" prefHeight="266.0" prefWidth="474.0" styleClass="set_image" stylesheets="@dashboard_style.css" />
