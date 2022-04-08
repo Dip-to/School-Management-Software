@@ -1,14 +1,20 @@
 package com.example.school_management;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class resultController implements Initializable {
@@ -55,7 +61,7 @@ public class resultController implements Initializable {
     private Button res_six_btn;
 
     @FXML
-    private TableView<?> res_table_view12;
+    private TableView<class_res> res_table_view12;
 
     @FXML
     private Button res_ten_btn;
@@ -111,6 +117,61 @@ public class resultController implements Initializable {
         result_sub_pane2.setVisible(false);
         cls1_to_2_pane.setVisible(true);
         result_back_button.setVisible(true);
+        showData();
+    }
+
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+    public ObservableList<class_res> datalist()
+    {
+        ObservableList<class_res> datalist = FXCollections.observableArrayList();
+
+
+        String sql = "SELECT * FROM one";
+
+        try {
+            connect= database.Result_connectDB();
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+
+            while(result.next())
+            {
+                class_res student= new class_res (result.getInt("id"),result.getString("name"),result.getString("class"),result.getInt("bangla"),result.getInt("english"),result.getInt("math"));
+                System.out.println(result.getString("name"));
+                datalist.add(student);
+            }
+
+        }catch (Exception e) {
+            System.out.println("result database error " + e);
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
+        return datalist;
+    }
+    public void showData()
+    {
+        ObservableList<class_res> showlist = datalist();
+        res_roll12.setCellValueFactory(new PropertyValueFactory<>("roll"));
+        res_name12.setCellValueFactory(new PropertyValueFactory<>("name"));
+        res_cls12.setCellValueFactory(new PropertyValueFactory<>("class_name"));
+        bangla12.setCellValueFactory(new PropertyValueFactory<>("ban"));
+        english12.setCellValueFactory(new PropertyValueFactory<>("en"));
+        math12.setCellValueFactory(new PropertyValueFactory<>("mth"));
+       res_table_view12.setItems(showlist);
 
     }
 

@@ -23,6 +23,23 @@ public class database extends School {
         }
         return null;
     }
+    public static Connection Result_connectDB() {
+        try
+        {
+
+            Class.forName("org.sqlite.JDBC");
+            Connection connect= DriverManager.getConnection("jdbc:sqlite:src/main/resources/com/example/school_management/database/result_database.db");
+            if(connect==null)
+            {
+                System.out.println("result database load error");
+            }
+            return connect;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("result database load error");
+        }
+        return null;
+    }
     public void classroom(String img_path,int y)
     {
         Connection connect = null;
