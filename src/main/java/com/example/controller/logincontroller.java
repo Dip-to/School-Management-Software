@@ -185,6 +185,20 @@ public class logincontroller implements Initializable
             login_img_button.setText("");
         }
     }
+    public void rslt()  {
+        try {
+            // dashboard_pane.setVisible(false);
+            dashboard_rightpane.setVisible(false);
+            paneLoader pp= new paneLoader();
+            Pane view=pp.getfxmlfile("result");
+            dash_main.setCenter(view);
+            dash_main.setVisible(true);
+            dash_main.setDisable(false);
+        }catch (Exception e)
+        {
+            System.out.println("stud crud fail");
+        }
+    }
     public void stud()  {
         try {
             // dashboard_pane.setVisible(false);
@@ -218,13 +232,13 @@ public class logincontroller implements Initializable
             // dashboard_pane.setVisible(false);
             dashboard_rightpane.setVisible(false);
             paneLoader pp= new paneLoader();
-            Pane view=pp.getfxmlfile("Staffcrud");
+            Pane view=pp.getfxmlfile("staff");
             dash_main.setCenter(view);
             dash_main.setVisible(true);
             dash_main.setDisable(false);
         }catch (Exception e)
         {
-            System.out.println("staff crud fail");
+            System.out.println("stud crud fail");
         }
     }
     public void notice()
