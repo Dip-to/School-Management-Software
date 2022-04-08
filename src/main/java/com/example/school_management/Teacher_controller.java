@@ -171,7 +171,7 @@ public class Teacher_controller implements Initializable  {
             while(result.next())
             {
                 Teacher teacher= new Teacher (result.getInt("id"),result.getString("name"),result.getString("subject"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
-                System.out.println(result.getString("name"));
+
                 datalist.add(teacher);
             }
 
