@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="tchr_crid_mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.Teacher_controller">
+<AnchorPane fx:id="tchr_crid_mainpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.Staff_controller">
    <children>
       <AnchorPane fx:id="crud_anchorpane" prefHeight="700.0" prefWidth="800.0">
          <children>
@@ -28,7 +28,7 @@
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="30.0" layoutY="114.0" prefHeight="23.0" prefWidth="74.0" text="Subject">
+                  <Label layoutX="2.0" layoutY="114.0" prefHeight="23.0" prefWidth="125.0" text="Designatoin:">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
@@ -38,7 +38,7 @@
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="crud_gender" layoutX="112.0" layoutY="155.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="26.0" prefWidth="220.0" promptText="Choose...." styleClass="textfield-design" stylesheets="@design.css" AnchorPane.leftAnchor="112.0" />
+                  <ComboBox fx:id="crud_gender" layoutX="124.0" layoutY="155.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="33.0" prefWidth="208.0" promptText="Choose...." styleClass="textfield-design" stylesheets="@design.css" AnchorPane.leftAnchor="124.0" />
                   <Label layoutX="27.0" layoutY="319.0" prefHeight="23.0" prefWidth="74.0" text="Picture:">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
@@ -61,15 +61,15 @@
                   <Button fx:id="crud_clear" layoutX="228.0" layoutY="433.0" mnemonicParsing="false" onAction="#clear" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Clear" />
                   <Button fx:id="crud_delete" layoutX="26.0" layoutY="530.0" mnemonicParsing="false" onAction="#delete" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Delete" />
                   <Button fx:id="crud_print" layoutX="228.0" layoutY="530.0" mnemonicParsing="false" onAction="#print_rep" prefHeight="82.0" prefWidth="90.0" styleClass="insert-button" stylesheets="@design.css" text="Print" />
-                  <ComboBox fx:id="crud_subject" layoutX="112.0" layoutY="109.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="26.0" prefWidth="220.0" promptText="Choose...." styleClass="textfield-design" stylesheets="@design.css" />
+                  <ComboBox fx:id="crud_subject" layoutX="124.0" layoutY="109.0" onKeyTyped="#text_field_design" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" prefHeight="33.0" prefWidth="208.0" promptText="Choose...." styleClass="textfield-design" stylesheets="@design.css" />
                   <Label layoutX="27.0" layoutY="201.0" prefHeight="23.0" prefWidth="74.0" text="Mobile:">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="crud_id" layoutX="127.0" layoutY="32.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" styleClass="textfield-design" stylesheets="@design.css" />
-                  <TextField fx:id="crud_name" layoutX="127.0" layoutY="72.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" styleClass="textfield-design" stylesheets="@design.css" />
-                  <TextField fx:id="crud_mobile" layoutX="116.0" layoutY="200.0" onMouseClicked="#text_field_design" onMouseDragged="#text_field_design" styleClass="textfield-design" stylesheets="@design.css" />
+                  <TextField fx:id="crud_id" layoutX="116.0" layoutY="32.0" />
+                  <TextField fx:id="crud_name" layoutX="116.0" layoutY="72.0" />
+                  <TextField fx:id="crud_mobile" layoutX="112.0" layoutY="200.0" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="345.0" prefHeight="700.0" prefWidth="455.0">
@@ -79,8 +79,8 @@
                      <columns>
                         <TableColumn fx:id="id_table" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="name_table" prefWidth="75.0" text="Name" />
-                        <TableColumn fx:id="subject_table" prefWidth="75.0" text="Subject" />
-                        <TableColumn fx:id="Gender_table" prefWidth="75.0" text="Gender" />
+                        <TableColumn fx:id="subject_table" prefWidth="98.0" text="Designation" />
+                        <TableColumn fx:id="Gender_table" prefWidth="52.0" text="Gender" />
                         <TableColumn fx:id="mobile_table" prefWidth="121.60002441406249" text="Mobile" />
                      </columns>
                   </TableView>

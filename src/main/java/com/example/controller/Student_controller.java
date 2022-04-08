@@ -142,13 +142,14 @@ public class Student_controller implements Initializable {
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
             crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
-
         else if(crud_name.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
             crud_name.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
 
         else if(crud_class.isFocused()){
@@ -156,12 +157,22 @@ public class Student_controller implements Initializable {
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_class.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
         }
         else if(crud_gender.isFocused()){
             crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
             crud_gender.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_mobile.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
+        }
+
+        else if(crud_mobile.isFocused()){
+            crud_id.setStyle("-fx-border-width:1px;-fx-background-color:transparent");
+            crud_name.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_class.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
+            crud_mobile.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
+            crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
     }
     ///// database
