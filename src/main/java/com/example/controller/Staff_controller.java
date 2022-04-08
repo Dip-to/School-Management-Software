@@ -1,7 +1,7 @@
-package com.example.school_management;
+package com.example.controller;
 
-import com.example.crud.Student;
-import com.example.crud.Teacher;
+import com.example.crud.Officer;
+import com.example.school_management.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,12 +27,15 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.io.File;
 import java.net.URL;
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class Teacher_controller implements Initializable  {
+public class Staff_controller implements Initializable {
 
     @FXML
-    private TableColumn<Teacher,String> Gender_table;
+    private TableColumn<?, ?> Gender_table;
 
     @FXML
     private AnchorPane crud_anchorpane;
@@ -74,7 +77,7 @@ public class Teacher_controller implements Initializable  {
     private Label file_path;
 
     @FXML
-    private TableColumn<Teacher,Integer> id_table;
+    private TableColumn<?, ?> id_table;
 
     @FXML
     private ImageView img_view;
@@ -83,16 +86,16 @@ public class Teacher_controller implements Initializable  {
     private AnchorPane left_crud_pane;
 
     @FXML
-    private TableColumn<Teacher,String> mobile_table;
+    private TableColumn<?, ?> mobile_table;
 
     @FXML
-    private TableColumn<Teacher,String> name_table;
+    private TableColumn<?, ?> name_table;
 
     @FXML
-    private TableColumn<Teacher,String> subject_table;
+    private TableColumn<?, ?> subject_table;
 
     @FXML
-    private TableView<Teacher> table_view;
+    private TableView<Officer> table_view;
 
     @FXML
     private AnchorPane tchr_crid_mainpane;
@@ -160,12 +163,12 @@ public class Teacher_controller implements Initializable  {
         crud_mobile.setText("");
 
     }
-    public ObservableList<Teacher> datalist()
+    public ObservableList<Officer> datalist()
     {
-        ObservableList<Teacher> datalist = FXCollections.observableArrayList();
+        ObservableList<Officer> datalist = FXCollections.observableArrayList();
 
         String sql;
-        sql ="SELECT * FROM teacher_data";
+        sql ="SELECT * FROM staff_data";
 
         try {
             connect= database.connectDB();
@@ -175,13 +178,12 @@ public class Teacher_controller implements Initializable  {
 
             while(result.next())
             {
-                Teacher teacher= new Teacher (result.getInt("id"),result.getString("name"),result.getString("subject"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
-
+                Officer teacher= new Officer (result.getInt("id"),result.getString("name"),result.getString("designation"),result.getString("gender"),result.getString("picture"),result.getString("mobile"));
                 datalist.add(teacher);
             }
 
         }catch (Exception e) {
-            System.out.println("teacher database error");
+            System.out.println("staff database error");
         }
         finally
         {
@@ -198,13 +200,14 @@ public class Teacher_controller implements Initializable  {
             }
         }
         return datalist;
+
     }
     public void showData()
     {
-        ObservableList<Teacher> showlist = datalist();
+        ObservableList<Officer> showlist = datalist();
         id_table.setCellValueFactory(new PropertyValueFactory<>("crud_id"));
         name_table.setCellValueFactory(new PropertyValueFactory<>("curd_name"));
-        subject_table.setCellValueFactory(new PropertyValueFactory<>("cud_subject"));
+        subject_table.setCellValueFactory(new PropertyValueFactory<>("designation"));
         Gender_table.setCellValueFactory(new PropertyValueFactory<>("curd_gender"));
         mobile_table.setCellValueFactory(new PropertyValueFactory<>("curd_mobile"));
         table_view.setItems(showlist);
@@ -213,7 +216,7 @@ public class Teacher_controller implements Initializable  {
 
     @FXML
     void delete(ActionEvent event) {
-        String sql="DELETE from teacher_data WHERE `id` ='"+crud_id.getText()+"'";
+        String sql="DELETE from staff_data WHERE `id` ='"+crud_id.getText()+"'";
         connect=database.connectDB();
         try
         {
@@ -253,7 +256,7 @@ public class Teacher_controller implements Initializable  {
 
     @FXML
     void insert(ActionEvent event) {
-        String sql="INSERT INTO teacher_data VALUES (?,?,?,?,?,?)";
+        String sql="INSERT INTO staff_data VALUES (?,?,?,?,?,?)";
 
         try {
             connect= database.connectDB();
@@ -304,13 +307,13 @@ public class Teacher_controller implements Initializable  {
     }
 
     @FXML
-    void print_rep() {
+    void print_rep(ActionEvent event) {
         try
         {
             connect=database.connectDB();
-            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/teacher.jrxml");
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/staff.jrxml");
             JRDesignQuery jq= new JRDesignQuery();
-          //  String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
+            //  String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
 
             JasperReport jreport= JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint= JasperFillManager.fillReport(jreport,null,connect);
@@ -322,11 +325,12 @@ public class Teacher_controller implements Initializable  {
         {
             System.out.println(e);
         }
+
     }
 
     @FXML
     void selectData(MouseEvent event) {
-        Teacher teacher = table_view.getSelectionModel().getSelectedItem();
+        Officer teacher = (Officer) table_view.getSelectionModel().getSelectedItem();
         int no=table_view.getSelectionModel().getSelectedIndex();
         if((no-1)<-1)
         {
@@ -351,8 +355,7 @@ public class Teacher_controller implements Initializable  {
     }
 
     @FXML
-    void text_field_design()
-    {
+    void text_field_design() {
         if(crud_id.isFocused()){
             crud_id.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_name.setStyle("-fx-border-width:1px;-fx-background-color: transparent");
@@ -390,13 +393,14 @@ public class Teacher_controller implements Initializable  {
             crud_mobile.setStyle("-fx-border-width:2px;-fx-background-color: #fff");
             crud_gender.setStyle("-fx-border-width:1px;-fx-background-color:  transparent");
         }
+
     }
 
     @FXML
     void update_Crud(ActionEvent event) {
         String tmp=file_path.getText();
         tmp=tmp.replace("\\","\\\\");
-        String sql="UPDATE teacher_data SET `name`= '"+crud_name.getText()+ "', `subject` = '"+crud_subject.getSelectionModel().getSelectedItem()
+        String sql="UPDATE staff_data SET `name`= '"+crud_name.getText()+ "', `designation` = '"+crud_subject.getSelectionModel().getSelectedItem()
                 +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"' WHERE id = '"+crud_id.getText()+"'";
         try {
             connect= database.connectDB();
@@ -446,8 +450,5 @@ public class Teacher_controller implements Initializable  {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Combo_box();
         showData();
-        crud_id.requestFocus();
-        crud_id.selectAll();
-
     }
 }
