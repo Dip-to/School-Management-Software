@@ -249,8 +249,21 @@ public class resultController implements Initializable {
     {
         resinit();
         showData();
-
-
+    }
+    public void res_six_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_seven_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_eight_btn_click()
+    {
+        resinit();
+        showData();
     }
 
     public void b1() {cc="one"; getexcel("one");}
@@ -258,6 +271,12 @@ public class resultController implements Initializable {
     public void b3() {cc="three"; getexcel("three");}
     public void b4() {cc="four"; getexcel("four");}
     public void b5() {cc="five"; getexcel("five");}
+    public void b6() {cc="six"; getexcel("six");}
+    public void b7() {cc="seven"; getexcel("seven");}
+    public void b8() {cc="eight"; getexcel("eight");}
+    public void b9() {cc="nine"; getexcel("nine");}
+    public void b10() {cc="ten"; getexcel("ten");}
+   // public void b5() {cc="five"; getexcel("five");}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
