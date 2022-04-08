@@ -18,21 +18,21 @@
             <Button fx:id="res_three_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="292.0" mnemonicParsing="false" onAction="#res_three_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Three" />
             <Button fx:id="res_four_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="343.0" mnemonicParsing="false" onAction="#res_four_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Four" />
             <Button fx:id="res_five_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="396.0" mnemonicParsing="false" onAction="#res_five_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Five" />
-            <Button fx:id="res_six_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="445.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Six" />
-            <Button fx:id="res_seven_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Seven" />
-            <Button fx:id="res_eight_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="546.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Eight" />
-            <Button fx:id="res_nine_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Nine" />
-            <Button fx:id="res_ten_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="649.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="660.0" text="Class Ten" />
+            <Button fx:id="res_six_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="445.0" mnemonicParsing="false" onAction="#res_six_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Six" />
+            <Button fx:id="res_seven_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="496.0" mnemonicParsing="false" onAction="#res_seven_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Seven" />
+            <Button fx:id="res_eight_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="546.0" mnemonicParsing="false" onAction="#res_eight_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Eight" />
+            <Button fx:id="res_nine_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="597.0" mnemonicParsing="false" onAction="#res_nine_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Nine" />
+            <Button fx:id="res_ten_btn" alignment="BASELINE_LEFT" layoutX="12.0" layoutY="649.0" mnemonicParsing="false" onAction="#res_ten_btn_click" prefHeight="40.0" prefWidth="660.0" text="Class Ten" />
             <Button fx:id="update_1" layoutX="682.0" layoutY="195.0" mnemonicParsing="false" onAction="#b1" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_2" layoutX="682.0" layoutY="243.0" mnemonicParsing="false" onAction="#b2" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_3" layoutX="682.0" layoutY="292.0" mnemonicParsing="false" onAction="#b3" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_4" layoutX="682.0" layoutY="343.0" mnemonicParsing="false" onAction="#b4" prefHeight="40.0" prefWidth="110.0" text="Update" />
             <Button fx:id="update_5" layoutX="682.0" layoutY="396.0" mnemonicParsing="false" onAction="#b5" prefHeight="40.0" prefWidth="110.0" text="Update" />
-            <Button fx:id="update_6" layoutX="682.0" layoutY="445.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
-            <Button fx:id="update_7" layoutX="682.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
-            <Button fx:id="update_8" layoutX="682.0" layoutY="546.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
-            <Button fx:id="update_9" layoutX="682.0" layoutY="597.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
-            <Button fx:id="update_10" layoutX="682.0" layoutY="649.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_6" layoutX="682.0" layoutY="445.0" mnemonicParsing="false" onAction="#b6" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_7" layoutX="682.0" layoutY="496.0" mnemonicParsing="false" onAction="#b7" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_8" layoutX="682.0" layoutY="546.0" mnemonicParsing="false" onAction="#b8" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_9" layoutX="682.0" layoutY="597.0" mnemonicParsing="false" onAction="#b9" prefHeight="40.0" prefWidth="110.0" text="Update" />
+            <Button fx:id="update_10" layoutX="682.0" layoutY="649.0" mnemonicParsing="false" onAction="#b10" prefHeight="40.0" prefWidth="110.0" text="Update" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="result_sub_pane2" layoutX="12.0" layoutY="14.0" prefHeight="174.0" prefWidth="780.0" style="-fx-background-color: #02064e;">
