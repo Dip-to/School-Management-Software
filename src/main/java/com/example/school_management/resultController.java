@@ -129,7 +129,7 @@ public class resultController implements Initializable {
         ObservableList<Primary_student> datalist = FXCollections.observableArrayList();
 
 
-        String sql = "SELECT * FROM one";
+        String sql = "SELECT * FROM "+cc;
 
         try {
             connect= database.Result_connectDB();
@@ -217,20 +217,45 @@ public class resultController implements Initializable {
         }
 
     }
-
-    public void res_one_btn_click()
+    public void resinit()
     {
         result_sub_pane1.setVisible(false);
         result_sub_pane2.setVisible(false);
         cls1_to_2_pane.setVisible(true);
         result_back_button.setVisible(true);
+    }
+    public String cc;
+    public void res_one_btn_click()
+    {
+        resinit();
         showData();
     }
-    public void b1() {getexcel("one");}
-    public void b2() {getexcel("two");}
-    public void b3() {getexcel("three");}
-    public void b4() {getexcel("four");}
-    public void b5() {getexcel("five");}
+    public void res_two_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_three_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_four_btn_click()
+    {
+        resinit();
+        showData();
+    }
+    public void res_five_btn_click()
+    {
+        resinit();
+        showData();
+    }
+
+    public void b1() {cc="one"; getexcel("one");}
+    public void b2() {cc="two"; getexcel("two");}
+    public void b3() {cc="three"; getexcel("three");}
+    public void b4() {cc="four"; getexcel("four");}
+    public void b5() {cc="five"; getexcel("five");}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
