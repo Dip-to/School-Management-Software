@@ -99,7 +99,7 @@ public class Teacher_controller implements Initializable  {
     private AnchorPane tchr_crid_mainpane;
 
     private String[] Combo_gender={"Male","Female","Others"};
-    private String[] Combo_subject={"Physics","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+    private String[] Combo_subject={"Physics","Chemistry","Biology","Math","Bangla","English","BGS","ICT","Religion","Art & Craft"};
 
 
     public void Combo_box()

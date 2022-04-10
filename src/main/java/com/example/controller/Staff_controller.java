@@ -101,7 +101,7 @@ public class Staff_controller implements Initializable {
     private AnchorPane tchr_crid_mainpane;
 
     private String[] Combo_gender={"Male","Female","Others"};
-    private String[] Combo_subject={"Physics","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+    private String[] Combo_subject={"Account officer","office assistant","Athletic director","School counselor","Secretary","Clerk","Peon","Gate man","Medical assistant","Cleaner"};
 
 
     public void Combo_box()
