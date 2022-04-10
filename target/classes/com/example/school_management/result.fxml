@@ -70,6 +70,7 @@
                <columns>
                   <TableColumn fx:id="sec_name" prefWidth="100.80001831054688" text="Name" />
                   <TableColumn fx:id="sec_roll" prefWidth="63.199981689453125" text="Roll" />
+                  <TableColumn fx:id="sec_cls" prefWidth="63.199981689453125" text="Class" />
                   <TableColumn fx:id="sec_bng1" prefWidth="80.00006103515625" text="Bangla 1st" />
                   <TableColumn fx:id="sec_bng2" prefWidth="76.79998779296875" text="Bangla 2nd" />
                   <TableColumn fx:id="sec_eng1" prefWidth="71.99993896484375" text="English 1st" />
@@ -85,7 +86,7 @@
       </AnchorPane>
       <AnchorPane fx:id="ssc_pane" layoutY="-4.0" prefHeight="707.0" prefWidth="800.0" visible="false">
          <children>
-            <TableView fx:id="ssc_tableview" layoutX="22.0" layoutY="21.0" prefHeight="640.0" prefWidth="756.0">
+            <TableView fx:id="ssc_tableview" layoutX="22.0" layoutY="21.0" prefHeight="628.0" prefWidth="756.0">
                <columns>
                   <TableColumn fx:id="SSC_name" prefWidth="100.80001831054688" text="Name" />
                   <TableColumn fx:id="SSC_roll" prefWidth="63.199981689453125" text="Roll" />
@@ -100,7 +101,10 @@
                   <TableColumn fx:id="SSC_hm" prefWidth="76.7999267578125" text="Higher math" />
                </columns>
             </TableView>
+            <Button fx:id="sicene_btn" layoutX="225.0" layoutY="668.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="174.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Science" textFill="#f4f4f4" />
+            <Button fx:id="com_btn" layoutX="412.0" layoutY="668.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Commerce" textFill="#f4f4f4" />
          </children>
       </AnchorPane>
+      <Button fx:id="print_btn" layoutX="723.0" layoutY="665.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Print" textFill="#f4f4f4" visible="false" />
    </children>
 </AnchorPane>

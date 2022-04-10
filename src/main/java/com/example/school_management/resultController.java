@@ -167,6 +167,18 @@ public class resultController implements Initializable {
     private TableView<?> ssc_tableview;
 
     @FXML
+    private Button com_btn;
+
+    @FXML
+    private Button science_btn;
+
+    @FXML
+    private TableColumn<?, ?> sec_cls;
+
+    @FXML
+    private Button print_btn;
+
+    @FXML
     private Button update_1;
 
     @FXML
@@ -300,7 +312,34 @@ public class resultController implements Initializable {
         result_sub_pane1.setVisible(false);
         result_sub_pane2.setVisible(false);
         cls1_to_2_pane.setVisible(true);
+        secondary_pane.setVisible(false);
+        ssc_pane.setVisible(false);
         result_back_button.setVisible(true);
+        print_btn.setVisible(true);
+
+    }
+
+    public void sec_resinit()
+    {
+        result_sub_pane1.setVisible(false);
+        result_sub_pane2.setVisible(false);
+        secondary_pane.setVisible(true);
+        ssc_pane.setVisible(false);
+        cls1_to_2_pane.setVisible(false);
+        result_back_button.setVisible(true);
+        print_btn.setVisible(true);
+    }
+
+    public void ssc_resinit()
+    {
+        result_sub_pane1.setVisible(false);
+        result_sub_pane2.setVisible(false);
+        secondary_pane.setVisible(true);
+        ssc_pane.setVisible(true);
+        cls1_to_2_pane.setVisible(false);
+        result_back_button.setVisible(true);
+        print_btn.setVisible(true);
+
     }
     public String cc;
     public void res_one_btn_click()
@@ -336,31 +375,31 @@ public class resultController implements Initializable {
     public void res_six_btn_click()
     {
         cc="six";
-        resinit();
+        sec_resinit();
         showData();
     }
     public void res_seven_btn_click()
     {
         cc="seven";
-        resinit();
+        sec_resinit();
         showData();
     }
     public void res_eight_btn_click()
     {
         cc="eight";
-        resinit();
+        sec_resinit();
         showData();
     }
     public void res_nine_btn_click()
     {
         cc="nine";
-        resinit();
+        ssc_resinit();
         showData();
     }
     public void res_ten_btn_click()
     {
         cc="ten";
-        resinit();
+        ssc_resinit();
         showData();
     }
 
@@ -368,8 +407,11 @@ public class resultController implements Initializable {
     {
         result_sub_pane1.setVisible(true);
         result_sub_pane2.setVisible(true);
+        secondary_pane.setVisible(false);
+        ssc_pane.setVisible(false);
         cls1_to_2_pane.setVisible(false);
         result_back_button.setVisible(false);
+        print_btn.setVisible(false);
     }
 
     public void b1() {cc="one"; getexcel("one");}
