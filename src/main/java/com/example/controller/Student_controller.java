@@ -232,7 +232,8 @@ public class Student_controller implements Initializable {
         }
         catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println("ok");
+            //System.out.println(e);
         }
 
 

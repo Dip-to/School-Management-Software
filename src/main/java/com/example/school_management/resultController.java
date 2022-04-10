@@ -407,7 +407,7 @@ public class resultController implements Initializable {
                 prepare=null;
                 String query = null;
                 if(class_cat(c)==1) query="INSERT INTO "+c+" VALUES (?,?,?,?,?,?)";
-                else if(class_cat(c)==2) query ="INSERT INTO "+c+" VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                else if(class_cat(c)==2 || class_cat(c)==3) query ="INSERT INTO "+c+" VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                 prepare = connect.prepareStatement(query);
                 FileInputStream fule=new FileInputStream(file);
                 XSSFWorkbook wb = new XSSFWorkbook(fule);
@@ -425,7 +425,6 @@ public class resultController implements Initializable {
                     prepare.setInt(6, (int) row.getCell(5).getNumericCellValue());
                     if(class_cat(c)==2 || class_cat(c)==3)
                     {
-                        System.out.println("ok1");
                         prepare.setInt(7, (int) row.getCell(6).getNumericCellValue());
                         prepare.setInt(8, (int) row.getCell(7).getNumericCellValue());
                         prepare.setInt(9, (int) row.getCell(8).getNumericCellValue());
