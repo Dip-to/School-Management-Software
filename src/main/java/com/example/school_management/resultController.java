@@ -286,6 +286,14 @@ public class resultController implements Initializable {
         showData();
     }
 
+    public void res_back_btn_click()
+    {
+        result_sub_pane1.setVisible(true);
+        result_sub_pane2.setVisible(true);
+        cls1_to_2_pane.setVisible(false);
+        result_back_button.setVisible(false);
+    }
+
     public void b1() {cc="one"; getexcel("one");}
     public void b2() {cc="two"; getexcel("two");}
     public void b3() {cc="three"; getexcel("three");}

@@ -47,12 +47,11 @@
                   <Font name="Gabriola" size="50.0" />
                </font>
             </Label>
-            <Button fx:id="result_back_button" mnemonicParsing="false" onAction="#res_one_btn_click" prefHeight="30.0" prefWidth="62.0" text="Back" textFill="#f4f4f4" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="cls1_to_2_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
-            <TableView fx:id="res_table_view12" layoutX="22.0" layoutY="23.0" prefHeight="652.0" prefWidth="756.0">
+            <TableView fx:id="res_table_view12" layoutX="22.0" layoutY="14.0" prefHeight="640.0" prefWidth="756.0">
               <columns>
                 <TableColumn fx:id="res_name12" prefWidth="143.20001220703125" text="Name" />
                 <TableColumn fx:id="res_roll12" prefWidth="86.4000244140625" text="Roll" />
@@ -64,5 +63,6 @@
             </TableView>
          </children>
       </AnchorPane>
+      <Button fx:id="result_back_button" layoutX="22.0" layoutY="665.0" mnemonicParsing="false" onAction="#res_back_btn_click" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Back" textFill="#f4f4f4" visible="false" />
    </children>
 </AnchorPane>
