@@ -39,6 +39,9 @@ public class Student_controller implements Initializable {
     @FXML
     private AnchorPane crud_class_select_pane;
 
+    @FXML
+    private Button stdcrud_back_button;
+
 
     @FXML
     private TableColumn<Student, String> Gender_table;
@@ -99,6 +102,14 @@ public class Student_controller implements Initializable {
 
     @FXML
     private TableColumn<Student, String> name_table;
+
+    @FXML
+    private Button opencrud_back_btn;
+
+    @FXML
+    private AnchorPane crud_img_pane;
+
+
 
     private String[] Combo_gender={"Male","Female","Others"};
     private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
@@ -475,6 +486,7 @@ public class Student_controller implements Initializable {
         click_but();
         ccc="all";
         showData(ccc);
+
     }
     public void button_one()
     {
@@ -535,6 +547,13 @@ public class Student_controller implements Initializable {
         ccc="Ten";
         click_but();
         showData(ccc);
+    }
+
+    public void opencrud_back_btn_click()
+    {
+        crud_class_select_pane.setVisible(true);
+        crud_anchorpane.setVisible(false);
+
     }
 
     @Override

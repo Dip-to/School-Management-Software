@@ -474,7 +474,7 @@ public class resultController implements Initializable {
     {
         result_sub_pane1.setVisible(false);
         result_sub_pane2.setVisible(false);
-        secondary_pane.setVisible(true);
+        secondary_pane.setVisible(false);
         ssc_pane.setVisible(true);
         cls1_to_2_pane.setVisible(false);
         result_back_button.setVisible(true);
