@@ -14,6 +14,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -25,6 +33,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class resultController implements Initializable {
@@ -39,6 +49,9 @@ public class resultController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> SSC_chem;
+
+    @FXML
+    private TableColumn<?, ?> SSC_cls;
 
     @FXML
     private TableColumn<?, ?> SSC_eng1;
@@ -68,16 +81,25 @@ public class resultController implements Initializable {
     private AnchorPane cls1_to_2_pane;
 
     @FXML
+    private Button com_btn;
+
+    @FXML
+    private Button com_excel;
+
+    @FXML
+    private AnchorPane dcsn;
+
+    @FXML
     private TableColumn<?, ?> english12;
 
     @FXML
     private TableColumn<?, ?> math12;
 
     @FXML
-    private Button res_One_btn;
+    private Button print_btn;
 
     @FXML
-    private TableColumn<?, ?> SSC_cls;
+    private Button res_One_btn;
 
     @FXML
     private TableColumn<?, ?> res_cls12;
@@ -128,6 +150,9 @@ public class resultController implements Initializable {
     private AnchorPane result_sub_pane2;
 
     @FXML
+    private Button sci_excel;
+
+    @FXML
     private TableColumn<?, ?> sec_bgs;
 
     @FXML
@@ -135,6 +160,9 @@ public class resultController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> sec_bng2;
+
+    @FXML
+    private TableColumn<?, ?> sec_cls;
 
     @FXML
     private TableColumn<?, ?> sec_eng1;
@@ -167,22 +195,13 @@ public class resultController implements Initializable {
     private TableView<HighSchool_subject> secondary_tableview;
 
     @FXML
+    private Button sicene_btn;
+
+    @FXML
     private AnchorPane ssc_pane;
 
     @FXML
     private TableView<Secondary_subject> ssc_tableview;
-
-    @FXML
-    private Button com_btn;
-
-    @FXML
-    private Button science_btn;
-
-    @FXML
-    private TableColumn<?, ?> sec_cls;
-
-    @FXML
-    private Button print_btn;
 
     @FXML
     private Button update_1;
@@ -214,12 +233,39 @@ public class resultController implements Initializable {
     @FXML
     private Button update_9;
 
+    public void prim_print_rep()
+    {
+        try
+        {
+            connect=database.Result_connectDB();
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/primary.jrxml");
+            String clastitle="Class: "+cc;
+                JRDesignQuery jq= new JRDesignQuery();
+                jq.setText("SELECT * FROM "+cc);
+                jdesign.setQuery(jq);
+            String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
+            Map<String,Object> para=new HashMap<String,Object>();
+            para.put("parapara",clastitle);
 
+            JasperReport jreport= JasperCompileManager.compileReport(jdesign);
+            JasperPrint jprint= JasperFillManager.fillReport(jreport,para,connect);
+            JasperViewer viewer= new JasperViewer(jprint,false);
+            viewer.setTitle("Report");
+            viewer.show();
+        }
+        catch (Exception e)
+        {
+            System.out.println("ok");
+            //System.out.println(e);
+        }
+
+
+    }
     public int class_cat(String m)
     {
         if(m.equals("one") || m.equals("two") || m.equals("three") || m.equals("four") || m.equals("five") ) return 1;
         else if(m.equals("six") || m.equals("seven") || m.equals("eight")) return 2;
-        else if(m.equals("nine") || m.equals("ten") ) return 3;
+        else if(m.equals("nine") || m.equals("ten") ||m.equals("nine_com") || m.equals("ten_com") ) return 3;
         else return 4;
     }
     private Connection connect;
@@ -301,12 +347,12 @@ public class resultController implements Initializable {
         }
         return datalist;
     }
-    public ObservableList<Secondary_subject> sec_datalist()
+    public ObservableList<Secondary_subject> sec_datalist(String oo)
     {
         ObservableList<Secondary_subject> datalist = FXCollections.observableArrayList();
 
 
-        String sql = "SELECT * FROM "+cc;
+        String sql = "SELECT * FROM "+cc+oo;
 
         try {
             connect= database.Result_connectDB();
@@ -341,7 +387,7 @@ public class resultController implements Initializable {
         }
         return datalist;
     }
-    public void showData()
+    public void showData(String oo)
     {
         if(class_cat(cc)==1)
         {
@@ -373,7 +419,7 @@ public class resultController implements Initializable {
         }
         else if(class_cat(cc)==3)
         {
-            ObservableList<Secondary_subject> showlist = sec_datalist();
+            ObservableList<Secondary_subject> showlist = sec_datalist(oo);
             SSC_roll.setCellValueFactory(new PropertyValueFactory<>("roll"));
             SSC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
             SSC_cls.setCellValueFactory(new PropertyValueFactory<>("class_name"));
@@ -485,63 +531,80 @@ public class resultController implements Initializable {
     {
         cc="one";
         resinit();
-        showData();
+        showData("");
     }
     public void res_two_btn_click()
     {
         cc="two";
         resinit();
-        showData();
+        showData("");
     }
     public void res_three_btn_click()
     {
         cc="three";
         resinit();
-        showData();
+        showData("");
     }
     public void res_four_btn_click()
     {
         cc="four";
         resinit();
-        showData();
+        showData("");
     }
     public void res_five_btn_click()
     {
         cc="five";
         resinit();
-        showData();
+        showData("");
     }
     public void res_six_btn_click()
     {
         cc="six";
         sec_resinit();
-        showData();
+        showData("");
     }
     public void res_seven_btn_click()
     {
         cc="seven";
         sec_resinit();
-        showData();
+        showData("");
     }
     public void res_eight_btn_click()
     {
         cc="eight";
         sec_resinit();
-        showData();
+        showData("");
     }
     public void res_nine_btn_click()
     {
         cc="nine";
         ssc_resinit();
-        showData();
+        showData("");
     }
     public void res_ten_btn_click()
     {
         cc="ten";
         ssc_resinit();
-        showData();
+        showData("");
     }
+    public void cmrc()
+    {
+        SSC_phy.setText("Finance");
+        SSC_chem.setText("Accounting");
+        SSC_bio.setText("Banking");
+        SSC_hm.setText("Science");
+        showData("_com");
 
+    }
+    public void sci()
+    {
+        SSC_phy.setText("Phycics");
+        SSC_chem.setText("Chemistry");
+        SSC_bio.setText("Biology");
+        SSC_hm.setText("Higher math");
+        showData("");
+
+    }
     public void res_back_btn_click()
     {
         result_sub_pane1.setVisible(true);
@@ -552,6 +615,21 @@ public class resultController implements Initializable {
         result_back_button.setVisible(false);
         print_btn.setVisible(false);
     }
+    public void sc()
+    {
+        dcsn.setVisible(false);
+        getexcel(cc);
+    }
+    public void cm()
+    {
+        dcsn.setVisible(false);
+        getexcel(cc+"_com");
+    }
+    public void tt()
+    {
+        dcsn.setVisible(true);
+
+    }
 
     public void b1() {cc="one"; getexcel("one");}
     public void b2() {cc="two"; getexcel("two");}
@@ -561,9 +639,9 @@ public class resultController implements Initializable {
     public void b6() {cc="six"; getexcel("six");}
     public void b7() {cc="seven"; getexcel("seven");}
     public void b8() {cc="eight"; getexcel("eight");}
-    public void b9() {cc="nine"; getexcel("nine");}
-    public void b10() {cc="ten"; getexcel("ten");}
-   // public void b5() {cc="five"; getexcel("five");}
+    public void b9() {cc="nine"; tt();}
+    public void b10() {cc="ten"; tt();}
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
