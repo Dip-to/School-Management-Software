@@ -63,7 +63,6 @@
             </TableView>
          </children>
       </AnchorPane>
-      <Button fx:id="result_back_button" layoutX="22.0" layoutY="665.0" mnemonicParsing="false" onAction="#res_back_btn_click" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Back" textFill="#f4f4f4" visible="false" />
       <AnchorPane fx:id="secondary_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
          <children>
             <TableView fx:id="secondary_tableview" layoutX="22.0" layoutY="14.0" prefHeight="640.0" prefWidth="756.0">
@@ -88,17 +87,18 @@
          <children>
             <TableView fx:id="ssc_tableview" layoutX="22.0" layoutY="21.0" prefHeight="628.0" prefWidth="756.0">
                <columns>
-                  <TableColumn fx:id="SSC_name" prefWidth="100.80001831054688" text="Name" />
-                  <TableColumn fx:id="SSC_roll" prefWidth="63.199981689453125" text="Roll" />
-                  <TableColumn fx:id="SSC_bng1" prefWidth="80.00006103515625" text="Bangla 1st" />
-                  <TableColumn fx:id="SSC_bng2" prefWidth="76.79998779296875" text="Bangla 2nd" />
-                  <TableColumn fx:id="SSC_eng1" prefWidth="71.99993896484375" text="English 1st" />
-                  <TableColumn fx:id="SSC_eng2" prefWidth="84.0" text="English 2nd" />
-                  <TableColumn fx:id="SSC_mth" prefWidth="53.5999755859375" text="Math" />
-                  <TableColumn fx:id="SSC_phy" prefWidth="52.800048828125" text="Physics" />
-                  <TableColumn fx:id="SSC_chem" prefWidth="44.7999267578125" text="Chem" />
-                  <TableColumn fx:id="SSC_bio" prefWidth="47.20001220703125" text="Biology" />
-                  <TableColumn fx:id="SSC_hm" prefWidth="76.7999267578125" text="Higher math" />
+                  <TableColumn fx:id="SSC_name" prefWidth="59.0" text="Name" />
+                  <TableColumn fx:id="SSC_roll" prefWidth="72.0" text="Roll" />
+                  <TableColumn fx:id="SSC_cls" prefWidth="53.0" text="Class" />
+                  <TableColumn fx:id="SSC_bng1" prefWidth="73.0" text="Bangla 1st" />
+                  <TableColumn fx:id="SSC_bng2" prefWidth="75.0" text="Bangla 2nd" />
+                  <TableColumn fx:id="SSC_eng1" text="English 1st" />
+                  <TableColumn fx:id="SSC_eng2" prefWidth="72.0" text="English 2nd" />
+                  <TableColumn fx:id="SSC_mth" prefWidth="44.0" text="Math" />
+                  <TableColumn fx:id="SSC_phy" prefWidth="56.0" text="Physics" />
+                  <TableColumn fx:id="SSC_chem" minWidth="0.0" prefWidth="47.0" text="Chem" />
+                  <TableColumn fx:id="SSC_bio" minWidth="0.0" prefWidth="54.0" text="Biology" />
+                  <TableColumn fx:id="SSC_hm" minWidth="0.0" prefWidth="70.0" text="Higher math" />
                </columns>
             </TableView>
             <Button fx:id="sicene_btn" layoutX="225.0" layoutY="668.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="174.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Science" textFill="#f4f4f4" />
@@ -106,5 +106,6 @@
          </children>
       </AnchorPane>
       <Button fx:id="print_btn" layoutX="723.0" layoutY="665.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Print" textFill="#f4f4f4" visible="false" />
+      <Button fx:id="result_back_button" layoutX="22.0" layoutY="665.0" mnemonicParsing="false" onAction="#res_back_btn_click" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Back" textFill="#f4f4f4" visible="false" />
    </children>
 </AnchorPane>

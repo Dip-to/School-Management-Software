@@ -1,5 +1,8 @@
 package com.example.school_management;
 
+import com.example.subject.Primary_subject;
+import com.example.subject.HighSchool_subject;
+import com.example.subject.Secondary_subject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -74,6 +77,9 @@ public class resultController implements Initializable {
     private Button res_One_btn;
 
     @FXML
+    private TableColumn<?, ?> SSC_cls;
+
+    @FXML
     private TableColumn<?, ?> res_cls12;
 
     @FXML
@@ -101,7 +107,7 @@ public class resultController implements Initializable {
     private Button res_six_btn;
 
     @FXML
-    private TableView<Primary_student> res_table_view12;
+    private TableView<Primary_subject> res_table_view12;
 
     @FXML
     private Button res_ten_btn;
@@ -158,13 +164,13 @@ public class resultController implements Initializable {
     private AnchorPane secondary_pane;
 
     @FXML
-    private TableView<?> secondary_tableview;
+    private TableView<HighSchool_subject> secondary_tableview;
 
     @FXML
     private AnchorPane ssc_pane;
 
     @FXML
-    private TableView<?> ssc_tableview;
+    private TableView<Secondary_subject> ssc_tableview;
 
     @FXML
     private Button com_btn;
@@ -209,14 +215,20 @@ public class resultController implements Initializable {
     private Button update_9;
 
 
-
+    public int class_cat(String m)
+    {
+        if(m.equals("one") || m.equals("two") || m.equals("three") || m.equals("four") || m.equals("five") ) return 1;
+        else if(m.equals("six") || m.equals("seven") || m.equals("eight")) return 2;
+        else if(m.equals("nine") || m.equals("ten") ) return 3;
+        else return 4;
+    }
     private Connection connect;
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
-    public ObservableList<Primary_student> datalist()
+    public ObservableList<Primary_subject> datalist()
     {
-        ObservableList<Primary_student> datalist = FXCollections.observableArrayList();
+        ObservableList<Primary_subject> datalist = FXCollections.observableArrayList();
 
 
         String sql = "SELECT * FROM "+cc;
@@ -228,8 +240,86 @@ public class resultController implements Initializable {
 
             while(result.next())
             {
-                Primary_student student= new Primary_student(result.getInt("id"),result.getString("name"),result.getString("class"),result.getInt("bangla"),result.getInt("english"),result.getInt("math"));
+                Primary_subject student= new Primary_subject(result.getInt("id"),result.getString("name"),result.getString("class"),result.getInt("bangla"),result.getInt("english"),result.getInt("math"));
                 datalist.add(student);
+            }
+
+        }catch (Exception e) {
+            System.out.println("result database error " + e);
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
+        return datalist;
+    }
+    public ObservableList<HighSchool_subject> high_datalist()
+    {
+        ObservableList<HighSchool_subject> datalist = FXCollections.observableArrayList();
+
+
+        String sql = "SELECT * FROM "+cc;
+
+        try {
+            connect= database.Result_connectDB();
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+
+            while(result.next())
+            {
+                HighSchool_subject student= new HighSchool_subject(result.getInt("roll"),result.getString("name"),result.getString("class"),result.getInt("bng_1"),result.getInt("bng_2"),result.getInt("eng_1"),result.getInt("eng_2"),
+                        result.getInt("math"),result.getInt("science"),result.getInt("religion"),result.getInt("bgs"),result.getInt("ict") );
+                datalist.add(student);
+            }
+
+        }catch (Exception e) {
+            System.out.println("result database error " + e);
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
+        return datalist;
+    }
+    public ObservableList<Secondary_subject> sec_datalist()
+    {
+        ObservableList<Secondary_subject> datalist = FXCollections.observableArrayList();
+
+
+        String sql = "SELECT * FROM "+cc;
+
+        try {
+            connect= database.Result_connectDB();
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+
+            while(result.next())
+            {
+                Secondary_subject student= new Secondary_subject(result.getInt("roll"),result.getString("name"),result.getString("class"),result.getInt("bng_1"),result.getInt("bng_2"),result.getInt("eng_1"),result.getInt("eng_2"),
+                        result.getInt("math"),result.getInt("phy"),result.getInt("chm"),result.getInt("h_math"),result.getInt("bio") );
+                datalist.add(student);
+
+
             }
 
         }catch (Exception e) {
@@ -253,14 +343,52 @@ public class resultController implements Initializable {
     }
     public void showData()
     {
-        ObservableList<Primary_student> showlist = datalist();
-        res_roll12.setCellValueFactory(new PropertyValueFactory<>("roll"));
-        res_name12.setCellValueFactory(new PropertyValueFactory<>("name"));
-        res_cls12.setCellValueFactory(new PropertyValueFactory<>("class_name"));
-        bangla12.setCellValueFactory(new PropertyValueFactory<>("ban"));
-        english12.setCellValueFactory(new PropertyValueFactory<>("en"));
-        math12.setCellValueFactory(new PropertyValueFactory<>("mth"));
-       res_table_view12.setItems(showlist);
+        if(class_cat(cc)==1)
+        {
+            ObservableList<Primary_subject> showlist = datalist();
+            res_roll12.setCellValueFactory(new PropertyValueFactory<>("roll"));
+            res_name12.setCellValueFactory(new PropertyValueFactory<>("name"));
+            res_cls12.setCellValueFactory(new PropertyValueFactory<>("class_name"));
+            bangla12.setCellValueFactory(new PropertyValueFactory<>("ban"));
+            english12.setCellValueFactory(new PropertyValueFactory<>("en"));
+            math12.setCellValueFactory(new PropertyValueFactory<>("mth"));
+            res_table_view12.setItems(showlist);
+        }
+        else if(class_cat(cc)==2)
+        {
+            ObservableList<HighSchool_subject> showlist = high_datalist();
+            sec_roll.setCellValueFactory(new PropertyValueFactory<>("roll"));
+            sec_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+            sec_cls.setCellValueFactory(new PropertyValueFactory<>("class_name"));
+            sec_bng1.setCellValueFactory(new PropertyValueFactory<>("ban"));
+            sec_bng2.setCellValueFactory(new PropertyValueFactory<>("ban2"));
+            sec_eng1.setCellValueFactory(new PropertyValueFactory<>("en"));
+            sec_eng2.setCellValueFactory(new PropertyValueFactory<>("en2"));
+            sec_mth.setCellValueFactory(new PropertyValueFactory<>("mth"));
+            sec_science.setCellValueFactory(new PropertyValueFactory<>("science"));
+            sec_reli.setCellValueFactory(new PropertyValueFactory<>("religion"));
+            sec_bgs.setCellValueFactory(new PropertyValueFactory<>("bgs"));
+            sec_ict.setCellValueFactory(new PropertyValueFactory<>("ict"));
+            secondary_tableview.setItems(showlist);
+        }
+        else if(class_cat(cc)==3)
+        {
+            ObservableList<Secondary_subject> showlist = sec_datalist();
+            SSC_roll.setCellValueFactory(new PropertyValueFactory<>("roll"));
+            SSC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+            SSC_cls.setCellValueFactory(new PropertyValueFactory<>("class_name"));
+            SSC_bng1.setCellValueFactory(new PropertyValueFactory<>("ban"));
+            SSC_bng2.setCellValueFactory(new PropertyValueFactory<>("ban2"));
+            SSC_eng1.setCellValueFactory(new PropertyValueFactory<>("en"));
+            SSC_eng2.setCellValueFactory(new PropertyValueFactory<>("en2"));
+            SSC_mth.setCellValueFactory(new PropertyValueFactory<>("mth"));
+            SSC_phy.setCellValueFactory(new PropertyValueFactory<>("phy"));
+            SSC_chem.setCellValueFactory(new PropertyValueFactory<>("chem"));
+            SSC_hm.setCellValueFactory(new PropertyValueFactory<>("h_math"));
+            SSC_bio.setCellValueFactory(new PropertyValueFactory<>("bio"));
+            ssc_tableview.setItems(showlist);
+        }
+
     }
     public void getexcel(String c)
     {
@@ -277,7 +405,9 @@ public class resultController implements Initializable {
                 prepare=connect.prepareStatement(sql);
                 prepare.execute();
                 prepare=null;
-                String query="INSERT INTO "+c+" VALUES (?,?,?,?,?,?)";
+                String query = null;
+                if(class_cat(c)==1) query="INSERT INTO "+c+" VALUES (?,?,?,?,?,?)";
+                else if(class_cat(c)==2) query ="INSERT INTO "+c+" VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
                 prepare = connect.prepareStatement(query);
                 FileInputStream fule=new FileInputStream(file);
                 XSSFWorkbook wb = new XSSFWorkbook(fule);
@@ -286,13 +416,23 @@ public class resultController implements Initializable {
                 for(int i=1; i<=sheet.getLastRowNum(); i++)
                 {
                     row=  sheet.getRow(i);
-
+                    if(row.getCell(0)==null) break;
                     prepare.setString(1, row.getCell(0).getStringCellValue());
                     prepare.setInt(2, (int) row.getCell(1).getNumericCellValue());
                     prepare.setString(3, row.getCell(2).getStringCellValue());
                     prepare.setInt(4, (int) row.getCell(3).getNumericCellValue());
                     prepare.setInt(5, (int) row.getCell(4).getNumericCellValue());
                     prepare.setInt(6, (int) row.getCell(5).getNumericCellValue());
+                    if(class_cat(c)==2 || class_cat(c)==3)
+                    {
+                        System.out.println("ok1");
+                        prepare.setInt(7, (int) row.getCell(6).getNumericCellValue());
+                        prepare.setInt(8, (int) row.getCell(7).getNumericCellValue());
+                        prepare.setInt(9, (int) row.getCell(8).getNumericCellValue());
+                        prepare.setInt(10, (int) row.getCell(9).getNumericCellValue());
+                        prepare.setInt(11, (int) row.getCell(10).getNumericCellValue());
+                        prepare.setInt(12, (int) row.getCell(11).getNumericCellValue());
+                    }
                     prepare.execute();
                 }
                 prepare.close();

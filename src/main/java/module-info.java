@@ -9,6 +9,8 @@ module com.example.demo {
     opens com.example.crud to javafx.fxml;
     exports com.example.controller;
     opens com.example.controller to javafx.fxml;
+    exports com.example.subject;
+    opens com.example.subject to javafx.fxml;
 
     requires java.sql;
     requires jasperreports;
