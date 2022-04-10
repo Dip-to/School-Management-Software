@@ -26,6 +26,39 @@ import java.util.ResourceBundle;
 
 public class resultController implements Initializable {
     @FXML
+    private TableColumn<?, ?> SSC_bio;
+
+    @FXML
+    private TableColumn<?, ?> SSC_bng1;
+
+    @FXML
+    private TableColumn<?, ?> SSC_bng2;
+
+    @FXML
+    private TableColumn<?, ?> SSC_chem;
+
+    @FXML
+    private TableColumn<?, ?> SSC_eng1;
+
+    @FXML
+    private TableColumn<?, ?> SSC_eng2;
+
+    @FXML
+    private TableColumn<?, ?> SSC_hm;
+
+    @FXML
+    private TableColumn<?, ?> SSC_mth;
+
+    @FXML
+    private TableColumn<?, ?> SSC_name;
+
+    @FXML
+    private TableColumn<?, ?> SSC_phy;
+
+    @FXML
+    private TableColumn<?, ?> SSC_roll;
+
+    @FXML
     private TableColumn<?, ?> bangla12;
 
     @FXML
@@ -87,6 +120,51 @@ public class resultController implements Initializable {
 
     @FXML
     private AnchorPane result_sub_pane2;
+
+    @FXML
+    private TableColumn<?, ?> sec_bgs;
+
+    @FXML
+    private TableColumn<?, ?> sec_bng1;
+
+    @FXML
+    private TableColumn<?, ?> sec_bng2;
+
+    @FXML
+    private TableColumn<?, ?> sec_eng1;
+
+    @FXML
+    private TableColumn<?, ?> sec_eng2;
+
+    @FXML
+    private TableColumn<?, ?> sec_ict;
+
+    @FXML
+    private TableColumn<?, ?> sec_mth;
+
+    @FXML
+    private TableColumn<?, ?> sec_name;
+
+    @FXML
+    private TableColumn<?, ?> sec_reli;
+
+    @FXML
+    private TableColumn<?, ?> sec_roll;
+
+    @FXML
+    private TableColumn<?, ?> sec_science;
+
+    @FXML
+    private AnchorPane secondary_pane;
+
+    @FXML
+    private TableView<?> secondary_tableview;
+
+    @FXML
+    private AnchorPane ssc_pane;
+
+    @FXML
+    private TableView<?> ssc_tableview;
 
     @FXML
     private Button update_1;

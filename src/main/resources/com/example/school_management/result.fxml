@@ -64,5 +64,43 @@
          </children>
       </AnchorPane>
       <Button fx:id="result_back_button" layoutX="22.0" layoutY="665.0" mnemonicParsing="false" onAction="#res_back_btn_click" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Back" textFill="#f4f4f4" visible="false" />
+      <AnchorPane fx:id="secondary_pane" prefHeight="700.0" prefWidth="800.0" visible="false">
+         <children>
+            <TableView fx:id="secondary_tableview" layoutX="22.0" layoutY="14.0" prefHeight="640.0" prefWidth="756.0">
+               <columns>
+                  <TableColumn fx:id="sec_name" prefWidth="100.80001831054688" text="Name" />
+                  <TableColumn fx:id="sec_roll" prefWidth="63.199981689453125" text="Roll" />
+                  <TableColumn fx:id="sec_bng1" prefWidth="80.00006103515625" text="Bangla 1st" />
+                  <TableColumn fx:id="sec_bng2" prefWidth="76.79998779296875" text="Bangla 2nd" />
+                  <TableColumn fx:id="sec_eng1" prefWidth="71.99993896484375" text="English 1st" />
+                  <TableColumn fx:id="sec_eng2" prefWidth="84.0" text="English 2nd" />
+                  <TableColumn fx:id="sec_mth" prefWidth="53.5999755859375" text="Math" />
+                  <TableColumn fx:id="sec_science" prefWidth="52.800048828125" text="Science" />
+                  <TableColumn fx:id="sec_bgs" prefWidth="44.7999267578125" text="BGS" />
+                  <TableColumn fx:id="sec_reli" prefWidth="80.79998779296875" text="Religion" />
+                  <TableColumn fx:id="sec_ict" prefWidth="43.199951171875" text="ICT" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ssc_pane" layoutY="-4.0" prefHeight="707.0" prefWidth="800.0" visible="false">
+         <children>
+            <TableView fx:id="ssc_tableview" layoutX="22.0" layoutY="21.0" prefHeight="640.0" prefWidth="756.0">
+               <columns>
+                  <TableColumn fx:id="SSC_name" prefWidth="100.80001831054688" text="Name" />
+                  <TableColumn fx:id="SSC_roll" prefWidth="63.199981689453125" text="Roll" />
+                  <TableColumn fx:id="SSC_bng1" prefWidth="80.00006103515625" text="Bangla 1st" />
+                  <TableColumn fx:id="SSC_bng2" prefWidth="76.79998779296875" text="Bangla 2nd" />
+                  <TableColumn fx:id="SSC_eng1" prefWidth="71.99993896484375" text="English 1st" />
+                  <TableColumn fx:id="SSC_eng2" prefWidth="84.0" text="English 2nd" />
+                  <TableColumn fx:id="SSC_mth" prefWidth="53.5999755859375" text="Math" />
+                  <TableColumn fx:id="SSC_phy" prefWidth="52.800048828125" text="Physics" />
+                  <TableColumn fx:id="SSC_chem" prefWidth="44.7999267578125" text="Chem" />
+                  <TableColumn fx:id="SSC_bio" prefWidth="47.20001220703125" text="Biology" />
+                  <TableColumn fx:id="SSC_hm" prefWidth="76.7999267578125" text="Higher math" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
