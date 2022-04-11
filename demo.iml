@@ -121,15 +121,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/commons-logging-1.1.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/ecj-3.21.0.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -241,15 +232,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/src/main/resources/com/example/font/poi/commons-codec-1.15.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/resources/com/example/font/poi/log4j-api-2.17.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

@@ -101,11 +101,17 @@
                   <TableColumn fx:id="SSC_hm" minWidth="0.0" prefWidth="70.0" text="Higher math" />
                </columns>
             </TableView>
-            <Button fx:id="sicene_btn" layoutX="225.0" layoutY="668.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="174.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Science" textFill="#f4f4f4" />
-            <Button fx:id="com_btn" layoutX="412.0" layoutY="668.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Commerce" textFill="#f4f4f4" />
+            <Button fx:id="sicene_btn" layoutX="225.0" layoutY="668.0" mnemonicParsing="false" onAction="#sci" prefHeight="30.0" prefWidth="174.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Science" textFill="#f4f4f4" />
+            <Button fx:id="com_btn" layoutX="412.0" layoutY="668.0" mnemonicParsing="false" onAction="#cmrc" prefHeight="30.0" prefWidth="165.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Commerce" textFill="#f4f4f4" />
          </children>
       </AnchorPane>
-      <Button fx:id="print_btn" layoutX="723.0" layoutY="665.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Print" textFill="#f4f4f4" visible="false" />
+      <Button fx:id="print_btn" layoutX="723.0" layoutY="665.0" mnemonicParsing="false" onAction="#prim_print_rep" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Print" textFill="#f4f4f4" visible="false" />
       <Button fx:id="result_back_button" layoutX="22.0" layoutY="665.0" mnemonicParsing="false" onAction="#res_back_btn_click" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Back" textFill="#f4f4f4" visible="false" />
+      <AnchorPane fx:id="dcsn" layoutX="144.0" layoutY="158.0" prefHeight="384.0" prefWidth="516.0" visible="false">
+         <children>
+            <Button fx:id="sci_excel" layoutX="51.0" layoutY="192.0" mnemonicParsing="false" onAction="#sc" prefHeight="30.0" prefWidth="174.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Science" textFill="#f4f4f4" />
+            <Button fx:id="com_excel" layoutX="284.0" layoutY="192.0" mnemonicParsing="false" onAction="#cm" prefHeight="30.0" prefWidth="165.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Commerce" textFill="#f4f4f4" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

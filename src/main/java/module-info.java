@@ -20,7 +20,6 @@ module com.example.demo {
     requires poi.ooxml;
     requires poi.ooxml.schemas;
     requires xmlbeans;
-    requires commons.collections;
     requires poi;
 
 }

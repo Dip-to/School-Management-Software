@@ -232,20 +232,39 @@ public class resultController implements Initializable {
 
     @FXML
     private Button update_9;
-
+    public String ss;
     public void prim_print_rep()
     {
+
         try
         {
+            String ct=cc;
+
             connect=database.Result_connectDB();
-            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/primary.jrxml");
-            String clastitle="Class: "+cc;
+            JasperDesign jdesign=null;
+            if(class_cat(cc)==1) jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/primary.jrxml");
+            else if(class_cat(cc)==2) jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/high.jrxml");
+            else if(class_cat(cc)==3)
+            {
+                jdesign = JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/Sci.jrxml");
+                if(ss.equals("com"))
+                {
+                    jdesign=null;
+
+                    if(cc.equals("nine_com")) ct="Nine";
+                    else ct="Ten";
+                    jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/Com.jrxml");
+                }
+            }
+            String clastitle="Class: "+ct;
                 JRDesignQuery jq= new JRDesignQuery();
                 jq.setText("SELECT * FROM "+cc);
+                if(ss.equals("com")) jq.setText("SELECT * FROM "+cc+"_com");
                 jdesign.setQuery(jq);
             String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
             Map<String,Object> para=new HashMap<String,Object>();
             para.put("parapara",clastitle);
+
 
             JasperReport jreport= JasperCompileManager.compileReport(jdesign);
             JasperPrint jprint= JasperFillManager.fillReport(jreport,para,connect);
@@ -436,6 +455,7 @@ public class resultController implements Initializable {
         }
 
     }
+
     public void getexcel(String c)
     {
         FileChooser open= new FileChooser();
@@ -577,18 +597,21 @@ public class resultController implements Initializable {
     }
     public void res_nine_btn_click()
     {
+        ss="sci";
         cc="nine";
         ssc_resinit();
         showData("");
     }
     public void res_ten_btn_click()
     {
+        ss="sci";
         cc="ten";
         ssc_resinit();
         showData("");
     }
     public void cmrc()
     {
+        ss="com";
         SSC_phy.setText("Finance");
         SSC_chem.setText("Accounting");
         SSC_bio.setText("Banking");
@@ -598,6 +621,7 @@ public class resultController implements Initializable {
     }
     public void sci()
     {
+        ss="sci";
         SSC_phy.setText("Phycics");
         SSC_chem.setText("Chemistry");
         SSC_bio.setText("Biology");
@@ -627,6 +651,7 @@ public class resultController implements Initializable {
     }
     public void tt()
     {
+
         dcsn.setVisible(true);
 
     }
