@@ -202,6 +202,10 @@ public class Student_controller implements Initializable {
         crud_mobile.setText("");
 
     }
+    public void bactodash()
+    {
+
+    }
     public void print_rep()
     {
         try
