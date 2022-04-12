@@ -239,7 +239,6 @@ public class resultController implements Initializable {
         try
         {
             String ct=cc;
-
             connect=database.Result_connectDB();
             JasperDesign jdesign=null;
             if(class_cat(cc)==1) jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/primary.jrxml");
@@ -250,7 +249,6 @@ public class resultController implements Initializable {
                 if(ss.equals("com"))
                 {
                     jdesign=null;
-
                     if(cc.equals("nine_com")) ct="Nine";
                     else ct="Ten";
                     jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/Com.jrxml");
@@ -259,7 +257,10 @@ public class resultController implements Initializable {
             String clastitle="Class: "+ct;
                 JRDesignQuery jq= new JRDesignQuery();
                 jq.setText("SELECT * FROM "+cc);
-                if(ss.equals("com")) jq.setText("SELECT * FROM "+cc+"_com");
+                if(ss.equals("com") && (cc.equals("nine") || cc.equals("ten")))
+                {
+                    jq.setText("SELECT * FROM "+cc+"_com");
+                }
                 jdesign.setQuery(jq);
             String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
             Map<String,Object> para=new HashMap<String,Object>();
@@ -274,7 +275,7 @@ public class resultController implements Initializable {
         }
         catch (Exception e)
         {
-            System.out.println("ok");
+            System.out.println(e);
             //System.out.println(e);
         }
 
@@ -514,6 +515,7 @@ public class resultController implements Initializable {
     }
     public void resinit()
     {
+        ss="o";
         result_sub_pane1.setVisible(false);
         result_sub_pane2.setVisible(false);
         cls1_to_2_pane.setVisible(true);
@@ -526,6 +528,7 @@ public class resultController implements Initializable {
 
     public void sec_resinit()
     {
+        ss="o";
         result_sub_pane1.setVisible(false);
         result_sub_pane2.setVisible(false);
         secondary_pane.setVisible(true);
