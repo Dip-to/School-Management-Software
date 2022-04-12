@@ -27,6 +27,15 @@ import java.util.ResourceBundle;
 public class logincontroller implements Initializable
 {
     @FXML
+    private Label stud_cnt;
+
+    @FXML
+    private Button add_acc;
+
+    @FXML
+    private ImageView add_acc_pic;
+
+    @FXML
     private Hyperlink Forgotpass;
 
     @FXML
@@ -163,11 +172,20 @@ public class logincontroller implements Initializable
 
     @FXML
     private Label username;
+    @FXML
+    private Label tchr_cnt;
+    @FXML
+    private Label staff_cnt;
 
 
 
     ////dash
     public String login_img_path;
+    public void add_ACC()
+    {
+        dashboard_rightpane.setVisible(false);
+        signup_page.setVisible(true);
+    }
     public void dash_init()
     {
         username.setText(user);
@@ -175,6 +193,7 @@ public class logincontroller implements Initializable
         String tmp=im_path;
         if(tmp.equals("null"))
         {
+            imgg_view.imageProperty().set(null);
             login_img_button.setText("Insert Image");
         }
         else
@@ -275,13 +294,19 @@ public class logincontroller implements Initializable
     public void home_click()
     {
         dashboard_rightpane.setVisible(true);
+        signup_page.setVisible(false);
         dash_main.setVisible(false);
         dash_main.setDisable(true);
+        cnt();
         dash_init();
+
     }
     public void log_out_click()
     {
+        im_path="null";
+        dash_init();
         dashboard_rightpane.setVisible(true);
+        signup_page.setVisible(false);
         dash_main.setVisible(false);
         dash_main.setDisable(true);
         dash_main_anchorpane.setVisible(false);
@@ -310,6 +335,7 @@ public class logincontroller implements Initializable
             String img_path=file.getAbsolutePath();
             img_path=img_path.replace("\\","\\\\\\\\");
             login_img_path=img_path;
+            im_path=img_path;
             Image image= new Image(file.toURI().toString(),110,110,false,true);
             imgg_view.setImage(image);
             connect= database.connectDB();
@@ -479,9 +505,21 @@ public class logincontroller implements Initializable
             {
                 //login done
                 user=tmp_username;
+                if(user.equals("admin@sms"))
+                {
+                    add_acc.setVisible(true);
+                    add_acc_pic.setVisible(true);
+                }
+                else
+                {
+                    add_acc.setVisible(false);
+                    add_acc_pic.setVisible(false);
+
+                }
                 im_path=resultset.getString("image");
                 login_page.setVisible(false);
                 dash_main_anchorpane.setVisible(true);
+                cnt();
                 dash_init();
 
                /// System.out.println("login error12");
@@ -563,6 +601,7 @@ public class logincontroller implements Initializable
                 sign_pass2.setText("");
 
 
+
            }
            else if(p1!=p2)
             {
@@ -594,16 +633,52 @@ public class logincontroller implements Initializable
 
     }
 
+    public String cdat(String ss)
+    {
+        int s=0;
+        String sql = "SELECT * FROM "+ ss;
+        try {
+            connect= database.connectDB();
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+            while(result.next())
+            {
+                s++;
+            }
+
+        }catch (Exception e) {
+            System.out.println("student database error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+
+
+            }catch (Exception e)
+            {
+                System.out.println("hi"+e);
+            }
+        }
+        String pp= String.valueOf(s);
+        return pp;
+    }
+    public void cnt()
+    {
+        tchr_cnt.setText(cdat("student_data"));
+        stud_cnt.setText(cdat("teacher_data"));
+        staff_cnt.setText(cdat("staff_data"));
+    }
+
+
 
     public void initialize(URL url, ResourceBundle rb)
     {
-        connect=database.connectDB();
-        if(connect==null)
-        {
-            db_stat.setText("Not Connected");
-            db_stat.setTextFill(Color.RED);
-        }
-        else db_stat.setTextFill(Color.GREEN);
+
+
     }
 
 }

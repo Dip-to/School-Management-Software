@@ -45,26 +45,11 @@
                         <Font size="22.0" />
                      </font>
                   </Button>
-                  <Hyperlink fx:id="create_acc" layoutX="163.0" layoutY="553.0" onAction="#changePage" prefHeight="36.0" prefWidth="184.0" styleClass="crtacc" stylesheets="@frontpage_css.css" text="Create new account">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Hyperlink>
                   <Hyperlink fx:id="Forgotpass" layoutX="174.0" layoutY="511.0" onAction="#changePage" prefHeight="42.0" prefWidth="184.0" styleClass="crtacc" stylesheets="@frontpage_css.css" text="Forgot password?">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Hyperlink>
-                  <Label layoutX="140.0" layoutY="600.0" prefHeight="48.0" prefWidth="143.0" text="Database Status:" textFill="#2273bf">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="db_stat" layoutX="283.0" layoutY="610.0" prefHeight="27.0" prefWidth="159.0" text="Connected">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
                   <CheckBox fx:id="chck_box" layoutX="304.0" layoutY="415.0" mnemonicParsing="false" onAction="#show_pass_click" text="Show Password" textFill="#136bb9">
                      <font>
                         <Font size="15.0" />
@@ -77,109 +62,85 @@
                   </TextField>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="700.0" prefWidth="500.0" styleClass="login-bg" stylesheets="@frontpage_css.css" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="signup_page" prefHeight="700.0" prefWidth="1000.0" visible="false">
-         <children>
-            <AnchorPane prefHeight="700.0" prefWidth="500.0">
+            <AnchorPane prefHeight="700.0" prefWidth="500.0" styleClass="login-bg" stylesheets="@frontpage_css.css">
                <children>
-                  <Label layoutX="93.0" layoutY="212.0" text="Create New Account">
-                     <font>
-                        <Font name="Verdana" size="33.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIcon glyphName="USERS" layoutX="186.0" layoutY="171.0" size="10em" text="" />
-                  <TextField fx:id="sign_username1" layoutX="128.0" layoutY="326.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="44.0" prefWidth="245.0" promptText="Username" styleClass="text_field-design" stylesheets="@frontpage_css.css">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </TextField>
-                  <PasswordField fx:id="sign_pass1" layoutX="128.0" layoutY="387.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="46.0" prefWidth="245.0" promptText="Password" styleClass="text_field-design" stylesheets="@frontpage_css.css">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </PasswordField>
-                  <Button fx:id="signup_button1" layoutX="179.0" layoutY="516.0" mnemonicParsing="false" onAction="#signUp" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="SignUp" textFill="WHITE">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Button>
-                  <PasswordField fx:id="sign_pass2" layoutX="128.0" layoutY="450.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="46.0" prefWidth="245.0" promptText="Confirm Password" styleClass="text_field-design" stylesheets="@frontpage_css.css">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </PasswordField>
-                  <TextField fx:id="sign_employeeid" layoutX="128.0" layoutY="266.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="44.0" prefWidth="245.0" promptText="Employee ID" styleClass="text_field-design" stylesheets="@frontpage_css.css">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </TextField>
-                  <Hyperlink fx:id="alrdyhaveacc" layoutX="121.0" layoutY="602.0" onAction="#changePage" prefHeight="36.0" prefWidth="245.0" styleClass="crtacc" stylesheets="@frontpage_css.css" text="Already have an account?">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Hyperlink>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="500.0" prefHeight="700.0" prefWidth="500.0" styleClass="login-bg" stylesheets="@frontpage_css.css">
-               <children>
-                  <Button fx:id="close_button1" mnemonicParsing="false" onAction="#exittt" prefHeight="25.0" prefWidth="59.0" styleClass="close" stylesheets="@frontpage_css.css" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="447.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="CLOSE">
-                           <selectionFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.6447368264198303" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </selectionFill>
-                        </FontAwesomeIcon>
-                     </graphic>
-                  </Button>
-               </children>
-            </AnchorPane>
+                  <ImageView fitHeight="338.0" fitWidth="351.0" layoutX="81.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../project_picture/front_page_back.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="dash_main_anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" visible="false">
          <children>
+            <AnchorPane fx:id="signup_page" prefHeight="700.0" prefWidth="800.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="199.0" prefHeight="700.0" prefWidth="800.0">
+                     <children>
+                        <Label layoutX="241.0" layoutY="209.0" text="Create New Account">
+                           <font>
+                              <Font name="Verdana" size="33.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon glyphName="USERS" layoutX="327.0" layoutY="170.0" size="10em" text="" />
+                        <TextField fx:id="sign_username1" layoutX="276.0" layoutY="323.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="44.0" prefWidth="245.0" promptText="Username" styleClass="text_field-design" stylesheets="@frontpage_css.css">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="sign_pass1" layoutX="276.0" layoutY="384.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="46.0" prefWidth="245.0" promptText="Password" styleClass="text_field-design" stylesheets="@frontpage_css.css">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </PasswordField>
+                        <Button fx:id="signup_button1" layoutX="327.0" layoutY="513.0" mnemonicParsing="false" onAction="#signUp" prefHeight="64.0" prefWidth="129.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="ADD" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <PasswordField fx:id="sign_pass2" layoutX="276.0" layoutY="447.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="46.0" prefWidth="245.0" promptText="Confirm Password" styleClass="text_field-design" stylesheets="@frontpage_css.css">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </PasswordField>
+                        <TextField fx:id="sign_employeeid" layoutX="276.0" layoutY="263.0" onKeyTyped="#signup_textfielddesign" onMouseClicked="#signup_textfielddesign" onMouseDragged="#signup_textfielddesign" prefHeight="44.0" prefWidth="245.0" promptText="Employee ID" styleClass="text_field-design" stylesheets="@frontpage_css.css">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="left_dash_pane" prefHeight="700.0" prefWidth="200.0" styleClass="home-bg" stylesheets="@dashboard_style.css">
                <children>
-                  <Button fx:id="home_button" alignment="BASELINE_CENTER" layoutY="273.0" mnemonicParsing="false" onAction="#home_click" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text="Home" textFill="#eaeaf2">
+                  <Button fx:id="home_button" alignment="BASELINE_CENTER" layoutX="-1.0" layoutY="317.0" mnemonicParsing="false" onAction="#home_click" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text="Home" textFill="#eaeaf2">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="exit_button" alignment="BASELINE_CENTER" layoutY="336.0" mnemonicParsing="false" onAction="#exittt" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text="Exit" textFill="#fcf9f9">
+                  <Button fx:id="exit_button" alignment="BASELINE_CENTER" layoutX="-1.0" layoutY="380.0" mnemonicParsing="false" onAction="#exittt" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text="Exit" textFill="#fcf9f9">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="log_out_button" alignment="BASELINE_CENTER" layoutY="398.0" mnemonicParsing="false" onAction="#log_out_click" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text=" Log out" textFill="WHITE">
+                  <Button fx:id="log_out_button" alignment="BASELINE_CENTER" layoutX="-1.0" layoutY="442.0" mnemonicParsing="false" onAction="#log_out_click" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text=" Log out" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Sans Serif" size="20.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="home_icon_img" fitHeight="29.0" fitWidth="32.0" layoutX="33.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="home_icon_img" fitHeight="29.0" fitWidth="32.0" layoutX="32.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@picture/home_icon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit_img" fitHeight="32.0" fitWidth="38.0" layoutX="33.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit_img" fitHeight="32.0" fitWidth="38.0" layoutX="32.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@picture/exit_icon-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="logout_img" fitHeight="29.0" fitWidth="38.0" layoutX="25.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logout_img" fitHeight="29.0" fitWidth="38.0" layoutX="24.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@picture/logout_button.png" />
                      </image>
@@ -197,6 +158,16 @@
                         <Font name="Gabriola" size="30.0" />
                      </font>
                   </Label>
+                  <Button fx:id="add_acc" alignment="BASELINE_RIGHT" layoutX="-1.0" layoutY="257.0" mnemonicParsing="false" onAction="#add_ACC" prefHeight="56.0" prefWidth="200.0" styleClass="home_button" stylesheets="@dashboard_style.css" text="Add Account" textFill="#eaeaf2" visible="false">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="20.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="add_acc_pic" fitHeight="36.0" fitWidth="39.0" layoutX="32.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../project_picture/add_ac_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="dashboard_rightpane" layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
@@ -240,6 +211,21 @@
                      </children>
                   </AnchorPane>
                   <Separator layoutX="539.0" layoutY="388.0" opacity="0.25" orientation="VERTICAL" prefHeight="304.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
+                  <Label fx:id="stud_cnt" layoutX="32.0" layoutY="273.0" prefHeight="48.0" prefWidth="53.0" text="50">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tchr_cnt" layoutX="301.0" layoutY="273.0" prefHeight="48.0" prefWidth="53.0" text="50">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="staff_cnt" layoutX="574.0" layoutY="275.0" prefHeight="48.0" prefWidth="53.0" text="50">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <BorderPane fx:id="dash_main" layoutX="200.0" prefHeight="700.0" prefWidth="800.0" visible="false" />
