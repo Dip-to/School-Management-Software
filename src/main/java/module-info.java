@@ -21,5 +21,6 @@ module com.example.demo {
     requires poi.ooxml.schemas;
     requires xmlbeans;
     requires poi;
+    requires java.desktop;
 
 }

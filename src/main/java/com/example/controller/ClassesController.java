@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.crud.Teacher;
 import com.example.school_management.database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -174,10 +179,63 @@ public class ClassesController implements Initializable {
     @FXML
     private ComboBox<?> wed_teach_5;
 
-    private String[] Combo_sub={"Bangla","English","Math"};
-    private String[] Combo_teacher={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+    private String[] Combo_sub={"Bangla","English","Math","Physics"};
+    private String[] Combo_teacher={};
 
+    private Connection connect;
+    private PreparedStatement prepare;
+    private Statement statement;
+    private ResultSet result;
+    @FXML
+    public  ObservableList  add_tchr(String s)
+    {
 
+        List<String> list=new ArrayList<>();
+        ObservableList data_list = null;
+       // s="Physics";
+        Combo_teacher=null;
+        String sql;
+        sql ="SELECT * FROM teacher_data WHERE `subject` = '"+s+"'";
+        try {
+            connect= database.connectDB();
+            prepare = connect.prepareStatement(sql);
+            result=prepare.executeQuery();
+
+            while(result.next())
+            {
+                list.add(result.getString("name"));
+            }
+            data_list= FXCollections.observableArrayList(list);
+            //sun_teach_1.setItems(data_list);
+        }catch (Exception e) {
+            System.out.println("teacher routine database error");
+        }
+        finally
+        {
+            try
+            {
+                connect.close();
+                result.close();
+                prepare.close();
+                statement.close();
+
+            }catch (Exception e)
+            {
+
+            }
+        }
+        return data_list;
+
+    }
+    public void s1()
+    {
+
+        String str=null;
+        str= (String) sun_sub_1.getSelectionModel().getSelectedItem();
+        sun_teach_1.getSelectionModel().clearSelection();
+        sun_teach_1.setItems(add_tchr(str));
+
+    }
     public void Combo_box()
     {
         List<String> list=new ArrayList<>();

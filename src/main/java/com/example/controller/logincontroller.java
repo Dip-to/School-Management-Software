@@ -301,6 +301,18 @@ public class logincontroller implements Initializable
         dash_init();
 
     }
+    public void fee() throws IOException {
+        dashboard_rightpane.setVisible(false);
+        paneLoader pp= new paneLoader();
+        Pane view=pp.getfxmlfile("fees");
+        dash_main.setCenter(view);
+        dash_main.setVisible(true);
+        dash_main.setDisable(false);
+
+
+    }
+
+
     public void log_out_click()
     {
         im_path="null";
