@@ -327,7 +327,105 @@ public class ClassesController implements Initializable {
 
     }
 
+    public void tu1()
+    {
 
+        String str=null;
+        str= (String) tue_sub_1.getSelectionModel().getSelectedItem();
+        tue_teach_1.getSelectionModel().clearSelection();
+        tue_teach_1.setItems(add_tchr(str));
+
+    }
+
+    public void tu2()
+    {
+
+        String str=null;
+        str= (String) tue_sub_2.getSelectionModel().getSelectedItem();
+        tue_teach_2.getSelectionModel().clearSelection();
+        tue_teach_2.setItems(add_tchr(str));
+
+    }
+
+    public void tu3()
+    {
+
+        String str=null;
+        str= (String) tue_sub_3.getSelectionModel().getSelectedItem();
+        tue_teach_3.getSelectionModel().clearSelection();
+        tue_teach_3.setItems(add_tchr(str));
+
+    }
+
+    public void tu4()
+    {
+
+        String str=null;
+        str= (String) tue_sub_4.getSelectionModel().getSelectedItem();
+        tue_teach_4.getSelectionModel().clearSelection();
+        tue_teach_4.setItems(add_tchr(str));
+
+    }
+
+    public void tu5()
+    {
+
+        String str=null;
+        str= (String) tue_sub_5.getSelectionModel().getSelectedItem();
+        tue_teach_5.getSelectionModel().clearSelection();
+        tue_teach_5.setItems(add_tchr(str));
+
+    }
+
+    public void w1()
+    {
+
+        String str=null;
+        str= (String)  wed_sub_1.getSelectionModel().getSelectedItem();
+        wed_teach_1.getSelectionModel().clearSelection();
+        wed_teach_1.setItems(add_tchr(str));
+
+    }
+
+    public void w2()
+    {
+
+        String str=null;
+        str= (String) wed_sub_2.getSelectionModel().getSelectedItem();
+        wed_teach_2.getSelectionModel().clearSelection();
+        wed_teach_2.setItems(add_tchr(str));
+
+    }
+
+    public void w3()
+    {
+
+        String str=null;
+        str= (String) wed_sub_3.getSelectionModel().getSelectedItem();
+        wed_teach_3.getSelectionModel().clearSelection();
+        wed_teach_3.setItems(add_tchr(str));
+
+    }
+
+    public void w4()
+    {
+
+        String str=null;
+        str= (String) wed_sub_4.getSelectionModel().getSelectedItem();
+        wed_teach_4.getSelectionModel().clearSelection();
+        wed_teach_4.setItems(add_tchr(str));
+
+    }
+
+    public void w5()
+    {
+
+        String str=null;
+        str= (String) wed_sub_5.getSelectionModel().getSelectedItem();
+        wed_teach_5.getSelectionModel().clearSelection();
+        wed_teach_5.setItems(add_tchr(str));
+
+    }
 
     public void Combo_box()
     {
