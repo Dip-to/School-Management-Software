@@ -358,7 +358,7 @@ public class Student_controller implements Initializable {
     public void insert()
     {
 
-        String sql="INSERT INTO student_data VALUES (?,?,?,?,?,?)";
+        String sql="INSERT INTO student_data VALUES (?,?,?,?,?,?,?)";
 
         try {
             connect= database.connectDB();
@@ -381,6 +381,7 @@ public class Student_controller implements Initializable {
                 prepare.setString(4, (String) crud_gender.getSelectionModel().getSelectedItem());
                 prepare.setString(5,file_path.getText());
                 prepare.setString(6,crud_mobile.getText());
+                prepare.setString(7,"Unknown");
                 prepare.execute();
                 System.out.println("ok12");
                 showData(ccc);
@@ -435,7 +436,7 @@ public class Student_controller implements Initializable {
         String tmp=file_path.getText();
         tmp=tmp.replace("\\","\\\\");
         String sql="UPDATE student_data SET `name`= '"+crud_name.getText()+ "', `class` = '"+crud_class.getSelectionModel().getSelectedItem()
-                +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"' WHERE id = '"+crud_id.getText()+"'";
+                +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"', `mobile` = '"+crud_mobile.getText()+"' WHERE id = '"+crud_id.getText()+"'";
         try {
             connect= database.connectDB();
             if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_class.getSelectionModel().isEmpty() |

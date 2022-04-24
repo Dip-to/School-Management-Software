@@ -14,6 +14,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.File;
 import java.net.URL;
@@ -21,9 +29,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ClassesController implements Initializable {
     @FXML
@@ -186,6 +192,83 @@ public class ClassesController implements Initializable {
     private PreparedStatement prepare;
     private Statement statement;
     private ResultSet result;
+
+    @FXML
+    void print_rep()
+    {
+        try
+        {
+            connect=database.connectRDB();
+            JasperDesign jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/routine.jrxml");
+            JRDesignQuery jq= new JRDesignQuery();
+            //  String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
+            Map<String,Object> para=new HashMap<String,Object>();
+            para.put("ss1",sun_sub_1.getSelectionModel().getSelectedItem());
+            para.put("ss2",sun_sub_2.getSelectionModel().getSelectedItem());
+            para.put("ss3",sun_sub_3.getSelectionModel().getSelectedItem());
+            para.put("ss4",sun_sub_4.getSelectionModel().getSelectedItem());
+            para.put("ss5",sun_sub_5.getSelectionModel().getSelectedItem());
+            para.put("st1",sun_teach_1.getSelectionModel().getSelectedItem());
+            para.put("st2",sun_teach_2.getSelectionModel().getSelectedItem());
+            para.put("st3",sun_teach_3.getSelectionModel().getSelectedItem());
+            para.put("st4",sun_teach_4.getSelectionModel().getSelectedItem());
+            para.put("st5",sun_teach_5.getSelectionModel().getSelectedItem());
+
+            para.put("ms1",mon_sub_1.getSelectionModel().getSelectedItem());
+            para.put("ms2",mon_sub_2.getSelectionModel().getSelectedItem());
+            para.put("ms3",mon_sub_3.getSelectionModel().getSelectedItem());
+            para.put("ms4",mon_sub_4.getSelectionModel().getSelectedItem());
+            para.put("ms5",mon_sub_5.getSelectionModel().getSelectedItem());
+            para.put("mt1",mon_teach_1.getSelectionModel().getSelectedItem());
+            para.put("mt2",mon_teach_2.getSelectionModel().getSelectedItem());
+            para.put("mt3",mon_teach_3.getSelectionModel().getSelectedItem());
+            para.put("mt4",mon_teach_4.getSelectionModel().getSelectedItem());
+            para.put("mt5",mon_teach_5.getSelectionModel().getSelectedItem());
+
+            para.put("tus1",tue_sub_1.getSelectionModel().getSelectedItem());
+            para.put("tus2",tue_sub_2.getSelectionModel().getSelectedItem());
+            para.put("tus3",tue_sub_3.getSelectionModel().getSelectedItem());
+            para.put("tus4",tue_sub_4.getSelectionModel().getSelectedItem());
+            para.put("tus5",tue_sub_5.getSelectionModel().getSelectedItem());
+            para.put("tut1",tue_teach_1.getSelectionModel().getSelectedItem());
+            para.put("tut2",tue_teach_2.getSelectionModel().getSelectedItem());
+            para.put("tut3",tue_teach_3.getSelectionModel().getSelectedItem());
+            para.put("tut4",tue_teach_4.getSelectionModel().getSelectedItem());
+            para.put("tut5",tue_teach_5.getSelectionModel().getSelectedItem());
+
+            para.put("ws1",wed_sub_1.getSelectionModel().getSelectedItem());
+            para.put("ws2",wed_sub_2.getSelectionModel().getSelectedItem());
+            para.put("ws3",wed_sub_3.getSelectionModel().getSelectedItem());
+            para.put("ws4",wed_sub_4.getSelectionModel().getSelectedItem());
+            para.put("ws5",wed_sub_5.getSelectionModel().getSelectedItem());
+            para.put("wt1",wed_teach_1.getSelectionModel().getSelectedItem());
+            para.put("wt2",wed_teach_2.getSelectionModel().getSelectedItem());
+            para.put("wt3",wed_teach_3.getSelectionModel().getSelectedItem());
+            para.put("wt4",wed_teach_4.getSelectionModel().getSelectedItem());
+            para.put("wt5",wed_teach_5.getSelectionModel().getSelectedItem());
+
+            para.put("ths1",thur_sub_1.getSelectionModel().getSelectedItem());
+            para.put("ths2",thur_sub_2.getSelectionModel().getSelectedItem());
+            para.put("ths3",thur_sub_3.getSelectionModel().getSelectedItem());
+            para.put("ths4",thur_sub_4.getSelectionModel().getSelectedItem());
+            para.put("ths5",thur_sub_5.getSelectionModel().getSelectedItem());
+            para.put("tht1",thur_teach_1.getSelectionModel().getSelectedItem());
+            para.put("tht2",thur_teach_2.getSelectionModel().getSelectedItem());
+            para.put("tht3",thur_teach_3.getSelectionModel().getSelectedItem());
+            para.put("tht4",thur_teach_4.getSelectionModel().getSelectedItem());
+            para.put("tht5",thur_teach_5.getSelectionModel().getSelectedItem());
+
+            JasperReport jreport= JasperCompileManager.compileReport(jdesign);
+            JasperPrint jprint= JasperFillManager.fillReport(jreport,para,connect);
+            JasperViewer viewer= new JasperViewer(jprint,false);
+            viewer.setTitle("Report");
+            viewer.show();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
     @FXML
     public  ObservableList  add_tchr(String s)
     {

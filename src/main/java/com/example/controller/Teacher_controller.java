@@ -398,7 +398,7 @@ public class Teacher_controller implements Initializable  {
         String tmp=file_path.getText();
         tmp=tmp.replace("\\","\\\\");
         String sql="UPDATE teacher_data SET `name`= '"+crud_name.getText()+ "', `subject` = '"+crud_subject.getSelectionModel().getSelectedItem()
-                +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"' WHERE id = '"+crud_id.getText()+"'";
+                +"', `gender` = '"+crud_gender.getSelectionModel().getSelectedItem()+"', `picture` = '"+tmp+"', `mobile` = '"+crud_mobile.getText()+"' WHERE id = '"+crud_id.getText()+"'";
         try {
             connect= database.connectDB();
             if(crud_id.getText().isEmpty() | crud_name.getText().isEmpty() | crud_subject.getSelectionModel().isEmpty() |

@@ -232,6 +232,8 @@ public class resultController implements Initializable {
 
     @FXML
     private Button update_9;
+
+
     public String ss;
     public void prim_print_rep()
     {

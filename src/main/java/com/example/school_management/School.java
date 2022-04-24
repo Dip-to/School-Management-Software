@@ -17,8 +17,8 @@ public class School extends Application
     @Override
     public void start(Stage stage) throws IOException
     {
-        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("main_pane.fxml"));
-         // Parent fxmlLoader = FXMLLoader.load(getClass().getResource("classes.fxml"));
+          Parent fxmlLoader = FXMLLoader.load(getClass().getResource("main_pane.fxml"));
+          //Parent fxmlLoader = FXMLLoader.load(getClass().getResource("classes.fxml"));
 
         Scene scene = new Scene(fxmlLoader);
         fxmlLoader.setOnMousePressed((MouseEvent event) ->
