@@ -88,15 +88,15 @@
             <ComboBox fx:id="sun_teach_4" layoutX="545.0" layoutY="235.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
             <ComboBox fx:id="sun_sub_5" layoutX="650.0" layoutY="187.0" onAction="#s5" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_5" layoutX="650.0" layoutY="234.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="mon_sub_1" layoutX="151.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="mon_sub_1" layoutX="151.0" layoutY="283.0" onAction="#m1" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_1" layoutX="151.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="mon_sub_2" layoutX="257.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="mon_sub_2" layoutX="257.0" layoutY="283.0" onAction="#m2" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_2" layoutX="256.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="mon_sub_3" layoutX="362.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="mon_sub_3" layoutX="362.0" layoutY="283.0" onAction="#m3" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_3" layoutX="362.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="mon_sub_4" layoutX="546.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="mon_sub_4" layoutX="546.0" layoutY="283.0" onAction="#m4" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_4" layoutX="546.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="mon_sub_5" layoutX="651.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="mon_sub_5" layoutX="651.0" layoutY="283.0" onAction="#m5" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_5" layoutX="651.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
             <ComboBox fx:id="tue_sub_1" layoutX="151.0" layoutY="380.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="tue_teach_1" layoutX="151.0" layoutY="428.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />

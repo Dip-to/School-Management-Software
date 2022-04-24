@@ -277,6 +277,58 @@ public class ClassesController implements Initializable {
 
     }
 
+    public void m1()
+    {
+
+        String str=null;
+        str= (String)  mon_sub_1.getSelectionModel().getSelectedItem();
+        mon_teach_1.getSelectionModel().clearSelection();
+        mon_teach_1.setItems(add_tchr(str));
+
+    }
+
+    public void m2()
+    {
+
+        String str=null;
+        str= (String) mon_sub_2.getSelectionModel().getSelectedItem();
+        mon_teach_2.getSelectionModel().clearSelection();
+        mon_teach_2.setItems(add_tchr(str));
+
+    }
+
+    public void m3()
+    {
+
+        String str=null;
+        str= (String) mon_sub_3.getSelectionModel().getSelectedItem();
+        mon_teach_3.getSelectionModel().clearSelection();
+        mon_teach_3.setItems(add_tchr(str));
+
+    }
+
+    public void m4()
+    {
+
+        String str=null;
+        str= (String) mon_sub_4.getSelectionModel().getSelectedItem();
+        mon_teach_4.getSelectionModel().clearSelection();
+        mon_teach_4.setItems(add_tchr(str));
+
+    }
+
+    public void m5()
+    {
+
+        String str=null;
+        str= (String) mon_sub_5.getSelectionModel().getSelectedItem();
+        mon_teach_5.getSelectionModel().clearSelection();
+        mon_teach_5.setItems(add_tchr(str));
+
+    }
+
+
+
     public void Combo_box()
     {
         List<String> list=new ArrayList<>();
