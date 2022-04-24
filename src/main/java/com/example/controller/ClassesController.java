@@ -427,6 +427,56 @@ public class ClassesController implements Initializable {
 
     }
 
+    public void th1()
+    {
+
+        String str=null;
+        str= (String) thur_sub_1.getSelectionModel().getSelectedItem();
+        thur_teach_1.getSelectionModel().clearSelection();
+        thur_teach_1.setItems(add_tchr(str));
+
+    }
+
+    public void th2()
+    {
+
+        String str=null;
+        str= (String) thur_sub_2.getSelectionModel().getSelectedItem();
+        thur_teach_2.getSelectionModel().clearSelection();
+        thur_teach_2.setItems(add_tchr(str));
+
+    }
+
+    public void th3()
+    {
+
+        String str=null;
+        str= (String) thur_sub_3.getSelectionModel().getSelectedItem();
+        thur_teach_3.getSelectionModel().clearSelection();
+        thur_teach_3.setItems(add_tchr(str));
+
+    }
+
+    public void th4()
+    {
+
+        String str=null;
+        str= (String) thur_sub_4.getSelectionModel().getSelectedItem();
+        thur_teach_4.getSelectionModel().clearSelection();
+        thur_teach_4.setItems(add_tchr(str));
+
+    }
+
+    public void th5()
+    {
+
+        String str=null;
+        str= (String) thur_sub_5.getSelectionModel().getSelectedItem();
+        thur_teach_5.getSelectionModel().clearSelection();
+        thur_teach_5.setItems(add_tchr(str));
+
+    }
+
     public void Combo_box()
     {
         List<String> list=new ArrayList<>();
