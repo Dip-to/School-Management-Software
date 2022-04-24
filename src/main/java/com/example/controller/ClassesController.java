@@ -179,7 +179,7 @@ public class ClassesController implements Initializable {
     @FXML
     private ComboBox<?> wed_teach_5;
 
-    private String[] Combo_sub={"Bangla","English","Math","Physics"};
+    private String[] Combo_sub={"Physics","Chemistry","Biology","Math","Bangla","English","BGS","ICT","Religion","Art & Craft"};
     private String[] Combo_teacher={};
 
     private Connection connect;
