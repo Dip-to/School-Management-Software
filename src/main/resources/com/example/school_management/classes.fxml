@@ -80,13 +80,13 @@
                </font></Label>
             <ComboBox fx:id="sun_sub_1" layoutX="152.0" layoutY="188.0" onAction="#s1" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_1" layoutX="151.0" layoutY="235.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="sun_sub_2" layoutX="256.0" layoutY="187.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="sun_sub_2" layoutX="256.0" layoutY="187.0" onAction="#s2" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_2" layoutX="257.0" layoutY="233.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="sun_sub_3" layoutX="361.0" layoutY="186.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="sun_sub_3" layoutX="361.0" layoutY="186.0" onAction="#s3" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_3" layoutX="361.0" layoutY="233.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="sun_sub_4" layoutX="545.0" layoutY="188.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="sun_sub_4" layoutX="545.0" layoutY="188.0" onAction="#s4" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_4" layoutX="545.0" layoutY="235.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
-            <ComboBox fx:id="sun_sub_5" layoutX="650.0" layoutY="187.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
+            <ComboBox fx:id="sun_sub_5" layoutX="650.0" layoutY="187.0" onAction="#s5" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="sun_teach_5" layoutX="650.0" layoutY="234.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
             <ComboBox fx:id="mon_sub_1" layoutX="151.0" layoutY="283.0" prefHeight="46.0" prefWidth="102.0" promptText="Subject" />
             <ComboBox fx:id="mon_teach_1" layoutX="151.0" layoutY="330.0" prefHeight="46.0" prefWidth="102.0" promptText="Teacher" />
