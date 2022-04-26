@@ -36,6 +36,10 @@ public class ClassesController implements Initializable {
     private AnchorPane class_main;
 
     @FXML
+    private ComboBox<?> class_select;
+
+
+    @FXML
     private ComboBox<?> mon_sub_1;
 
     @FXML
@@ -187,6 +191,7 @@ public class ClassesController implements Initializable {
 
     private String[] Combo_sub={"Physics","Chemistry","Biology","Math","Bangla","English","BGS","ICT","Religion","Art & Craft"};
     private String[] Combo_teacher={};
+    private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten(Science)","Ten(Commerce)"};
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -626,6 +631,16 @@ public class ClassesController implements Initializable {
         thur_teach_3.setItems(data_list_teacher);
         thur_teach_4.setItems(data_list_teacher);
         thur_teach_5.setItems(data_list_teacher);
+
+
+        List<String> class_select_list=new ArrayList<>();
+        for(String data:Combo_class)
+        {
+            class_select_list.add(data);
+        }
+        ObservableList data_list_class= FXCollections.observableArrayList(class_select_list);
+        class_select.setItems(data_list_class);
+
     }
 
 

@@ -154,7 +154,8 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="71.0" layoutY="37.0" mnemonicParsing="false" onAction="#print_rep" text="PRINT" />
+            <Button layoutX="701.0" layoutY="40.0" mnemonicParsing="false" onAction="#print_rep" prefHeight="30.0" prefWidth="62.0" styleClass="login-button" stylesheets="@frontpage_css.css" text="Print" textFill="#f4f4f4" />
+            <ComboBox fx:id="class_select" layoutX="48.0" layoutY="40.0" prefHeight="30.0" prefWidth="150.0" promptText="choose....." styleClass="textfield-design" stylesheets="@design.css" />
          </children>
       </AnchorPane>
    </children>
