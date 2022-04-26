@@ -5,6 +5,14 @@
     -fx-border-radius:5px;
     -fx-font-size:15px;
 }
+
+.textfield-design-routine{
+    -fx-background-color:transparent ;
+    -fx-background-radius:5px;
+    -fx-border-color:linear-gradient(to bottom right,#4380e0,#37173e);
+    -fx-border-radius:5px;
+    -fx-font-size:13px;
+}
 .insert_image-button{
     -fx-background-color:transparent ;
     -fx-text-fill: #aaa;
@@ -76,4 +84,16 @@
 
 .print-button:hover{
     -fx-background-color:#052e94 ;
+}
+
+.all_button{
+    -fx-background-color:transparent ;
+    -fx-background-radius:5px;
+    -fx-border-color:linear-gradient(to bottom right,#4380e0,#37173e);
+    -fx-border-radius:5px;
+    -fx-font-size:15px;
+}
+
+.all_button:hover{
+    -fx-background-color:linear-gradient(to bottom right,#4380e0,#37173e) ;
 }

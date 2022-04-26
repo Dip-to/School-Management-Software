@@ -18,17 +18,17 @@
    <children>
       <AnchorPane fx:id="crud_class_select_pane" prefHeight="700.0" prefWidth="800.0">
          <children>
-            <Button layoutX="50.0" layoutY="163.0" mnemonicParsing="false" onAction="#button_all" prefHeight="40.0" prefWidth="720.0" text="ALL" textFill="#73112f" />
-            <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" onAction="#button_two" prefHeight="40.0" prefWidth="720.0" text="Two" />
-            <Button layoutX="50.0" layoutY="212.0" mnemonicParsing="false" onAction="#button_one" prefHeight="40.0" prefWidth="720.0" text="One" />
-            <Button layoutX="50.0" layoutY="310.0" mnemonicParsing="false" onAction="#button_three" prefHeight="40.0" prefWidth="720.0" text="Three" />
-            <Button layoutX="50.0" layoutY="357.0" mnemonicParsing="false" onAction="#button_four" prefHeight="40.0" prefWidth="720.0" text="Four" />
-            <Button layoutX="50.0" layoutY="403.0" mnemonicParsing="false" onAction="#button_five" prefHeight="40.0" prefWidth="720.0" text="Five" />
-            <Button layoutX="50.0" layoutY="451.0" mnemonicParsing="false" onAction="#button_six" prefHeight="40.0" prefWidth="720.0" text="Six" />
-            <Button layoutX="50.0" layoutY="548.0" mnemonicParsing="false" onAction="#button_eight" prefHeight="40.0" prefWidth="720.0" text="Eight" />
-            <Button layoutX="50.0" layoutY="499.0" mnemonicParsing="false" onAction="#button_seven" prefHeight="40.0" prefWidth="720.0" text="Seven" />
-            <Button layoutX="50.0" layoutY="598.0" mnemonicParsing="false" onAction="#button_nine" prefHeight="40.0" prefWidth="720.0" text="Nine" />
-            <Button layoutX="50.0" layoutY="646.0" mnemonicParsing="false" onAction="#button_ten" prefHeight="40.0" prefWidth="720.0" text="Ten" />
+            <Button layoutX="50.0" layoutY="163.0" mnemonicParsing="false" onAction="#button_all" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="ALL" textFill="#73112f" />
+            <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" onAction="#button_two" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Two" />
+            <Button layoutX="50.0" layoutY="212.0" mnemonicParsing="false" onAction="#button_one" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="One" />
+            <Button layoutX="50.0" layoutY="310.0" mnemonicParsing="false" onAction="#button_three" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Three" />
+            <Button layoutX="50.0" layoutY="357.0" mnemonicParsing="false" onAction="#button_four" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Four" />
+            <Button layoutX="50.0" layoutY="403.0" mnemonicParsing="false" onAction="#button_five" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Five" />
+            <Button layoutX="50.0" layoutY="451.0" mnemonicParsing="false" onAction="#button_six" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Six" />
+            <Button layoutX="50.0" layoutY="548.0" mnemonicParsing="false" onAction="#button_eight" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Eight" />
+            <Button layoutX="50.0" layoutY="499.0" mnemonicParsing="false" onAction="#button_seven" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Seven" />
+            <Button layoutX="50.0" layoutY="598.0" mnemonicParsing="false" onAction="#button_nine" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Nine" />
+            <Button layoutX="50.0" layoutY="646.0" mnemonicParsing="false" onAction="#button_ten" prefHeight="40.0" prefWidth="720.0" styleClass="all_button" stylesheets="@design.css" text="Ten" />
             <AnchorPane fx:id="crud_img_pane" layoutX="50.0" layoutY="17.0" prefHeight="133.0" prefWidth="720.0" style="-fx-background-color: #73112f;">
                <children>
                   <ImageView fitHeight="133.0" fitWidth="284.0" layoutX="446.0" pickOnBounds="true" preserveRatio="true">
