@@ -191,7 +191,7 @@ public class ClassesController implements Initializable {
 
     private String[] Combo_sub={"Physics","Chemistry","Biology","Math","Bangla","English","BGS","ICT","Religion","Art & Craft"};
     private String[] Combo_teacher={};
-    private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten(Science)","Ten(Commerce)"};
+    private String[] Combo_class={"One","Two","Three","Four","Five","Six","Seven","Eight","Nine(Science)","Nine(Commerce)","Ten(Science)","Ten(Commerce)"};
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -208,6 +208,7 @@ public class ClassesController implements Initializable {
             JRDesignQuery jq= new JRDesignQuery();
             //  String filepath="src/main/resources/com/example/school_management/report_jasper/stud_all.jrxml";
             Map<String,Object> para=new HashMap<String,Object>();
+            para.put("cll",class_select.getSelectionModel().getSelectedItem());
             para.put("ss1",sun_sub_1.getSelectionModel().getSelectedItem());
             para.put("ss2",sun_sub_2.getSelectionModel().getSelectedItem());
             para.put("ss3",sun_sub_3.getSelectionModel().getSelectedItem());

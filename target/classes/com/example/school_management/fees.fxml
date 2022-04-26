@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="crud_anchorpane" prefHeight="700.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.school_management.fees_controller">
+<AnchorPane fx:id="crud_anchorpane" prefHeight="700.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.fees_controller">
    <children>
       <AnchorPane fx:id="left_crud_pane" prefHeight="700.0" prefWidth="765.0">
          <children>

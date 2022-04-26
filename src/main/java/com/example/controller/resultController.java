@@ -1,5 +1,6 @@
-package com.example.school_management;
+package com.example.controller;
 
+import com.example.school_management.database;
 import com.example.subject.Primary_subject;
 import com.example.subject.HighSchool_subject;
 import com.example.subject.Secondary_subject;
@@ -241,7 +242,7 @@ public class resultController implements Initializable {
         try
         {
             String ct=cc;
-            connect=database.Result_connectDB();
+            connect= database.Result_connectDB();
             JasperDesign jdesign=null;
             if(class_cat(cc)==1) jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/primary.jrxml");
             else if(class_cat(cc)==2) jdesign= JRXmlLoader.load("src/main/resources/com/example/school_management/report_jasper/high.jrxml");

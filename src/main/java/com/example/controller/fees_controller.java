@@ -1,6 +1,7 @@
-package com.example.school_management;
+package com.example.controller;
 
 import com.example.crud.Teacher;
+import com.example.school_management.database;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -158,7 +159,11 @@ public class fees_controller implements Initializable {
             file_path.setText(pic);
 
         }catch (Exception e) {
-            System.out.println("fees database error");
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("                                     Error!!!!!");
+            alert.setHeaderText("            Student not found!  ");
+            alert.setContentText("                             Please enter correct credentials");
+            alert.showAndWait();
         }
         finally
         {
