@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="about_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.aboutController">
+   <children>
+      <ImageView fitHeight="608.0" fitWidth="774.0" layoutX="-2.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@classes_pic/6763314_preview.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="94.0" prefWidth="766.0" style="-fx-background-color: #37173e;">
+         <children>
+            <Label alignment="CENTER" layoutX="57.0" layoutY="15.0" prefHeight="64.0" prefWidth="638.0" text="School Management Software" textFill="#faf6f6">
+               <font>
+                  <Font name="Kalpurush" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="94.0" prefWidth="10.0" style="-fx-background-color: #7b4d2c;" />
+      <AnchorPane layoutX="757.0" prefHeight="94.0" prefWidth="10.0" style="-fx-background-color: #7b4d2c;" />
+      <Label alignment="TOP_CENTER" layoutX="303.0" layoutY="138.0" prefHeight="32.0" prefWidth="138.0" text="About" textFill="#fcfafa">
+         <font>
+            <Font name="Kalpurush" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="51.194122314453125" layoutX="384.0" layoutY="181.0" startX="-66.40585327148438" stroke="#f7f3f3" />
+      <Label layoutX="50.0" layoutY="232.0" prefHeight="30.0" prefWidth="668.0" text="The School Management System software is an application which developed for school’s administr-" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="257.0" prefHeight="30.0" prefWidth="668.0" text="ations management. It is a softwaredeveloped in Java which is used to store all the school-related " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="280.0" prefHeight="30.0" prefWidth="668.0" text="such as student information, teacher information, staff information etc. The informations are stored " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="302.0" prefHeight="30.0" prefWidth="668.0" text="through a database . The objective of developing such a system was to reduce the errors that create" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="322.0" prefHeight="30.0" prefWidth="668.0" text="many problems in the manual system where it was very difficult to store the records and access the " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="344.0" prefHeight="30.0" prefWidth="668.0" text="data. It also provides the facility to generate class routine, display notices, fees collection facilities of " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="363.0" prefHeight="30.0" prefWidth="668.0" text="school. There is one type of login for this system and that is the administrator login. The employees" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="383.0" prefHeight="30.0" prefWidth="668.0" text="can create their own administrator account with their unique employee id provided by the organisat-" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="404.0" prefHeight="30.0" prefWidth="668.0" text="ion . The whole system is handled by the administrator who has all the rights to edit or modify any " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="424.0" prefHeight="30.0" prefWidth="668.0" text="school members information. It stores information related to students, staff, and teachers. Main pur-" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="443.0" prefHeight="30.0" prefWidth="668.0" text="pose of the School management software is to make the whole school activities on System. This sys-" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="463.0" prefHeight="30.0" prefWidth="668.0" text="tem will maintain whole processes: Add teachers ,add Students,add Departments,control registration" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="484.0" prefHeight="30.0" prefWidth="668.0" text="processes and this system automatically generates reports. " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="550.0" prefHeight="30.0" prefWidth="668.0" text="School Management Softwarecan help a admin of an educational institutions to organise their  stru-" textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="574.0" prefHeight="30.0" prefWidth="668.0" text="cture, curriculum, syllabus and communications etc along withsome powerful reporting features to " textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="599.0" prefHeight="30.0" prefWidth="668.0" text="keep tabs on all procedures." textFill="#ece5e5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
