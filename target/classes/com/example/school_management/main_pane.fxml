@@ -173,14 +173,14 @@
             <AnchorPane fx:id="dashboard_rightpane" layoutX="200.0" prefHeight="700.0" prefWidth="800.0">
                <children>
                   <Button fx:id="teacher_count_button" layoutX="21.0" layoutY="273.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" styleClass="teacher_count_button" stylesheets="@dashboard_style.css" />
-                  <Button fx:id="Student_count_button" layoutX="564.0" layoutY="273.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" styleClass="stuff_count_button" stylesheets="@dashboard_style.css" />
+                  <Button fx:id="Student_count_button" layoutX="565.0" layoutY="273.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" styleClass="stuff_count_button" stylesheets="@dashboard_style.css" />
                   <Button fx:id="stuff_count_button" layoutX="290.0" layoutY="273.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="220.0" styleClass="student_count_button" stylesheets="@dashboard_style.css" />
                   <Button fx:id="student_icon" layoutX="21.0" layoutY="415.0" mnemonicParsing="false" onAction="#stud" prefHeight="82.0" prefWidth="157.0" styleClass="student_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="teacher_icon" layoutX="197.0" layoutY="416.0" mnemonicParsing="false" onAction="#tchr" prefHeight="82.0" prefWidth="157.0" styleClass="teacher_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="stuff_icon" layoutX="369.0" layoutY="416.0" mnemonicParsing="false" onAction="#staff" prefHeight="82.0" prefWidth="157.0" styleClass="stuff_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="notice_icon" layoutX="197.0" layoutY="509.0" mnemonicParsing="false" onAction="#notice" prefHeight="82.0" prefWidth="157.0" styleClass="notice_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="result_icon" layoutX="21.0" layoutY="508.0" mnemonicParsing="false" onAction="#rslt" prefHeight="82.0" prefWidth="157.0" styleClass="result_icon" stylesheets="@dashboard_style.css" />
-                  <Button fx:id="about_icon" layoutX="197.0" layoutY="605.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="157.0" styleClass="about_icon" stylesheets="@dashboard_style.css" />
+                  <Button fx:id="about_icon" layoutX="197.0" layoutY="605.0" mnemonicParsing="false" onAction="#about" prefHeight="82.0" prefWidth="157.0" styleClass="about_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="classes_icon" layoutX="369.0" layoutY="509.0" mnemonicParsing="false" onAction="#class_routine" prefHeight="82.0" prefWidth="157.0" styleClass="classes_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="logout_icon" layoutX="21.0" layoutY="606.0" mnemonicParsing="false" onAction="#fee" prefHeight="82.0" prefWidth="157.0" styleClass="logout_icon" stylesheets="@dashboard_style.css" />
                   <Button fx:id="exit_icon" layoutX="369.0" layoutY="606.0" mnemonicParsing="false" onAction="#exittt" prefHeight="82.0" prefWidth="157.0" styleClass="exit_icon" stylesheets="@dashboard_style.css" />
@@ -210,7 +210,7 @@
                         <ImageView fx:id="demo_imgview" fitHeight="92.0" fitWidth="110.0" layoutX="54.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
-                  <Separator layoutX="539.0" layoutY="388.0" opacity="0.25" orientation="VERTICAL" prefHeight="304.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
+                  <Separator layoutX="5.0" layoutY="3.0" opacity="0.4" orientation="VERTICAL" prefHeight="376.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
                   <Label fx:id="stud_cnt" layoutX="105.0" layoutY="274.0" prefHeight="48.0" prefWidth="53.0" text="50" textFill="#f2d8a0">
                      <font>
                         <Font size="29.0" />
@@ -241,6 +241,10 @@
                         <Font size="29.0" />
                      </font>
                   </Label>
+                  <Separator layoutX="542.0" layoutY="398.0" opacity="0.25" orientation="VERTICAL" prefHeight="287.0" prefWidth="0.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
+                  <Separator layoutX="5.0" layoutY="402.0" opacity="0.4" orientation="VERTICAL" prefHeight="295.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
+                  <Separator layoutX="261.0" layoutY="272.0" opacity="0.4" orientation="VERTICAL" prefHeight="102.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
+                  <Separator layoutX="539.0" layoutY="272.0" opacity="0.4" orientation="VERTICAL" prefHeight="102.0" prefWidth="6.0" styleClass="home-bg" stylesheets="@dashboard_style.css" />
                </children>
             </AnchorPane>
             <BorderPane fx:id="dash_main" layoutX="200.0" prefHeight="700.0" prefWidth="800.0" visible="false" />
