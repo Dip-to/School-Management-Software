@@ -184,7 +184,7 @@ public class logincontroller implements Initializable
     public void add_ACC()
     {
         dashboard_rightpane.setVisible(false);
-        signup_page.setVisible(true);
+        signup_page.setVisible(true);//
     }
     public void dash_init()
     {
