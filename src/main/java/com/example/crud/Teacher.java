@@ -20,7 +20,7 @@ public class Teacher extends Employee
 
         return crud_name;
     }
-
+    //sup
     public String getCud_subject() {
         return cud_subject;
     }
